@@ -1,0 +1,6 @@
+syntax: glob
+obj
+CodeArtEng.Controls/bin/Debug/CodeArtEng.Controls.dll
+bin
+*.suo
+*.user
