@@ -46,12 +46,15 @@
             // 
             // textbox
             // 
+            this.textbox.AllowDrop = true;
             this.textbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textbox.Location = new System.Drawing.Point(39, 1);
             this.textbox.Name = "textbox";
             this.textbox.Size = new System.Drawing.Size(254, 20);
             this.textbox.TabIndex = 1;
             this.textbox.TextChanged += new System.EventHandler(this.textbox_TextChanged);
+            this.textbox.DragDrop += new System.Windows.Forms.DragEventHandler(this.textbox_DragDrop);
+            this.textbox.DragEnter += new System.Windows.Forms.DragEventHandler(this.textbox_DragEnter);
             // 
             // btBrowse
             // 

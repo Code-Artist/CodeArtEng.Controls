@@ -40,5 +40,22 @@ namespace CodeArtEng.Controls
             EventHandler eventHandler = TextChanged;
             if (eventHandler != null) eventHandler(this, null);
         }
+
+        private void textbox_DragDrop(object sender, DragEventArgs e)
+        {
+            string data = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
+            textbox.Text = data;
+        }
+
+        private void textbox_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop, false) == true)
+            {
+                if (ValidateDropData(((string[])e.Data.GetData(DataFormats.FileDrop))[0]))
+                    e.Effect = DragDropEffects.Link;
+            }
+        }
+
+        public virtual bool ValidateDropData(string filePath) { return true; }
     }
 }

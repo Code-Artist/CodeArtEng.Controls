@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Windows.Forms;
 using System.ComponentModel;
 
@@ -38,6 +39,13 @@ namespace CodeArtEng.Controls
 
         }
 
+        public override bool ValidateDropData(string filePath)
+        {
+            FileAttributes attr = File.GetAttributes(filePath);
+            if (attr.HasFlag(FileAttributes.Directory)) return true;
+            else return false;
+        }
+
         private void btBrowse_Click(object sender, EventArgs e)
         {
             try { folderBrowserDialog1.SelectedPath = SelectedPath; }
@@ -51,7 +59,7 @@ namespace CodeArtEng.Controls
         /// <summary>
         /// Get or set selected directory
         /// </summary>
-        [Category("File Panel")]
+        [Category("Folder Panel")]
         public string SelectedPath
         {
             get { return textbox.Text; }
