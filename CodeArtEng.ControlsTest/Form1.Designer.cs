@@ -36,15 +36,18 @@
             this.toolStripMruList1 = new CodeArtEng.Controls.ToolStripMruList();
             this.addRecentFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.fileExplorer1 = new CodeArtEng.Controls.FileExplorer();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.folderBrowsePanel1 = new CodeArtEng.Controls.FolderBrowsePanel();
             this.openFilePanel1 = new CodeArtEng.Controls.OpenFilePanel();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.fileExplorer1 = new CodeArtEng.Controls.FileExplorer();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -107,34 +110,13 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 24);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(532, 379);
             this.tabControl1.TabIndex = 2;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.fileExplorer1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(524, 353);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "File Explorer";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // fileExplorer1
-            // 
-            this.fileExplorer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fileExplorer1.FileView = System.Windows.Forms.View.LargeIcon;
-            this.fileExplorer1.HideSystemFolder = true;
-            this.fileExplorer1.Location = new System.Drawing.Point(3, 3);
-            this.fileExplorer1.Name = "fileExplorer1";
-            this.fileExplorer1.Size = new System.Drawing.Size(518, 347);
-            this.fileExplorer1.SplitterDistance = 150;
-            this.fileExplorer1.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -170,6 +152,47 @@
             this.openFilePanel1.Text = "File Open";
             this.openFilePanel1.TextChanged += new System.EventHandler(this.openFilePanel1_TextChanged);
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.fileExplorer1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(524, 353);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "File Explorer";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // fileExplorer1
+            // 
+            this.fileExplorer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fileExplorer1.FileView = System.Windows.Forms.View.LargeIcon;
+            this.fileExplorer1.HideSystemFolder = true;
+            this.fileExplorer1.Location = new System.Drawing.Point(3, 3);
+            this.fileExplorer1.Name = "fileExplorer1";
+            this.fileExplorer1.Size = new System.Drawing.Size(518, 347);
+            this.fileExplorer1.SplitterDistance = 150;
+            this.fileExplorer1.TabIndex = 0;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.propertyGrid1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(524, 353);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "TimePickerEditor";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // propertyGrid1
+            // 
+            this.propertyGrid1.CategoryForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.propertyGrid1.Location = new System.Drawing.Point(21, 17);
+            this.propertyGrid1.Name = "propertyGrid1";
+            this.propertyGrid1.Size = new System.Drawing.Size(281, 314);
+            this.propertyGrid1.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,8 +207,9 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,6 +230,8 @@
         private System.Windows.Forms.TabPage tabPage2;
         private Controls.OpenFilePanel openFilePanel1;
         private Controls.FolderBrowsePanel folderBrowsePanel1;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.PropertyGrid propertyGrid1;
     }
 }
 

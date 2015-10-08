@@ -7,9 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Diagnostics;
+using CodeArtEng.Controls;
+using System.Drawing.Design;
 
 namespace CodeArtEng.ControlsTest
 {
+    public class PropertyGridTest
+    {
+        [Editor(typeof(TimePickerEditor), typeof(UITypeEditor))]
+        public DateTime TimePicker_DateTime { get; set; }
+    }
+
     public partial class Form1 : Form
     {
         public Form1()
@@ -17,6 +25,7 @@ namespace CodeArtEng.ControlsTest
             InitializeComponent();
             fileExplorer1.AttachToMyComputer();
             fileExplorer1.FileDoubleClicked += new EventHandler<CodeArtEng.Controls.FileExplorerEventArgs>(fileExplorer1_FileDoubleClicked);
+            propertyGrid1.SelectedObject = new PropertyGridTest();
         }
 
         void fileExplorer1_FileDoubleClicked(object sender, Controls.FileExplorerEventArgs e)
