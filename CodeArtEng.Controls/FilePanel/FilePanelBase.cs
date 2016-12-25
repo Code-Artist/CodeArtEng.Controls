@@ -15,6 +15,9 @@ namespace CodeArtEng.Controls
     [ToolboxItem(false)]
     public partial class FilePanelBase : UserControl
     {
+        /// <summary>
+        /// Event raised when text changed.
+        /// </summary>
         [Browsable(true)]
         public new event EventHandler TextChanged;
 
@@ -33,7 +36,16 @@ namespace CodeArtEng.Controls
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         [Bindable(true)]
-        public override string Text { get { return label.Text; } set { label.Text = value; } }
+        [DefaultValue("Path")]
+        public override string Text
+        {
+            get { return label.Text; }
+            set
+            {
+                label.Text = value;
+                label.Visible = (!string.IsNullOrEmpty(label.Text));
+            }
+        }
 
         private void textbox_TextChanged(object sender, EventArgs e)
         {
@@ -56,6 +68,6 @@ namespace CodeArtEng.Controls
             }
         }
 
-        public virtual bool ValidateDropData(string filePath) { return true; }
+        internal virtual bool ValidateDropData(string filePath) { return true; }
     }
 }

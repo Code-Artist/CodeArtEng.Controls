@@ -12,6 +12,7 @@
     <AssemblyName>CodeArtEng.Controls</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\CodeArtEng.Controls.XML</DocumentationFile>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -44,6 +48,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FilePanel\SaveFilePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HintedTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MultiLineButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MultiLineButton.Designer.cs">
+      <DependentUpon>MultiLineButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DateTimeConverter2.cs" />
     <Compile Include="FileExplorer.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -64,12 +81,29 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="StatusLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StatusLabel.Designer.cs">
+      <DependentUpon>StatusLabel.cs</DependentUpon>
+    </Compile>
     <Compile Include="TimePickerEditor.cs" />
     <Compile Include="ToolStripMruList.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FilePanel\SaveFilePanel.resx">
+      <DependentUpon>SaveFilePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MultiLineButton.resx">
+      <DependentUpon>MultiLineButton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FileExplorer.resx">
       <DependentUpon>FileExplorer.cs</DependentUpon>
     </EmbeddedResource>
@@ -82,9 +116,28 @@
     <EmbeddedResource Include="FilePanel\OpenFilePanel.resx">
       <DependentUpon>OpenFilePanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="FxCop - CodeArtEng.Controls.FxCop" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenDot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreyDot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OrangeDot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedDot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\YellowDot.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

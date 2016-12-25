@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Drawing.Design;
 using System.Globalization;
 using System.Windows.Forms;
@@ -14,7 +15,6 @@ namespace CodeArtEng.Controls
     {
         IWindowsFormsEditorService editorService;
         DateTimePicker picker = new DateTimePicker();
-        string time;
         string CurrentDateTimeFormat;
 
         /// <summary>
@@ -44,10 +44,12 @@ namespace CodeArtEng.Controls
             }
             if (this.editorService != null)
             {
-                if (value == null)
-                {
-                    time = RoundDown(DateTime.Now, TimeSpan.FromMinutes(1)).ToString(CurrentDateTimeFormat);
-                }
+                DateTime dateTimeValue = (DateTime)value;
+                DateTime tNow = RoundDown(DateTime.Now, TimeSpan.FromMinutes(1));
+                if (dateTimeValue == null) picker.Value = tNow;
+                else if ((dateTimeValue < picker.MinDate) || (dateTimeValue > picker.MaxDate)) picker.Value = tNow;
+                else picker.Value = dateTimeValue;
+
                 this.editorService.DropDownControl(picker);
                 value = RoundDown(picker.Value, TimeSpan.FromMinutes(1));
             }

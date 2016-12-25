@@ -65,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -77,8 +78,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CAELogoSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\CodeArtEng.Controls\CodeArtEng.Controls.csproj">
-      <Project>{1B68F6BF-9D4B-4B45-9831-2C93FF1241AA}</Project>
+      <Project>{1b68f6bf-9d4b-4b45-9831-2c93ff1241aa}</Project>
       <Name>CodeArtEng.Controls</Name>
     </ProjectReference>
   </ItemGroup>

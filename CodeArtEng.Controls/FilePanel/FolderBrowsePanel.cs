@@ -39,7 +39,7 @@ namespace CodeArtEng.Controls
 
         }
 
-        public override bool ValidateDropData(string filePath)
+        internal override bool ValidateDropData(string filePath)
         {
             FileAttributes attr = File.GetAttributes(filePath);
             if (attr.HasFlag(FileAttributes.Directory)) return true;

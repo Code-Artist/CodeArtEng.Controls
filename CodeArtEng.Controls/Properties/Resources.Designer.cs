@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CodeArtEng.ControlsTest.Properties {
+namespace CodeArtEng.Controls.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace CodeArtEng.ControlsTest.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CodeArtEng.ControlsTest.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CodeArtEng.Controls.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,9 +63,9 @@ namespace CodeArtEng.ControlsTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CAELogoSmall {
+        internal static System.Drawing.Bitmap GreenDot {
             get {
-                object obj = ResourceManager.GetObject("CAELogoSmall", resourceCulture);
+                object obj = ResourceManager.GetObject("GreenDot", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace CodeArtEng.ControlsTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Logo {
+        internal static System.Drawing.Bitmap GreyDot {
             get {
-                object obj = ResourceManager.GetObject("Logo", resourceCulture);
+                object obj = ResourceManager.GetObject("GreyDot", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,29 @@ namespace CodeArtEng.ControlsTest.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Logo1 {
+        internal static System.Drawing.Bitmap OrangeDot {
             get {
-                object obj = ResourceManager.GetObject("Logo1", resourceCulture);
+                object obj = ResourceManager.GetObject("OrangeDot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RedDot {
+            get {
+                object obj = ResourceManager.GetObject("RedDot", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap YellowDot {
+            get {
+                object obj = ResourceManager.GetObject("YellowDot", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

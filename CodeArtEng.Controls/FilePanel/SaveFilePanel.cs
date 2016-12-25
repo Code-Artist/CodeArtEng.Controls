@@ -9,21 +9,21 @@ using System.ComponentModel;
 namespace CodeArtEng.Controls
 {
     /// <summary>
-    /// Panel which associate with <see cref="TextBox"/> and <see cref="OpenFileDialog"/> for file selection.
+    /// Panel which associate with <see cref="TextBox"/> and <see cref="SaveFileDialog"/> for file selection.
     /// </summary>
     [ToolboxItem(true)]
-    public class OpenFilePanel : FilePanelBase
+    public class SaveFilePanel : FilePanelBase
     {
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public OpenFilePanel() : base() { InitializeComponent(); }
+        public SaveFilePanel() : base() { InitializeComponent(); }
 
         private void InitializeComponent()
         {
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // btBrowse
@@ -32,13 +32,13 @@ namespace CodeArtEng.Controls
             // 
             // openFileDialog1
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.SupportMultiDottedExtensions = true;
+            this.saveFileDialog.FileName = "saveFileDialog";
+            this.saveFileDialog.SupportMultiDottedExtensions = true;
             // 
-            // OpenFilePanel
+            // SaveFilePanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.Name = "OpenFilePanel";
+            this.Name = "SaveFilePanel";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -55,17 +55,17 @@ namespace CodeArtEng.Controls
         {
             try
             {
-                openFileDialog1.InitialDirectory = Path.GetDirectoryName(SelectedFile);
-                openFileDialog1.FileName = Path.GetFileName(SelectedFile);
+                saveFileDialog.InitialDirectory = Path.GetDirectoryName(SelectedFile);
+                saveFileDialog.FileName = Path.GetFileName(SelectedFile);
             }
             catch
             {
-                openFileDialog1.InitialDirectory = string.Empty;
-                openFileDialog1.FileName = string.Empty;
+                saveFileDialog.InitialDirectory = string.Empty;
+                saveFileDialog.FileName = string.Empty;
             }
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                SelectedFile = openFileDialog1.FileName;
+                SelectedFile = saveFileDialog.FileName;
             }
         }
 
@@ -85,8 +85,8 @@ namespace CodeArtEng.Controls
         [Category("File Panel")]
         public string FileFilter
         {
-            get { return openFileDialog1.Filter; }
-            set { openFileDialog1.Filter = value; }
+            get { return saveFileDialog.Filter; }
+            set { saveFileDialog.Filter = value; }
         }
 
         /// <summary>
@@ -96,8 +96,8 @@ namespace CodeArtEng.Controls
         [DefaultValue(true)]
         public bool VerifyPath
         {
-            get { return openFileDialog1.CheckPathExists; }
-            set { openFileDialog1.CheckPathExists = value; }
+            get { return saveFileDialog.CheckPathExists; }
+            set { saveFileDialog.CheckPathExists = value; }
         }
 
         /// <summary>
@@ -107,8 +107,8 @@ namespace CodeArtEng.Controls
         [DefaultValue(true)]
         public bool VerifyFileName
         {
-            get { return openFileDialog1.CheckFileExists; }
-            set { openFileDialog1.CheckFileExists = value; }
+            get { return saveFileDialog.CheckFileExists; }
+            set { saveFileDialog.CheckFileExists = value; }
         }
     }
 }

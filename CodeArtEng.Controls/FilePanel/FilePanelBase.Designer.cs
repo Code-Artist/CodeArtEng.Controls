@@ -37,7 +37,7 @@
             // 
             this.label.AutoSize = true;
             this.label.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label.Location = new System.Drawing.Point(5, 1);
+            this.label.Location = new System.Drawing.Point(0, 0);
             this.label.Name = "label";
             this.label.Padding = new System.Windows.Forms.Padding(5, 4, 0, 0);
             this.label.Size = new System.Drawing.Size(34, 17);
@@ -48,9 +48,9 @@
             // 
             this.textbox.AllowDrop = true;
             this.textbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textbox.Location = new System.Drawing.Point(39, 1);
+            this.textbox.Location = new System.Drawing.Point(34, 0);
             this.textbox.Name = "textbox";
-            this.textbox.Size = new System.Drawing.Size(254, 20);
+            this.textbox.Size = new System.Drawing.Size(264, 20);
             this.textbox.TabIndex = 1;
             this.textbox.TextChanged += new System.EventHandler(this.textbox_TextChanged);
             this.textbox.DragDrop += new System.Windows.Forms.DragEventHandler(this.textbox_DragDrop);
@@ -59,8 +59,8 @@
             // btBrowse
             // 
             this.btBrowse.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btBrowse.Location = new System.Drawing.Point(293, 1);
-            this.btBrowse.MaximumSize = new System.Drawing.Size(23, 23);
+            this.btBrowse.Location = new System.Drawing.Point(298, 0);
+            this.btBrowse.MaximumSize = new System.Drawing.Size(23, 20);
             this.btBrowse.Name = "btBrowse";
             this.btBrowse.Size = new System.Drawing.Size(23, 20);
             this.btBrowse.TabIndex = 2;
@@ -69,14 +69,12 @@
             // 
             // FilePanelBase
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.textbox);
             this.Controls.Add(this.btBrowse);
             this.Controls.Add(this.label);
             this.Name = "FilePanelBase";
-            this.Padding = new System.Windows.Forms.Padding(5, 1, 5, 1);
-            this.Size = new System.Drawing.Size(321, 22);
+            this.Size = new System.Drawing.Size(321, 20);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -85,7 +83,14 @@
         #endregion
 
         private System.Windows.Forms.Label label;
+
+        /// <summary>
+        /// File Panel Browse button
+        /// </summary>
         protected System.Windows.Forms.Button btBrowse;
+        /// <summary>
+        /// File Panel path text box.
+        /// </summary>
         protected System.Windows.Forms.TextBox textbox;
     }
 }

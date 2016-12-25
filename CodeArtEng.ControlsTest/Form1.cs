@@ -12,12 +12,6 @@ using System.Drawing.Design;
 
 namespace CodeArtEng.ControlsTest
 {
-    public class PropertyGridTest
-    {
-        [Editor(typeof(TimePickerEditor), typeof(UITypeEditor))]
-        public DateTime TimePicker_DateTime { get; set; }
-    }
-
     public partial class Form1 : Form
     {
         public Form1()
@@ -57,5 +51,32 @@ namespace CodeArtEng.ControlsTest
         {
             Trace.WriteLine("Text Changed: " + openFilePanel1.SelectedFile);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            multiLineButton1.Enabled = !multiLineButton1.Enabled;
+        }
+
+        private void badge1_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void multiLineButton2_Click(object sender, EventArgs e)
+        {
+            multiLineButton2.Image = Properties.Resources.CAELogoSmall;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            label1.Text = "Text :" + hintedTextBox1.Text;
+        }
     }
+
+    public class PropertyGridTest
+    {
+        [Editor(typeof(TimePickerEditor), typeof(UITypeEditor))]
+        [TypeConverter(typeof(DateTimeConverter2))]
+        public DateTime TimePicker_DateTime { get; set; }
+    }
+
 }
