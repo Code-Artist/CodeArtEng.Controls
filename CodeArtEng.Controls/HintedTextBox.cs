@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace CodeArtEng.Controls
@@ -16,16 +12,26 @@ namespace CodeArtEng.Controls
     {
         bool componentInitialized = false;
 
+        #region [ ISupportInitialize Interface ]
+
+        /// <summary>
+        /// Signal the object that initialization is starting.
+        /// </summary>
         public void BeginInit()
         {
             componentInitialized = false;
         }
 
+        /// <summary>
+        /// Signal the object that initialization is completed.
+        /// </summary>
         public void EndInit()
         {
             componentInitialized = true;
             UpdateTextBox();
         }
+
+        #endregion
 
         /// <summary>
         /// Constructor
@@ -51,6 +57,7 @@ namespace CodeArtEng.Controls
         /// <summary>
         /// Hint Text
         /// </summary>
+        [Category("Appearance")]
         [Browsable(true)]
         [Description("Hint Text")]
         [Bindable(true)]
@@ -74,9 +81,14 @@ namespace CodeArtEng.Controls
         }
         private string text;
 
+        /// <summary>
+        /// Define character to mask a password text.
+        /// Property is overridable by UseSystemPassword.
+        /// </summary>
         [DefaultValue('\0')]
         [Localizable(true)]
         [RefreshProperties(RefreshProperties.Repaint)]
+        [Description("Define character to mask a password text. Property is overridable by UseSystemPassword")]
         public new char PasswordChar
         {
             get { return PasswordChar; }
@@ -84,6 +96,9 @@ namespace CodeArtEng.Controls
         }
         private char passwordChar = '\0';
 
+        /// <summary>
+        /// Text Color.
+        /// </summary>
         [Browsable(true)]
         [Description("Text Color")]
         public new Color ForeColor
@@ -93,6 +108,10 @@ namespace CodeArtEng.Controls
         }
         private Color textColor;
 
+        /// <summary>
+        /// Update text box when text changed.
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnTextChanged(EventArgs e)
         {
             if (updating) return;

@@ -70,6 +70,32 @@ namespace CodeArtEng.ControlsTest
         {
             label1.Text = "Text :" + hintedTextBox1.Text;
         }
+
+        private void btCmdLineDialog1_Click(object sender, EventArgs e)
+        {
+            CommandLineHelper cmdLine = new CommandLineHelper("Command Line Test 1");
+            cmdLine.AddArgument("Source Path", "Source Folder Path");
+            cmdLine.AddArgument("Dest Path", "Target Folder Path");
+            cmdLine.AddSwitch("/MIN", "Minimize Windows");
+            cmdLine.AddSwitch("/D", "Dummy");
+            cmdLine.AddSwitch("/T", "Delay (ms)", "t");
+            cmdLine.AddSwitch("/N", "Counter", "n");
+            cmdLine.PrintHelp();
+            if(cmdLine.ShowDialog() == DialogResult.OK)
+            {
+                //Do Something
+            }
+        }
+
+        private void labeledTextBox1_Enter(object sender, EventArgs e)
+        {
+            Trace.WriteLine("Entered label textbox.");
+        }
+
+        private void labeledTextBox1_Leave(object sender, EventArgs e)
+        {
+            Trace.WriteLine("Leaved label textbox.");
+        }
     }
 
     public class PropertyGridTest

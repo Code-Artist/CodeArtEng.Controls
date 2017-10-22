@@ -1,10 +1,7 @@
 ﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.ComponentModel;
+using System.IO;
+using System.Windows.Forms;
 
 namespace CodeArtEng.Controls
 {

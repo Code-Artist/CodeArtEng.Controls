@@ -7,21 +7,41 @@ namespace CodeArtEng.Controls
     /// <summary>
     /// File and folder selection panel base.
     /// </summary>
-    [ToolboxItem(false)]
-    public partial class FilePanelBase : UserControl
+    public partial class LabeledTextBox : UserControl
     {
         /// <summary>
         /// Event raised when text changed.
         /// </summary>
         [Browsable(true)]
+        [Description("Occurs when value of text box changed.")]
         public new event EventHandler TextChanged;
+
+        /// <summary>
+        /// Event raised when check box is checked / unchecked.
+        /// </summary>
+        [Browsable(true)]
+        [Description("Occurs when the Check property is changed.")]
+        public event EventHandler CheckedChanged;
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public FilePanelBase()
+        public LabeledTextBox()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Hint to text box
+        /// </summary>
+        [Category("Appearance")]
+        [Browsable(true)]
+        [Description("Hint Text")]
+        [Bindable(true)]
+        public string Hint
+        {
+            get { return textbox.Hint; }
+            set { textbox.Hint = value; }
         }
 
         /// <summary>
@@ -33,19 +53,25 @@ namespace CodeArtEng.Controls
         [Bindable(true)]
         public override string Text
         {
-            get { return label.Text; }
-            set
-            {
-                label.Text = value;
-                label.Visible = (!string.IsNullOrEmpty(label.Text));
-            }
+            get { return textbox.Text; }
+            set { textbox.Text = value; }
         }
 
         /// <summary>
-        /// Auto Resize Label
+        /// Label Text
+        /// </summary>
+        [Browsable(true)]
+        [Category("Appearance")]
+        public string LabelText
+        {
+            get { return label.Text; }
+            set { label.Text = value; }
+        }
+
+        /// <summary>
+        /// Auto Resize Label 
         /// </summary>
         [Category("Layout")]
-        [DefaultValue(true)]
         public bool LabelAutoSize
         {
             get { return label.AutoSize; }
@@ -56,18 +82,41 @@ namespace CodeArtEng.Controls
         /// Width of label control
         /// </summary>
         [Category("Layout")]
-        [DefaultValue(30)]
         public int LabelWidth
         {
             get { return label.Width; }
             set { label.Width = value; }
         }
 
+        /// <summary>
+        /// Show or hide check box
+        /// </summary>
+        [Category("Appearance")]
+        [DefaultValue(false)]
+        public bool ShowCheckBox
+        {
+            get { return chkBox.Visible; }
+            set
+            {
+                chkBox.Visible = value;
+                if (value == false) chkBox.Checked = true;
+            }
+        }
+
+        /// <summary>
+        /// Set state for check box. Always true if ShowCheckBox set to false.
+        /// </summary>
+        [Category("Appearance")]
+        [DefaultValue(true)]
+        public bool Checked
+        {
+            get { return chkBox.Checked; }
+            set { chkBox.Checked = chkBox.Visible ? value : true; }
+        }
 
         private void textbox_TextChanged(object sender, EventArgs e)
         {
-            EventHandler eventHandler = TextChanged;
-            if (eventHandler != null) eventHandler(this, null);
+            TextChanged?.Invoke(this, null);
         }
 
         private void textbox_DragDrop(object sender, DragEventArgs e)
@@ -86,5 +135,10 @@ namespace CodeArtEng.Controls
         }
 
         internal virtual bool ValidateDropData(string filePath) { return true; }
+
+        private void chkBox_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckedChanged?.Invoke(this, null);
+        }
     }
 }

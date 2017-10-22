@@ -15,6 +15,10 @@
         {
             if (disposing && (components != null))
             {
+                drawBrush.Dispose();
+                drawPen.Dispose();
+                mainTitleFont.Dispose();
+                subTitleFont.Dispose();
                 components.Dispose();
             }
             base.Dispose(disposing);
