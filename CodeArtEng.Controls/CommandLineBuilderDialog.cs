@@ -154,6 +154,7 @@ namespace CodeArtEng.Controls
                     t.LabelWidth = maxLabelWidth;
                 }
             }
+            UpdateCommandLine();
         }
 
         private void ArgTextBox_CheckedChanged(object sender, EventArgs e)

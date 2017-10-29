@@ -80,10 +80,12 @@ namespace CodeArtEng.ControlsTest
             cmdLine.AddSwitch("/D", "Dummy");
             cmdLine.AddSwitch("/T", "Delay (ms)", "t");
             cmdLine.AddSwitch("/N", "Counter", "n");
+            cmdLine.SetArgument("Source Path", "C:\\Temp");
+            cmdLine.SetSwitch("/D");
             cmdLine.PrintHelp();
             if(cmdLine.ShowDialog() == DialogResult.OK)
             {
-                //Do Something
+                //Do Something if necessary
             }
         }
 

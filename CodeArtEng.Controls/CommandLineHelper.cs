@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
+//ToDo: Add SetArgument, SetSwitch
+//ToDo: Reset
+
 namespace CodeArtEng.Controls
 {
     /// <summary>
     /// Command Line Argument
     /// </summary>
-    public class CommandLineArgument
+    internal class CommandLineArgument
     {
         /// <summary>
         /// Argument Name
@@ -27,7 +30,7 @@ namespace CodeArtEng.Controls
     /// <summary>
     /// Optional Switches and Arguments
     /// </summary>
-    public class CommandLineSwitch
+    internal class CommandLineSwitch
     {
         /// <summary>
         /// Short description
@@ -64,13 +67,26 @@ namespace CodeArtEng.Controls
         /// <summary>
         /// Return list of registered command line arguments.
         /// </summary>
+        /// <remarks>For CommandLineHelperDialog only</remarks>
         /// <returns></returns>
-        public IList<CommandLineArgument> GetArguments(){ return Arguments.AsReadOnly(); }
+        internal IList<CommandLineArgument> GetArguments() { return Arguments.AsReadOnly(); }
         /// <summary>
         /// Return list of registered switches
         /// </summary>
+        /// <remarks>For CommandLineHelperDialog only</remarks>
         /// <returns></returns>
-        public ReadOnlyDictionary<string, CommandLineSwitch> GetSwitches() { return new ReadOnlyDictionary<string, CommandLineSwitch>(Switches); }
+        internal ReadOnlyDictionary<string, CommandLineSwitch> GetSwitches() { return new ReadOnlyDictionary<string, CommandLineSwitch>(Switches); }
+
+        /// <summary>
+        /// Get registered arguments name as array
+        /// </summary>
+        /// <returns></returns>
+        public IList<string> GetArgumentsName() { return Arguments.Select(x => x.Name).ToArray(); }
+        /// <summary>
+        /// Get registered switches name as array
+        /// </summary>
+        /// <returns></returns>
+        public IList<string> GetSwitchesName() { return Switches.Keys.ToArray(); }
 
         /// <summary>
         /// Constructor
@@ -157,10 +173,67 @@ namespace CodeArtEng.Controls
         }
 
         /// <summary>
+        /// Reset all Argument and Switches Value and reset all Switches flag.
+        /// </summary>
+        public void Reset()
+        {
+            foreach (CommandLineArgument arg in Arguments)
+                arg.Value = string.Empty;
+
+            foreach(CommandLineSwitch sw in Switches.Values)
+            {
+                sw.Enabled = false;
+                sw.Value = string.Empty;
+            }
+        }
+
+        /// <summary>
+        /// Update value for selected argument
+        /// </summary>
+        /// <param name="name">Argument Name</param>
+        /// <param name="value">Value</param>
+        /// <exception cref="ArgumentException">Argument not found.</exception>
+        public void SetArgument(string name, string value)
+        {
+            CommandLineArgument arg = Find(Arguments, name);
+            if (arg == null) throw new ArgumentException(value);
+            arg.Value = value;
+        }
+
+        /// <summary>
+        /// Clear Switch Flag
+        /// </summary>
+        /// <param name="switchName">Switch Name</param>
+        /// <exception cref="ArgumentException">Invalid switch</exception>
+        public void ClearSwitch(string switchName)
+        {
+            if (!Switches.ContainsKey(switchName))
+                throw new ArgumentException("Invalid Switch.", switchName);
+
+            Switches[switchName].Enabled = false;
+        }
+
+        /// <summary>
+        /// Set Switch Flag and update switch value if valid.
+        /// </summary>
+        /// <param name="switchName">Switch Name</param>
+        /// <param name="value">Value for switch (Optional)</param>
+        /// <exception cref="ArgumentException">Invalid switch</exception>
+        public void SetSwitch(string switchName, string value = "")
+        {
+            if (!Switches.ContainsKey(switchName))
+                throw new ArgumentException("Invalid Switch.", switchName);
+
+            CommandLineSwitch sw = Switches[switchName];
+            sw.Enabled = true;
+            if (!string.IsNullOrEmpty(sw.VariableName)) sw.Value = value;
+        }
+
+        /// <summary>
         /// Parse command line input from environment arguments
         /// </summary>
         /// <returns></returns>
-        public void ParseCommandLine()
+        public bool ParseCommandLine()
         {
             //ToDo: Test Cases for ParseCommandLine() test.
             try
@@ -172,14 +245,16 @@ namespace CodeArtEng.Controls
                 {
                     PrintHelp();
                     Environment.Exit(-1);
+                    return false;
                 }
-                ParseCommandLine(arguments.ToArray());
+                return ParseCommandLine(arguments.ToArray());
             }
             catch (Exception ex)
             {
                 Console.WriteLine("ERROR: " + ex.Message + "\n");
                 PrintHelp();
                 Environment.Exit(-1);
+                return false;
             }
         }
 
@@ -188,9 +263,10 @@ namespace CodeArtEng.Controls
         /// </summary>
         /// <param name="arguments"></param>
         /// <returns></returns>
-        public void ParseCommandLine(string[] arguments)
+        public bool ParseCommandLine(string[] arguments)
         {
             int x;
+            if (arguments.Count() == 0) return false;
 
             //Consume mandatory arguments
             for (x = 0; x < Arguments.Count(); x++)
@@ -226,6 +302,7 @@ namespace CodeArtEng.Controls
                 }
                 else continue;
             }
+            return true;
         }
 
         private CommandLineArgument Find(List<CommandLineArgument> source, string name)
@@ -272,7 +349,7 @@ namespace CodeArtEng.Controls
             if (Switches.ContainsKey(swName))
             {
                 CommandLineSwitch sw = Switches[swName];
-                if(!string.IsNullOrEmpty(sw.VariableName))
+                if (!string.IsNullOrEmpty(sw.VariableName))
                 {
                     if (!string.IsNullOrEmpty(sw.Value))
                         return sw.Value;

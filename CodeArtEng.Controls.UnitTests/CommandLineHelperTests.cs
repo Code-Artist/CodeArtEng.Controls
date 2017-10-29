@@ -24,6 +24,19 @@ namespace CodeArtEng.Controls.UnitTests
         }
 
         [Test]
+        public void GetArgumentsName()
+        {
+            Assert.AreEqual(new string[] { "Source" }, cmdLine.GetArgumentsName());
+        }
+
+        [Test]
+        public void GetSwitchesName()
+        {
+            Assert.AreEqual(new string[] { "/AD", "/MIN", "/DELAY" }, cmdLine.GetSwitchesName());
+        }
+
+
+        [Test]
         public void SetDescription_Constructor()
         {
             string desc = DateTime.Now.ToString();
@@ -76,14 +89,50 @@ namespace CodeArtEng.Controls.UnitTests
         }
 
         [Test]
+        public void SetArgument()
+        {
+            cmdLine.SetArgument("Source", "C:\\Temp");
+            Assert.AreEqual("C:\\Temp", cmdLine.GetArgumentValue("Source"));
+        }
+
+        [Test]
+        public void SetSwitch()
+        {
+            cmdLine.SetSwitch("/MIN");
+            Assert.IsTrue(cmdLine.IsSwitchSet("/MIN"));
+        }
+
+        [Test]
+        public void SetSwitchValue()
+        {
+            cmdLine.SetSwitch("/DELAY", "200");
+            Assert.IsTrue(cmdLine.IsSwitchSet("/DeLaY"));
+            Assert.AreEqual("200", cmdLine.GetSwitchValue("/Delay"));
+        }
+
+        [Test, ExpectedException(typeof(ArgumentException))]
+        public void SetArgument_InvalidArgument()
+        {
+            cmdLine.SetArgument("DUMMY", "TEST");
+        }
+
+        [Test, ExpectedException(typeof(ArgumentException))]
+        public void SetSwitch_InvalidSwitch()
+        {
+            cmdLine.SetSwitch("/NOTEXIST");
+        }
+
+
+        [Test]
         public void ParseCommandLine()
         {
-            cmdLine.ParseCommandLine(("SourcePath /AD").Split(' '));
+            bool status = cmdLine.ParseCommandLine(("SourcePath /AD").Split(' '));
             Assert.AreEqual("SourcePath", cmdLine.GetArgumentValue("Source"));
             Assert.IsTrue(cmdLine.IsSwitchSet("/AD"));
             Assert.IsFalse(cmdLine.IsSwitchSet("/min"));
             Assert.IsFalse(cmdLine.IsSwitchSet("/Delay"));
             Assert.AreEqual("NoDelay", cmdLine.GetSwitchValue("/delay", "NoDelay"));
+            Assert.IsTrue(status);
         }
 
         [Test]
@@ -138,7 +187,7 @@ namespace CodeArtEng.Controls.UnitTests
         public void ParseCommandLine_NoMandatoryArgument()
         {
             cmdLine = new CommandLineHelper("Testing");
-            cmdLine.ParseCommandLine(("/A /BC").Split(' '));
+            Assert.IsTrue(cmdLine.ParseCommandLine(("/A /BC").Split(' ')));
         }
 
         [Test]
@@ -147,6 +196,34 @@ namespace CodeArtEng.Controls.UnitTests
             cmdLine.ParseCommandLine(("SourcePath DestPath /X /delay:5555 /XY /TEST").Split(' '));
             Assert.AreEqual("SourcePath", cmdLine.GetArgumentValue("Source"));
             Assert.AreEqual("5555", cmdLine.GetSwitchValue("/Delay", "-1"));
+        }
+
+        [Test]
+        public void ParseCommandLine_EmptyCommand()
+        {
+            Assert.IsFalse(cmdLine.ParseCommandLine(new string[] { }));
+        }
+
+        [Test]
+        public void ParseCommandLine_EnvArgs()
+        {
+            //NUnit Command Line is not empty by default
+            Assert.IsTrue(cmdLine.ParseCommandLine());
+        }
+
+        [Test]
+        public void Reset()
+        {
+            cmdLine.SetArgument("Source", "Test Value");
+            cmdLine.SetSwitch("/MIN");
+
+            Assert.AreEqual("Test Value", cmdLine.GetArgumentValue("Source"));
+            Assert.IsTrue(cmdLine.IsSwitchSet("/MIN"));
+
+            cmdLine.Reset();
+
+            Assert.IsNullOrEmpty(cmdLine.GetArgumentValue("Source"));
+            Assert.IsFalse(cmdLine.IsSwitchSet("/MIN"));
         }
 
     }

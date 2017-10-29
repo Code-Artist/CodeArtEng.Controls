@@ -38,12 +38,9 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.optionsPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lbDescription = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -127,7 +124,6 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.optionsPanel);
-            this.groupBox2.Controls.Add(this.panel2);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(2, 129);
             this.groupBox2.Name = "groupBox2";
@@ -141,32 +137,11 @@
             this.optionsPanel.AutoScroll = true;
             this.optionsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.optionsPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.optionsPanel.Location = new System.Drawing.Point(3, 48);
+            this.optionsPanel.Location = new System.Drawing.Point(3, 16);
             this.optionsPanel.Name = "optionsPanel";
-            this.optionsPanel.Size = new System.Drawing.Size(515, 203);
+            this.optionsPanel.Size = new System.Drawing.Size(515, 235);
             this.optionsPanel.TabIndex = 0;
             this.optionsPanel.WrapContents = false;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.lbDescription);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(3, 16);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(5);
-            this.panel2.Size = new System.Drawing.Size(515, 32);
-            this.panel2.TabIndex = 0;
-            // 
-            // lbDescription
-            // 
-            this.lbDescription.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.lbDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbDescription.Location = new System.Drawing.Point(5, 5);
-            this.lbDescription.Name = "lbDescription";
-            this.lbDescription.Size = new System.Drawing.Size(505, 22);
-            this.lbDescription.TabIndex = 0;
-            this.lbDescription.Text = "label1";
-            this.lbDescription.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // CommandLineBuilderDialog
             // 
@@ -185,7 +160,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -202,7 +176,5 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.FlowLayoutPanel optionsPanel;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label lbDescription;
     }
 }
