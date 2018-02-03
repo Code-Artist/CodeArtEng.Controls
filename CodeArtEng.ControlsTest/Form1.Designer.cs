@@ -33,20 +33,16 @@
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMruList1 = new CodeArtEng.Controls.ToolStripMruList();
             this.addRecentFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.btCmdLineDialog1 = new System.Windows.Forms.Button();
             this.labeledTextBox1 = new CodeArtEng.Controls.LabeledTextBox();
             this.folderBrowsePanel2 = new CodeArtEng.Controls.FolderBrowsePanel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.hintedTextBox1 = new CodeArtEng.Controls.HintedTextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.multiLineButton4 = new CodeArtEng.Controls.MultiLineButton();
             this.multiLineButton3 = new CodeArtEng.Controls.MultiLineButton();
             this.multiLineButton2 = new CodeArtEng.Controls.MultiLineButton();
@@ -56,15 +52,19 @@
             this.statusLabel1 = new CodeArtEng.Controls.StatusLabel();
             this.folderBrowsePanel1 = new CodeArtEng.Controls.FolderBrowsePanel();
             this.openFilePanel1 = new CodeArtEng.Controls.OpenFilePanel();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.fileExplorer1 = new CodeArtEng.Controls.FileExplorer();
-            this.toolStripMruList1 = new CodeArtEng.Controls.ToolStripMruList();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btCmdLineDialog1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hintedTextBox1)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hintedTextBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -105,6 +105,16 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(133, 6);
+            // 
+            // toolStripMruList1
+            // 
+            this.toolStripMruList1.MaxPathLength = 40;
+            this.toolStripMruList1.MruListSize = 5;
+            this.toolStripMruList1.Name = "toolStripMruList1";
+            this.toolStripMruList1.RecentFileList = new string[0];
+            this.toolStripMruList1.Size = new System.Drawing.Size(136, 22);
+            this.toolStripMruList1.Text = "Recent Files";
+            this.toolStripMruList1.RecentFileClicked += new System.EventHandler<CodeArtEng.Controls.RecentFileClickedEventArgs>(this.toolStripMruList1_RecentFileClicked);
             // 
             // addRecentFileToolStripMenuItem
             // 
@@ -151,6 +161,30 @@
             this.tabPage2.Text = "Panels";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // labeledTextBox1
+            // 
+            this.labeledTextBox1.Hint = null;
+            this.labeledTextBox1.LabelAutoSize = true;
+            this.labeledTextBox1.LabelText = "label";
+            this.labeledTextBox1.LabelWidth = 31;
+            this.labeledTextBox1.Location = new System.Drawing.Point(331, 192);
+            this.labeledTextBox1.Name = "labeledTextBox1";
+            this.labeledTextBox1.Size = new System.Drawing.Size(321, 20);
+            this.labeledTextBox1.TabIndex = 16;
+            this.labeledTextBox1.Text = null;
+            this.labeledTextBox1.Enter += new System.EventHandler(this.labeledTextBox1_Enter);
+            this.labeledTextBox1.Leave += new System.EventHandler(this.labeledTextBox1_Leave);
+            // 
+            // folderBrowsePanel2
+            // 
+            this.folderBrowsePanel2.LabelWidth = 34;
+            this.folderBrowsePanel2.Location = new System.Drawing.Point(331, 284);
+            this.folderBrowsePanel2.Name = "folderBrowsePanel2";
+            this.folderBrowsePanel2.SelectedPath = "";
+            this.folderBrowsePanel2.Size = new System.Drawing.Size(321, 20);
+            this.folderBrowsePanel2.TabIndex = 15;
+            this.folderBrowsePanel2.Text = "label";
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(331, 255);
@@ -169,6 +203,14 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "label1";
             // 
+            // hintedTextBox1
+            // 
+            this.hintedTextBox1.Hint = "This is hint";
+            this.hintedTextBox1.Location = new System.Drawing.Point(47, 224);
+            this.hintedTextBox1.Name = "hintedTextBox1";
+            this.hintedTextBox1.Size = new System.Drawing.Size(190, 20);
+            this.hintedTextBox1.TabIndex = 11;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(47, 250);
@@ -178,93 +220,6 @@
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.fileExplorer1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(719, 356);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "File Explorer";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.propertyGrid1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(719, 356);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "TimePickerEditor";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // propertyGrid1
-            // 
-            this.propertyGrid1.CategoryForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.propertyGrid1.LineColor = System.Drawing.SystemColors.ControlDark;
-            this.propertyGrid1.Location = new System.Drawing.Point(21, 17);
-            this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.Size = new System.Drawing.Size(281, 314);
-            this.propertyGrid1.TabIndex = 0;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.btCmdLineDialog1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(719, 356);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Command Line Dialog";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // btCmdLineDialog1
-            // 
-            this.btCmdLineDialog1.Location = new System.Drawing.Point(8, 6);
-            this.btCmdLineDialog1.Name = "btCmdLineDialog1";
-            this.btCmdLineDialog1.Size = new System.Drawing.Size(117, 26);
-            this.btCmdLineDialog1.TabIndex = 0;
-            this.btCmdLineDialog1.Text = "Test 1";
-            this.btCmdLineDialog1.UseVisualStyleBackColor = true;
-            this.btCmdLineDialog1.Click += new System.EventHandler(this.btCmdLineDialog1_Click);
-            // 
-            // labeledTextBox1
-            // 
-            this.labeledTextBox1.Checked = true;
-            this.labeledTextBox1.Hint = null;
-            this.labeledTextBox1.LabelAutoSize = true;
-            this.labeledTextBox1.LabelText = "label";
-            this.labeledTextBox1.LabelWidth = 34;
-            this.labeledTextBox1.Location = new System.Drawing.Point(331, 192);
-            this.labeledTextBox1.Name = "labeledTextBox1";
-            this.labeledTextBox1.ShowCheckBox = false;
-            this.labeledTextBox1.Size = new System.Drawing.Size(321, 20);
-            this.labeledTextBox1.TabIndex = 16;
-            this.labeledTextBox1.Text = null;
-            this.labeledTextBox1.Enter += new System.EventHandler(this.labeledTextBox1_Enter);
-            this.labeledTextBox1.Leave += new System.EventHandler(this.labeledTextBox1_Leave);
-            // 
-            // folderBrowsePanel2
-            // 
-            this.folderBrowsePanel2.LabelWidth = 34;
-            this.folderBrowsePanel2.Location = new System.Drawing.Point(331, 284);
-            this.folderBrowsePanel2.Name = "folderBrowsePanel2";
-            this.folderBrowsePanel2.SelectedPath = "";
-            this.folderBrowsePanel2.Size = new System.Drawing.Size(321, 20);
-            this.folderBrowsePanel2.TabIndex = 15;
-            this.folderBrowsePanel2.Text = "label";
-            // 
-            // hintedTextBox1
-            // 
-            this.hintedTextBox1.Hint = "This is hint";
-            this.hintedTextBox1.Location = new System.Drawing.Point(47, 224);
-            this.hintedTextBox1.Name = "hintedTextBox1";
-            this.hintedTextBox1.PasswordChar = '@';
-            this.hintedTextBox1.Size = new System.Drawing.Size(190, 20);
-            this.hintedTextBox1.TabIndex = 11;
             // 
             // multiLineButton4
             // 
@@ -371,6 +326,17 @@
             this.openFilePanel1.Text = "File Open";
             this.openFilePanel1.TextChanged += new System.EventHandler(this.openFilePanel1_TextChanged);
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.fileExplorer1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(719, 356);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "File Explorer";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
             // fileExplorer1
             // 
             this.fileExplorer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -382,15 +348,46 @@
             this.fileExplorer1.SplitterDistance = 150;
             this.fileExplorer1.TabIndex = 0;
             // 
-            // toolStripMruList1
+            // tabPage3
             // 
-            this.toolStripMruList1.MaxPathLength = 40;
-            this.toolStripMruList1.MruListSize = 5;
-            this.toolStripMruList1.Name = "toolStripMruList1";
-            this.toolStripMruList1.RecentFileList = new string[0];
-            this.toolStripMruList1.Size = new System.Drawing.Size(136, 22);
-            this.toolStripMruList1.Text = "Recent Files";
-            this.toolStripMruList1.RecentFileClicked += new System.EventHandler<CodeArtEng.Controls.RecentFileClickedEventArgs>(this.toolStripMruList1_RecentFileClicked);
+            this.tabPage3.Controls.Add(this.propertyGrid1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(719, 356);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "TimePickerEditor";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // propertyGrid1
+            // 
+            this.propertyGrid1.CategoryForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.propertyGrid1.LineColor = System.Drawing.SystemColors.ControlDark;
+            this.propertyGrid1.Location = new System.Drawing.Point(21, 17);
+            this.propertyGrid1.Name = "propertyGrid1";
+            this.propertyGrid1.Size = new System.Drawing.Size(281, 314);
+            this.propertyGrid1.TabIndex = 0;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.btCmdLineDialog1);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(719, 356);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Command Line Dialog";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // btCmdLineDialog1
+            // 
+            this.btCmdLineDialog1.Location = new System.Drawing.Point(8, 6);
+            this.btCmdLineDialog1.Name = "btCmdLineDialog1";
+            this.btCmdLineDialog1.Size = new System.Drawing.Size(117, 26);
+            this.btCmdLineDialog1.TabIndex = 0;
+            this.btCmdLineDialog1.Text = "Test 1";
+            this.btCmdLineDialog1.UseVisualStyleBackColor = true;
+            this.btCmdLineDialog1.Click += new System.EventHandler(this.btCmdLineDialog1_Click);
             // 
             // Form1
             // 
@@ -408,10 +405,10 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hintedTextBox1)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.hintedTextBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

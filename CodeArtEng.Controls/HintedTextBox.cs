@@ -104,7 +104,7 @@ namespace CodeArtEng.Controls
         public new Color ForeColor
         {
             get { return textColor; }
-            set { textColor = value;  UpdateTextBox(); }
+            set { textColor = value; UpdateTextBox(); }
         }
         private Color textColor;
 
@@ -118,6 +118,51 @@ namespace CodeArtEng.Controls
             Text = base.Text;
             base.OnTextChanged(e); //Trigger event after update Text property.
             UpdateTextBox();
+        }
+        
+        /// <summary>
+        /// TextBox Key Down event.
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            if (e.Control) ControlPressed = true;
+            if (e.KeyCode == Keys.Delete)
+            {
+                if (base.Text == Hint)
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+            base.OnKeyDown(e);
+        }
+
+        protected override void OnKeyUp(KeyEventArgs e)
+        {
+            if (!e.Control) ControlPressed = false;
+        }
+
+        private bool ControlPressed = false;
+
+        /// <summary>
+        /// TextBox Key Press event.
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnKeyPress(KeyPressEventArgs e)
+        {
+            if (ControlPressed) { base.OnKeyPress(e); return; }
+            if ((base.Text == Hint))
+            {
+                e.Handled = true;
+                if (e.KeyChar == (char)8) return;   //Delete Key
+                if (e.KeyChar == (char)27) return;  //ESC Key
+                text = e.KeyChar.ToString();
+                UpdateTextBox();
+                SelectionStart = text.Length;
+                return;
+            }
+            base.OnKeyPress(e);
         }
 
         private bool updating = false;
@@ -162,5 +207,14 @@ namespace CodeArtEng.Controls
             return ret;
         }
 
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // HintedTextBox
+            // 
+            this.ResumeLayout(false);
+
+        }
     }
 }

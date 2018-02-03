@@ -533,5 +533,28 @@ namespace CodeArtEng.Controls
             base.OnLostFocus(e);
         }
 
+        /// <summary>
+        /// Raise the System.Windows.Forms.Controls.GotFocus event.
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnGotFocus(EventArgs e)
+        {
+            UpdateBrushandPen();
+            Refresh();
+            base.OnGotFocus(e);
+        }
+
+        /// <summary>
+        /// Raise the System.Windows.Forms.Controls.Click event.
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnClick(EventArgs e)
+        {
+            Focus();
+            UpdateBrushandPen();
+            Refresh();
+            base.OnClick(e);
+        }
+
     }
 }

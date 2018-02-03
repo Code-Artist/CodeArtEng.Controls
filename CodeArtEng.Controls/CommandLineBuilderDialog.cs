@@ -14,6 +14,7 @@ namespace CodeArtEng.Controls
             InitializeComponent();
             Helper = helper;
             Text = Application.ProductName + " - " + Text;
+            this.SetAppIcon();
         }
 
         private void btCopyToClipboard_Click(object sender, EventArgs e)
@@ -31,7 +32,7 @@ namespace CodeArtEng.Controls
                 saveFileDialog1.FileName = Application.ProductName + " Shortcut";
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    CreateWindowShortcut(saveFileDialog1.FileName, System.Reflection.Assembly.GetExecutingAssembly().Location,
+                    CreateWindowShortcut(saveFileDialog1.FileName, System.Reflection.Assembly.GetEntryAssembly().Location,
                             Application.ExecutablePath, Helper.BuildCommandLine());
                     MessageBox.Show("Shortcut Created.", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -53,6 +54,7 @@ namespace CodeArtEng.Controls
                     lnk.TargetPath = targetPath;
                     lnk.Arguments = argument;
                     lnk.IconLocation = iconLocation;
+                    lnk.WorkingDirectory = System.IO.Path.GetDirectoryName(iconLocation);
                     lnk.Save();
                 }
                 finally

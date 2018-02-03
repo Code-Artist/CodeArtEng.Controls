@@ -81,6 +81,7 @@ namespace CodeArtEng.ControlsTest
             cmdLine.AddSwitch("/T", "Delay (ms)", "t");
             cmdLine.AddSwitch("/N", "Counter", "n");
             cmdLine.SetArgument("Source Path", "C:\\Temp");
+            cmdLine.SetArgument("Dest Path", "D:\\My Documents");
             cmdLine.SetSwitch("/D");
             cmdLine.PrintHelp();
             if(cmdLine.ShowDialog() == DialogResult.OK)

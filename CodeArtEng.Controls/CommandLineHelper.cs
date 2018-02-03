@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-//ToDo: Add SetArgument, SetSwitch
 //ToDo: Reset
 
 namespace CodeArtEng.Controls
@@ -207,7 +206,7 @@ namespace CodeArtEng.Controls
         /// <exception cref="ArgumentException">Invalid switch</exception>
         public void ClearSwitch(string switchName)
         {
-            if (!Switches.ContainsKey(switchName))
+            if (!Switches.ContainsKey(switchName.ToUpper()))
                 throw new ArgumentException("Invalid Switch.", switchName);
 
             Switches[switchName].Enabled = false;
@@ -221,7 +220,7 @@ namespace CodeArtEng.Controls
         /// <exception cref="ArgumentException">Invalid switch</exception>
         public void SetSwitch(string switchName, string value = "")
         {
-            if (!Switches.ContainsKey(switchName))
+            if (!Switches.ContainsKey(switchName.ToUpper()))
                 throw new ArgumentException("Invalid Switch.", switchName);
 
             CommandLineSwitch sw = Switches[switchName];
@@ -371,7 +370,12 @@ namespace CodeArtEng.Controls
                 if (string.IsNullOrEmpty(a.Value))
                     result += "[" + a.Name + "] "; //Add Place Holder
                 else
-                    result += a.Value + " ";
+                {
+                    if (a.Value.Contains(" "))
+                        result += "\"" + a.Value + "\" ";
+                    else
+                        result += a.Value + " ";
+                }
             }
 
             foreach (KeyValuePair<string, CommandLineSwitch> s in Switches)
@@ -385,7 +389,13 @@ namespace CodeArtEng.Controls
                         if (string.IsNullOrEmpty(s.Value.Value))
                             result += "[" + s.Value.VariableName + "]"; //Add Place Holder
                         else
-                            result += s.Value.Value;
+                        {
+                            if (s.Value.Value.Contains(" "))
+                                result += "\"" + s.Value.Value + "\"";
+                            else
+                                result += s.Value.Value;
+
+                        }
                     }
                     result += " ";
                 }

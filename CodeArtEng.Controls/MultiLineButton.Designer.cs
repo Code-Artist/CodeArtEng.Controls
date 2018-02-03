@@ -36,7 +36,7 @@
             // 
             // Badge
             // 
-            this.Name = "Badge";
+            this.Name = "MultiLineButton";
             this.Size = new System.Drawing.Size(185, 37);
             this.ResumeLayout(false);
 
