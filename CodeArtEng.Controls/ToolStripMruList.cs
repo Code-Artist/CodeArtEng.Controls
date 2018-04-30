@@ -29,6 +29,15 @@ namespace CodeArtEng.Controls
             MaxPathLength = 40;
         }
 
+        /// <summary>
+        /// Raise in response to ToolStripDropDownItem.ShowDropDown() method.
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnDropDownShow(EventArgs e)
+        {
+            UpdateMruList();
+        }
+
         #region [ Properties ]
 
         /// <summary>
@@ -89,7 +98,8 @@ namespace CodeArtEng.Controls
             DropDownItems.Clear();
 
             //Load MRU List
-            if (MRUList.Count() == 0) return;
+            if (MRUList.Count() == 0) { Enabled = false; return; }
+            Enabled = true;
             for (int x = 0; x < MRUList.Count(); x++)
             {
                 string recentFile = GetRelativePath(MRUList[x]);
@@ -109,16 +119,16 @@ namespace CodeArtEng.Controls
                 DropDownItems.Add(new ToolStripSeparator());
                 ToolStripMenuItem clearRecentFile = new ToolStripMenuItem("Clear Recent File List");
                 DropDownItems.Add(clearRecentFile);
-                clearRecentFile.Click += new EventHandler(clearRecentFile_Click);
+                clearRecentFile.Click += new EventHandler(ClearRecentFile_Click);
 
                 //Remove Dead Files
                 ToolStripMenuItem removeInvalidFiles = new ToolStripMenuItem("Remove Invalid Files");
                 DropDownItems.Add(removeInvalidFiles);
-                removeInvalidFiles.Click += new EventHandler(removeInvalidFiles_Click);
+                removeInvalidFiles.Click += new EventHandler(RemoveInvalidFiles_Click);
             }
         }
 
-        private void removeInvalidFiles_Click(object sender, EventArgs e)
+        private void RemoveInvalidFiles_Click(object sender, EventArgs e)
         {
             for (int x = 0; x < MRUList.Count(); x++)
             {
@@ -128,7 +138,7 @@ namespace CodeArtEng.Controls
             }
             UpdateMruList();
         }
-        private void clearRecentFile_Click(object sender, EventArgs e)
+        private void ClearRecentFile_Click(object sender, EventArgs e)
         {
             MRUList.Clear();
             UpdateMruList();
@@ -183,9 +193,7 @@ namespace CodeArtEng.Controls
         public event EventHandler<RecentFileClickedEventArgs> RecentFileClicked;
         private void OnRecentFileClicked(string path)
         {
-            EventHandler<RecentFileClickedEventArgs> eventHandler = RecentFileClicked;
-            if (eventHandler != null)
-                eventHandler(this, new RecentFileClickedEventArgs(path));
+            RecentFileClicked?.Invoke(this, new RecentFileClickedEventArgs(path));
         }
 
         #endregion

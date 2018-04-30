@@ -99,6 +99,20 @@ namespace CodeArtEng.ControlsTest
         {
             Trace.WriteLine("Leaved label textbox.");
         }
+
+        private void btCmdMacroEditor_Click(object sender, EventArgs e)
+        {
+            using (CommandMacroEditor editor = new CommandMacroEditor("Edit Form Testing..."))
+            {
+                editor.Command = "Command line...";
+                editor.AddMacroPair("CMD1", "Command Value 1");
+                editor.AddMacroPair("CMD2", "Command Value 2");
+                editor.AddMacroPair("CMD3", "Command Value 3");
+                editor.ShowDialog();
+
+                Trace.WriteLine("Command: " + editor.Command);
+            }
+        }
     }
 
     public class PropertyGridTest

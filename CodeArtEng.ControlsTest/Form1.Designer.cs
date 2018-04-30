@@ -58,6 +58,7 @@
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.btCmdLineDialog1 = new System.Windows.Forms.Button();
+            this.btCmdMacroEditor = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -108,6 +109,7 @@
             // 
             // toolStripMruList1
             // 
+            this.toolStripMruList1.Enabled = false;
             this.toolStripMruList1.MaxPathLength = 40;
             this.toolStripMruList1.MruListSize = 5;
             this.toolStripMruList1.Name = "toolStripMruList1";
@@ -370,24 +372,35 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.btCmdMacroEditor);
             this.tabPage4.Controls.Add(this.btCmdLineDialog1);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(719, 356);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Command Line Dialog";
+            this.tabPage4.Text = "Command Line";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // btCmdLineDialog1
             // 
             this.btCmdLineDialog1.Location = new System.Drawing.Point(8, 6);
             this.btCmdLineDialog1.Name = "btCmdLineDialog1";
-            this.btCmdLineDialog1.Size = new System.Drawing.Size(117, 26);
+            this.btCmdLineDialog1.Size = new System.Drawing.Size(210, 36);
             this.btCmdLineDialog1.TabIndex = 0;
-            this.btCmdLineDialog1.Text = "Test 1";
+            this.btCmdLineDialog1.Text = "Command Line Helper";
             this.btCmdLineDialog1.UseVisualStyleBackColor = true;
             this.btCmdLineDialog1.Click += new System.EventHandler(this.btCmdLineDialog1_Click);
+            // 
+            // btCmdMacroEditor
+            // 
+            this.btCmdMacroEditor.Location = new System.Drawing.Point(8, 48);
+            this.btCmdMacroEditor.Name = "btCmdMacroEditor";
+            this.btCmdMacroEditor.Size = new System.Drawing.Size(210, 36);
+            this.btCmdMacroEditor.TabIndex = 1;
+            this.btCmdMacroEditor.Text = "Command Macro Editor";
+            this.btCmdMacroEditor.UseVisualStyleBackColor = true;
+            this.btCmdMacroEditor.Click += new System.EventHandler(this.btCmdMacroEditor_Click);
             // 
             // Form1
             // 
@@ -446,6 +459,7 @@
         private Controls.FolderBrowsePanel folderBrowsePanel2;
         private System.Windows.Forms.Button btCmdLineDialog1;
         private Controls.LabeledTextBox labeledTextBox1;
+        private System.Windows.Forms.Button btCmdMacroEditor;
     }
 }
 

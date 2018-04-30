@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-//ToDo: Reset
-
 namespace CodeArtEng.Controls
 {
     /// <summary>
@@ -223,7 +221,7 @@ namespace CodeArtEng.Controls
             if (!Switches.ContainsKey(switchName.ToUpper()))
                 throw new ArgumentException("Invalid Switch.", switchName);
 
-            CommandLineSwitch sw = Switches[switchName];
+            CommandLineSwitch sw = Switches[switchName.ToUpper()];
             sw.Enabled = true;
             if (!string.IsNullOrEmpty(sw.VariableName)) sw.Value = value;
         }
@@ -289,7 +287,7 @@ namespace CodeArtEng.Controls
                         string[] var = arguments[x].Split(':');
                         CommandLineSwitch sw = Switches[var[0].ToUpper()];
                         sw.Enabled = true;
-                        sw.Value = var[1];
+                        sw.Value = var.Length > 2 ? string.Join(":", var.Skip(1)) : var[1];
                     }
                     else
                     {

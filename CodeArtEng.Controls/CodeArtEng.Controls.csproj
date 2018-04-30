@@ -14,6 +14,8 @@
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -25,6 +27,9 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\CodeArtEng.Controls.XML</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
+    <CodeAnalysisRuleSet>CodeArtEng.Controls.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,9 +40,13 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\CodeArtEng.Controls.XML</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>CodeArtEng.Controls.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CodeArtEng.Extensions, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -45,6 +54,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -61,6 +71,12 @@
       <DependentUpon>CommandLineBuilderDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="CommandLineHelper.cs" />
+    <Compile Include="CommandMacroEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommandMacroEditor.Designer.cs">
+      <DependentUpon>CommandMacroEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="LabeledTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -120,6 +136,9 @@
     <EmbeddedResource Include="CommandLineBuilderDialog.resx">
       <DependentUpon>CommandLineBuilderDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CommandMacroEditor.resx">
+      <DependentUpon>CommandMacroEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HintedTextBox.resx">
       <DependentUpon>HintedTextBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +169,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="CodeArtEng.Controls.ruleset" />
     <None Include="FxCop - CodeArtEng.Controls.FxCop" />
   </ItemGroup>
   <ItemGroup>

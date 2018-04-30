@@ -138,6 +138,10 @@ namespace CodeArtEng.Controls
             base.OnKeyDown(e);
         }
 
+        /// <summary>
+        /// Raise the Control.KeyUp Event.
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnKeyUp(KeyEventArgs e)
         {
             if (!e.Control) ControlPressed = false;

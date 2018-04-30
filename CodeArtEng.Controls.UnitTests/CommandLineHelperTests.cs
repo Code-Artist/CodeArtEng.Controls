@@ -226,5 +226,24 @@ namespace CodeArtEng.Controls.UnitTests
             Assert.IsFalse(cmdLine.IsSwitchSet("/MIN"));
         }
 
+        [Test]
+        public void SetSwitchValueWithColumn()
+        {
+            CommandLineHelper cmd = new CommandLineHelper("File");
+            cmd.AddSwitch("/log", "Log File.", "logFile");
+            cmd.SetSwitch("/log", "C:\\Temp\\Output.txt");
+
+            Assert.AreEqual("C:\\Temp\\Output.txt", cmd.GetSwitchValue("/log"));
+        }
+
+        [Test]
+        public void ParseCommandLineFileName()
+        {
+            CommandLineHelper cmd = new CommandLineHelper("File");
+            cmd.AddSwitch("/log", "Log File.", "logFile");
+            cmd.ParseCommandLine(("/log:C:\\Temp\\Output.txt").Split(' '));
+            Assert.AreEqual("C:\\Temp\\Output.txt", cmd.GetSwitchValue("/log"));
+        }
+
     }
 }
