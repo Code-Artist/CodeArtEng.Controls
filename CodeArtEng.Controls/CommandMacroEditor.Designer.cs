@@ -44,11 +44,12 @@
             // 
             // TxtCommand
             // 
-            this.TxtCommand.Location = new System.Drawing.Point(8, 8);
+            this.TxtCommand.Location = new System.Drawing.Point(11, 10);
+            this.TxtCommand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TxtCommand.Multiline = true;
             this.TxtCommand.Name = "TxtCommand";
             this.TxtCommand.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TxtCommand.Size = new System.Drawing.Size(532, 128);
+            this.TxtCommand.Size = new System.Drawing.Size(708, 157);
             this.TxtCommand.TabIndex = 0;
             // 
             // MacroGridView
@@ -63,13 +64,14 @@
             this.MacroGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColMacro,
             this.ColValue});
-            this.MacroGridView.Location = new System.Drawing.Point(8, 142);
+            this.MacroGridView.Location = new System.Drawing.Point(11, 175);
+            this.MacroGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MacroGridView.Name = "MacroGridView";
             this.MacroGridView.ReadOnly = true;
             this.MacroGridView.RowHeadersVisible = false;
             this.MacroGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.MacroGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MacroGridView.Size = new System.Drawing.Size(532, 232);
+            this.MacroGridView.Size = new System.Drawing.Size(709, 286);
             this.MacroGridView.TabIndex = 1;
             this.MacroGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MacroGridView_CellDoubleClick);
             this.MacroGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MacroGridView_KeyDown);
@@ -80,7 +82,7 @@
             this.ColMacro.HeaderText = "Macro";
             this.ColMacro.Name = "ColMacro";
             this.ColMacro.ReadOnly = true;
-            this.ColMacro.Width = 62;
+            this.ColMacro.Width = 76;
             // 
             // ColValue
             // 
@@ -93,9 +95,10 @@
             // 
             this.btCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btCancel.Location = new System.Drawing.Point(465, 380);
+            this.btCancel.Location = new System.Drawing.Point(620, 468);
+            this.btCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btCancel.Name = "btCancel";
-            this.btCancel.Size = new System.Drawing.Size(75, 23);
+            this.btCancel.Size = new System.Drawing.Size(100, 28);
             this.btCancel.TabIndex = 2;
             this.btCancel.Text = "Cancel";
             this.btCancel.UseVisualStyleBackColor = true;
@@ -104,9 +107,10 @@
             // 
             this.btOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btOK.Location = new System.Drawing.Point(384, 380);
+            this.btOK.Location = new System.Drawing.Point(512, 468);
+            this.btOK.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btOK.Name = "btOK";
-            this.btOK.Size = new System.Drawing.Size(75, 23);
+            this.btOK.Size = new System.Drawing.Size(100, 28);
             this.btOK.TabIndex = 3;
             this.btOK.Text = "OK";
             this.btOK.UseVisualStyleBackColor = true;
@@ -115,9 +119,10 @@
             // btInsert
             // 
             this.btInsert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btInsert.Location = new System.Drawing.Point(8, 380);
+            this.btInsert.Location = new System.Drawing.Point(11, 468);
+            this.btInsert.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btInsert.Name = "btInsert";
-            this.btInsert.Size = new System.Drawing.Size(75, 23);
+            this.btInsert.Size = new System.Drawing.Size(100, 28);
             this.btInsert.TabIndex = 4;
             this.btInsert.Text = "Insert";
             this.btInsert.UseVisualStyleBackColor = true;
@@ -126,9 +131,10 @@
             // btAddFolder
             // 
             this.btAddFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btAddFolder.Location = new System.Drawing.Point(89, 380);
+            this.btAddFolder.Location = new System.Drawing.Point(119, 468);
+            this.btAddFolder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btAddFolder.Name = "btAddFolder";
-            this.btAddFolder.Size = new System.Drawing.Size(75, 23);
+            this.btAddFolder.Size = new System.Drawing.Size(100, 28);
             this.btAddFolder.TabIndex = 5;
             this.btAddFolder.Text = "Add Folder";
             this.btAddFolder.UseVisualStyleBackColor = true;
@@ -137,9 +143,10 @@
             // btAddFile
             // 
             this.btAddFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btAddFile.Location = new System.Drawing.Point(170, 380);
+            this.btAddFile.Location = new System.Drawing.Point(227, 468);
+            this.btAddFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btAddFile.Name = "btAddFile";
-            this.btAddFile.Size = new System.Drawing.Size(75, 23);
+            this.btAddFile.Size = new System.Drawing.Size(100, 28);
             this.btAddFile.TabIndex = 6;
             this.btAddFile.Text = "Add File";
             this.btAddFile.UseVisualStyleBackColor = true;
@@ -157,10 +164,10 @@
             // CommandMacroEditor
             // 
             this.AcceptButton = this.btOK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btCancel;
-            this.ClientSize = new System.Drawing.Size(548, 411);
+            this.ClientSize = new System.Drawing.Size(731, 506);
             this.Controls.Add(this.btAddFile);
             this.Controls.Add(this.btAddFolder);
             this.Controls.Add(this.btInsert);
@@ -168,9 +175,10 @@
             this.Controls.Add(this.btCancel);
             this.Controls.Add(this.MacroGridView);
             this.Controls.Add(this.TxtCommand);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "CommandMacroEditor";
-            this.Padding = new System.Windows.Forms.Padding(5);
+            this.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Text = "CommandMacroEditor";
             ((System.ComponentModel.ISupportInitialize)(this.MacroGridView)).EndInit();
             this.ResumeLayout(false);

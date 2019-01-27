@@ -80,6 +80,8 @@ namespace CodeArtEng.ControlsTest
             cmdLine.AddSwitch("/D", "Dummy");
             cmdLine.AddSwitch("/T", "Delay (ms)", "t");
             cmdLine.AddSwitch("/N", "Counter", "n");
+            cmdLine.AddSwitch("/X", "Multi Choice Options", new string[] { "Choice1", "Choice2", "LastChoice" });
+
             cmdLine.SetArgument("Source Path", "C:\\Temp");
             cmdLine.SetArgument("Dest Path", "D:\\My Documents");
             cmdLine.SetSwitch("/D");
@@ -112,6 +114,13 @@ namespace CodeArtEng.ControlsTest
 
                 Trace.WriteLine("Command: " + editor.Command);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            lbTextBox3.LabelAutoSize = true;
+            lbTextBox3.LabelText = "Testing123";
+            label2.Text = lbTextBox3.Text;
         }
     }
 

@@ -20,16 +20,21 @@ namespace CodeArtEng.Controls
 
         private void InitializeComponent()
         {
-            this.folderBrowserDialog1 = new FolderBrowserDialog();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
             // 
             // btBrowse
             // 
             this.btBrowse.Click += new System.EventHandler(this.btBrowse_Click);
             // 
+            // textbox
+            // 
+            this.textbox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            // 
             // FolderBrowsePanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "FolderBrowsePanel";
             this.ResumeLayout(false);
             this.PerformLayout();

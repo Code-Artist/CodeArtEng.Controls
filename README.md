@@ -3,7 +3,9 @@ Collections of Windows Forms controls.<br/>
 
 ## Features
 - Command Line Helper
-- Labeled Text Box
+- Command Line Builder Dialog
+- Command Macro Editor Dialog
+- Labeled Text Box (now with Combo Box option)
 - Hinted Text Box
 - Multi-Line Button
 - Status Label

@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Code Art Engineering")]
 [assembly: AssemblyProduct("CodeArtEng.Controls")]
-[assembly: AssemblyCopyright("Copyright © CodeArt Engineering 2012 - 2017")]
+[assembly: AssemblyCopyright("Copyright © CodeArt Engineering 2012 - 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,6 +32,6 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.2.1.0")]
-[assembly: AssemblyFileVersion("2.2.1.0")]
+[assembly: AssemblyVersion("2.2.3.0")]
+[assembly: AssemblyFileVersion("2.2.3.0")]
 [assembly: NeutralResourcesLanguageAttribute("en")]

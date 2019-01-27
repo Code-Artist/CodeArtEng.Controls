@@ -31,6 +31,7 @@ namespace CodeArtEng.Controls
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         [Bindable(true)]
+        [DefaultValue("label")]
         public override string Text
         {
             get { return label.Text; }

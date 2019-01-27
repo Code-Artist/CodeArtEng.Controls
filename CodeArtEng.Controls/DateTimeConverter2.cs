@@ -23,7 +23,11 @@ namespace System.ComponentModel
         /// <returns></returns>
         public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
         {
-            string dateTimeString = value.ToString();
+            DateTime inputDate;
+            if (value is DateTime) inputDate = (DateTime)value;
+            else inputDate = DateTime.Now;
+
+            string dateTimeString = inputDate.ToString(culture);
             return dateTimeString;
         }
     }

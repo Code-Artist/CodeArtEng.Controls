@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 
@@ -9,6 +11,9 @@ namespace CodeArtEng.Controls
     /// </summary>
     public partial class LabeledTextBox : UserControl
     {
+        private int textBoxLeftMargin, textBoxRightMargin;
+        private Control ptrActiveControl;
+
         /// <summary>
         /// Event raised when text changed.
         /// </summary>
@@ -29,6 +34,28 @@ namespace CodeArtEng.Controls
         public LabeledTextBox()
         {
             InitializeComponent();
+            //Left Margin was not calculated correctly - Used fix value for now.
+            textBoxLeftMargin = textBoxRightMargin = 2;
+            label.SizeChanged += Label_SizeChanged;
+
+            comboBox.Location = textbox.Location;
+            comboBox.Left = textbox.Left;
+            comboBox.Top = textbox.Top;
+            comboBox.Anchor = textbox.Anchor;
+            comboBox.Visible = false;
+        }
+
+        private void Label_SizeChanged(object sender, EventArgs e)
+        {
+            RecalculateTextBoxSize();
+        }
+
+        private void RecalculateTextBoxSize()
+        {
+            SuspendLayout();
+            comboBox.Left = textbox.Left = label.Left + label.Width + textBoxLeftMargin;
+            comboBox.Width = textbox.Width = this.Width - textbox.Left - textBoxRightMargin;
+            ResumeLayout();
         }
 
         /// <summary>
@@ -100,6 +127,7 @@ namespace CodeArtEng.Controls
             {
                 chkBox.Visible = value;
                 if (value == false) chkBox.Checked = true;
+                RecalculateTextBoxSize();
             }
         }
 
@@ -112,6 +140,33 @@ namespace CodeArtEng.Controls
         {
             get { return chkBox.Checked; }
             set { chkBox.Checked = chkBox.Visible ? value : true; }
+        }
+
+        private bool isDropDownList = false;
+        public bool IsDropDownList
+        {
+            get { return isDropDownList; }
+            set
+            {
+                isDropDownList = value;
+                textbox.Visible = !isDropDownList;
+                comboBox.Visible = isDropDownList;
+                ptrActiveControl =  isDropDownList ? comboBox as Control : textbox;
+            }
+        }
+
+        public string[] DropDownListItem
+        {
+            get {
+                string[] result = new string[comboBox.Items.Count];
+                comboBox.Items.CopyTo(result, 0);
+                return result;
+            }
+            set
+            {
+                comboBox.Items.AddRange(value);
+                if (comboBox.Items.Count != 0) comboBox.SelectedIndex = 0;
+            }
         }
 
         private void textbox_TextChanged(object sender, EventArgs e)
@@ -136,9 +191,16 @@ namespace CodeArtEng.Controls
 
         internal virtual bool ValidateDropData(string filePath) { return true; }
 
+        private void LabeledTextBox_VisibleChanged(object sender, EventArgs e)
+        {
+            RecalculateTextBoxSize();
+        }
+
         private void chkBox_CheckedChanged(object sender, EventArgs e)
         {
             CheckedChanged?.Invoke(this, null);
+            textbox.Enabled = chkBox.Checked;
+            comboBox.Enabled = chkBox.Checked;
         }
     }
 }

@@ -45,6 +45,10 @@ namespace CodeArtEng.Controls
         /// Switch value parsed from command line.
         /// </summary>
         public string Value { get; set; }
+        /// <summary>
+        /// Let user choose from list of options
+        /// </summary>
+        public string[] Options { get; set; } = null;
     }
 
     /// <summary>
@@ -122,6 +126,14 @@ namespace CodeArtEng.Controls
             Switches.Add(name.ToUpper(), new CommandLineSwitch() { Description = description, VariableName = variableName });
         }
 
+        public void AddSwitch(string name, string description, string[] options)
+        {
+            if (!name.StartsWith("/")) throw new FormatException("Switch name must prefix with '/'!");
+            if (Switches.Keys.Contains(name.ToUpper()))
+                throw new ArgumentException("Failed to add switch [" + name + "], already exists!");
+            Switches.Add(name.ToUpper(), new CommandLineSwitch() { Description = description, Options = options });
+        }
+
         /// <summary>
         /// Print usage screen
         /// </summary>
@@ -162,6 +174,13 @@ namespace CodeArtEng.Controls
                     string s = sw.Key;
                     if (!string.IsNullOrEmpty(sw.Value.VariableName)) s += ":" + sw.Value.VariableName;
                     Console.WriteLine(tFormat, s, sw.Value.Description);
+                    if (sw.Value.Options != null)
+                    {
+                        string optionString = "[";
+                        foreach (string item in sw.Value.Options) { optionString += item + ","; }
+                        optionString = optionString.TrimEnd(',') + "]";
+                        Console.WriteLine(tFormat, "", optionString);
+                    }
                 }
                 Console.WriteLine("");
             }
@@ -177,7 +196,7 @@ namespace CodeArtEng.Controls
             foreach (CommandLineArgument arg in Arguments)
                 arg.Value = string.Empty;
 
-            foreach(CommandLineSwitch sw in Switches.Values)
+            foreach (CommandLineSwitch sw in Switches.Values)
             {
                 sw.Enabled = false;
                 sw.Value = string.Empty;

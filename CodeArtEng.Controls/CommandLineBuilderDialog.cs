@@ -14,7 +14,6 @@ namespace CodeArtEng.Controls
             InitializeComponent();
             Helper = helper;
             Text = Application.ProductName + " - " + Text;
-            this.SetAppIcon();
         }
 
         private void btCopyToClipboard_Click(object sender, EventArgs e)
@@ -114,7 +113,7 @@ namespace CodeArtEng.Controls
             maxLabelWidth = 0;
             foreach (KeyValuePair<string, CommandLineSwitch> sw in Helper.GetSwitches())
             {
-                if (!string.IsNullOrEmpty(sw.Value.VariableName))
+                if (!string.IsNullOrEmpty(sw.Value.VariableName) || (sw.Value.Options != null))
                 {
                     LabeledTextBox argTextBox = new LabeledTextBox();
                     argTextBox.ShowCheckBox = true;
@@ -125,6 +124,11 @@ namespace CodeArtEng.Controls
                     argTextBox.TextChanged += ArgTextBox_TextChanged;
                     argTextBox.CheckedChanged += ArgTextBox_CheckedChanged;
                     argTextBox.Hint = sw.Value.Description;
+                    if(sw.Value.Options != null)
+                    {
+                        argTextBox.IsDropDownList = true;
+                        argTextBox.DropDownListItem = sw.Value.Options;
+                    }
                     argTextBox.Margin = new Padding(0) { Left = 15, Top = 3, Bottom = 3 };
                     argTextBox.LabelAutoSize = true;
                     optionsPanel.Controls.Add(argTextBox);
@@ -133,7 +137,6 @@ namespace CodeArtEng.Controls
                 }
                 else
                 {
-
                     CheckBox chkBox = new CheckBox();
                     chkBox.Text = sw.Key + "  (" + sw.Value.Description + ")";
                     chkBox.AutoSize = true;

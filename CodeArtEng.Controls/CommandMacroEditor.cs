@@ -43,7 +43,6 @@ namespace CodeArtEng.Controls
         public CommandMacroEditor(string formTitle)
         {
             InitializeComponent();
-            this.SetAppIcon();
             Text = formTitle;
         }
 
@@ -121,7 +120,7 @@ namespace CodeArtEng.Controls
 
         private void MacroGridView_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Return)
+            if (e.KeyCode == Keys.Return)
             {
                 InsertMacro();
             }
@@ -129,18 +128,24 @@ namespace CodeArtEng.Controls
 
         private void btAddFolder_Click(object sender, EventArgs e)
         {
-            if(folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
-                InsertText(folderBrowserDialog1.SelectedPath);
+                InsertText(FormatFilePath(folderBrowserDialog1.SelectedPath));
             }
         }
 
         private void btAddFile_Click(object sender, EventArgs e)
         {
-            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                InsertText(openFileDialog1.FileName);
+                InsertText(FormatFilePath(openFileDialog1.FileName));
             }
+        }
+
+        private string FormatFilePath(string input)
+        {
+            if (input.Contains(" ")) return "\"" + input + "\"";
+            return input;
         }
     }
 }
