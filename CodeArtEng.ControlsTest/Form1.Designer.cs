@@ -175,73 +175,80 @@
             // 
             // labeledTextBox3
             // 
-            this.labeledTextBox3.DropDownListItem = new string[0];
+            this.labeledTextBox3.DropDownListItems = new string[0];
             this.labeledTextBox3.Hint = null;
             this.labeledTextBox3.IsDropDownList = true;
-            this.labeledTextBox3.LabelAutoSize = true;
+            this.labeledTextBox3.LabelAutoSize = false;
             this.labeledTextBox3.LabelText = "label";
-            this.labeledTextBox3.LabelWidth = 41;
+            this.labeledTextBox3.LabelTextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.labeledTextBox3.LabelWidth = 120;
             this.labeledTextBox3.Location = new System.Drawing.Point(469, 219);
-            this.labeledTextBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.labeledTextBox3.Margin = new System.Windows.Forms.Padding(5);
             this.labeledTextBox3.MinimumSize = new System.Drawing.Size(0, 28);
             this.labeledTextBox3.Name = "labeledTextBox3";
+            this.labeledTextBox3.ReadOnly = false;
             this.labeledTextBox3.Size = new System.Drawing.Size(428, 28);
             this.labeledTextBox3.TabIndex = 24;
             this.labeledTextBox3.Text = "labeledTextBox3";
             // 
             // labeledTextBox2
             // 
-            this.labeledTextBox2.DropDownListItem = new string[0];
+            this.labeledTextBox2.DropDownListItems = new string[0];
             this.labeledTextBox2.Hint = null;
-            this.labeledTextBox2.IsDropDownList = false;
             this.labeledTextBox2.LabelAutoSize = true;
             this.labeledTextBox2.LabelText = "label";
+            this.labeledTextBox2.LabelTextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.labeledTextBox2.LabelWidth = 41;
             this.labeledTextBox2.Location = new System.Drawing.Point(469, 255);
-            this.labeledTextBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.labeledTextBox2.Margin = new System.Windows.Forms.Padding(5);
             this.labeledTextBox2.MinimumSize = new System.Drawing.Size(0, 28);
             this.labeledTextBox2.Name = "labeledTextBox2";
+            this.labeledTextBox2.ReadOnly = false;
             this.labeledTextBox2.ShowCheckBox = true;
             this.labeledTextBox2.Size = new System.Drawing.Size(428, 28);
             this.labeledTextBox2.TabIndex = 23;
             this.labeledTextBox2.Text = "labeledTextBox2";
+            this.labeledTextBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.labeledTextBox2_KeyDown);
             // 
             // labeledTextBox1
             // 
-            this.labeledTextBox1.DropDownListItem = new string[0];
+            this.labeledTextBox1.DropDownListItems = new string[0];
             this.labeledTextBox1.Hint = null;
             this.labeledTextBox1.IsDropDownList = true;
             this.labeledTextBox1.LabelAutoSize = true;
             this.labeledTextBox1.LabelText = "label";
+            this.labeledTextBox1.LabelTextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.labeledTextBox1.LabelWidth = 41;
             this.labeledTextBox1.Location = new System.Drawing.Point(431, 304);
-            this.labeledTextBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.labeledTextBox1.Margin = new System.Windows.Forms.Padding(5);
             this.labeledTextBox1.MinimumSize = new System.Drawing.Size(0, 28);
             this.labeledTextBox1.Name = "labeledTextBox1";
+            this.labeledTextBox1.ReadOnly = false;
             this.labeledTextBox1.Size = new System.Drawing.Size(500, 28);
             this.labeledTextBox1.TabIndex = 22;
             this.labeledTextBox1.Text = "labeledTextBox3";
             // 
             // lbTextBox3
             // 
-            this.lbTextBox3.DropDownListItem = new string[0];
-            this.lbTextBox3.Hint = null;
-            this.lbTextBox3.IsDropDownList = false;
+            this.lbTextBox3.DropDownListItems = new string[0];
+            this.lbTextBox3.Hint = "TIPS - Testing";
             this.lbTextBox3.LabelAutoSize = true;
             this.lbTextBox3.LabelText = "label";
+            this.lbTextBox3.LabelTextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.lbTextBox3.LabelWidth = 41;
             this.lbTextBox3.Location = new System.Drawing.Point(431, 337);
-            this.lbTextBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.lbTextBox3.Margin = new System.Windows.Forms.Padding(5);
             this.lbTextBox3.MinimumSize = new System.Drawing.Size(0, 28);
             this.lbTextBox3.Name = "lbTextBox3";
+            this.lbTextBox3.ReadOnly = false;
             this.lbTextBox3.Size = new System.Drawing.Size(500, 28);
             this.lbTextBox3.TabIndex = 21;
-            this.lbTextBox3.Text = "labeledTextBox3";
+            this.lbTextBox3.Text = null;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(522, 382);
+            this.label2.Location = new System.Drawing.Point(523, 382);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 17);
             this.label2.TabIndex = 20;
@@ -250,6 +257,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(441, 379);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 19;

@@ -127,7 +127,7 @@ namespace CodeArtEng.Controls
                     if(sw.Value.Options != null)
                     {
                         argTextBox.IsDropDownList = true;
-                        argTextBox.DropDownListItem = sw.Value.Options;
+                        argTextBox.DropDownListItems = sw.Value.Options;
                     }
                     argTextBox.Margin = new Padding(0) { Left = 15, Top = 3, Bottom = 3 };
                     argTextBox.LabelAutoSize = true;

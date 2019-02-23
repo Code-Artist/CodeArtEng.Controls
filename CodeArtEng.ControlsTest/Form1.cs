@@ -122,6 +122,14 @@ namespace CodeArtEng.ControlsTest
             lbTextBox3.LabelText = "Testing123";
             label2.Text = lbTextBox3.Text;
         }
+
+        private void labeledTextBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Return)
+            {
+                MessageBox.Show("Enter Pressed");
+            }
+        }
     }
 
     public class PropertyGridTest

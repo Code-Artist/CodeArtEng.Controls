@@ -30,8 +30,8 @@
         {
             this.label = new System.Windows.Forms.Label();
             this.chkBox = new System.Windows.Forms.CheckBox();
-            this.textbox = new CodeArtEng.Controls.HintedTextBox();
             this.comboBox = new System.Windows.Forms.ComboBox();
+            this.textbox = new CodeArtEng.Controls.HintedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.textbox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,29 +62,33 @@
             this.chkBox.Visible = false;
             this.chkBox.CheckedChanged += new System.EventHandler(this.chkBox_CheckedChanged);
             // 
+            // comboBox
+            // 
+            this.comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox.FormattingEnabled = true;
+            this.comboBox.Location = new System.Drawing.Point(340, 1);
+            this.comboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox.Name = "comboBox";
+            this.comboBox.Size = new System.Drawing.Size(60, 24);
+            this.comboBox.TabIndex = 3;
+            this.comboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
+            // 
             // textbox
             // 
             this.textbox.AllowDrop = true;
             this.textbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textbox.Hint = null;
-            this.textbox.Location = new System.Drawing.Point(66, 1);
+            this.textbox.Location = new System.Drawing.Point(67, 1);
             this.textbox.Margin = new System.Windows.Forms.Padding(4);
             this.textbox.Name = "textbox";
-            this.textbox.Size = new System.Drawing.Size(358, 22);
+            this.textbox.Size = new System.Drawing.Size(359, 22);
             this.textbox.TabIndex = 1;
             this.textbox.TextChanged += new System.EventHandler(this.textbox_TextChanged);
             this.textbox.DragDrop += new System.Windows.Forms.DragEventHandler(this.textbox_DragDrop);
             this.textbox.DragEnter += new System.Windows.Forms.DragEventHandler(this.textbox_DragEnter);
-            // 
-            // comboBox
-            // 
-            this.comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox.FormattingEnabled = true;
-            this.comboBox.Location = new System.Drawing.Point(340, 1);
-            this.comboBox.Name = "comboBox";
-            this.comboBox.Size = new System.Drawing.Size(60, 24);
-            this.comboBox.TabIndex = 3;
+            this.textbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textbox_KeyDown);
+            this.textbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textbox_KeyPress);
             // 
             // LabeledTextBox
             // 

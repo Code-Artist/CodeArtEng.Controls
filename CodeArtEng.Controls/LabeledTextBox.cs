@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Linq;
-using System.Collections.Generic;
+using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
 
@@ -80,9 +79,26 @@ namespace CodeArtEng.Controls
         [Bindable(true)]
         public override string Text
         {
-            get { return textbox.Text; }
-            set { textbox.Text = value; }
+            get { return IsDropDownList ? comboBox.Text : textbox.Text; }
+            set
+            {
+                if (IsDropDownList)
+                {
+                    int index = comboBox.Items.IndexOf(value);
+                    if (index != -1) comboBox.SelectedIndex = index;
+                }
+                else
+                    textbox.Text = value;
+            }
         }
+
+        /// <summary>
+        /// Label text alignment
+        /// </summary>
+        [Browsable(true)]
+        [Category("Appearance")]
+        [DefaultValue(ContentAlignment.TopLeft)]
+        public ContentAlignment LabelTextAlign { get => label.TextAlign; set => label.TextAlign = value; }
 
         /// <summary>
         /// Label Text
@@ -98,7 +114,7 @@ namespace CodeArtEng.Controls
         /// <summary>
         /// Auto Resize Label 
         /// </summary>
-        [Category("Layout")]
+        [Category("Appearance")]
         public bool LabelAutoSize
         {
             get { return label.AutoSize; }
@@ -108,7 +124,7 @@ namespace CodeArtEng.Controls
         /// <summary>
         /// Width of label control
         /// </summary>
-        [Category("Layout")]
+        [Category("Appearance")]
         public int LabelWidth
         {
             get { return label.Width; }
@@ -142,7 +158,19 @@ namespace CodeArtEng.Controls
             set { chkBox.Checked = chkBox.Visible ? value : true; }
         }
 
+        /// <summary>
+        /// Set Text Box Readonly flag, no effect for Drop down box.
+        /// </summary>
+        [Category("Behavior")]
+        public bool ReadOnly { get => textbox.ReadOnly; set => textbox.ReadOnly = value; }
+
         private bool isDropDownList = false;
+
+        /// <summary>
+        /// Define if control is drop down list instead of text box.
+        /// </summary>
+        [Category("Appearance")]
+        [DefaultValue(false)]
         public bool IsDropDownList
         {
             get { return isDropDownList; }
@@ -151,13 +179,19 @@ namespace CodeArtEng.Controls
                 isDropDownList = value;
                 textbox.Visible = !isDropDownList;
                 comboBox.Visible = isDropDownList;
-                ptrActiveControl =  isDropDownList ? comboBox as Control : textbox;
+                ptrActiveControl = isDropDownList ? comboBox as Control : textbox;
             }
         }
 
-        public string[] DropDownListItem
+        /// <summary>
+        /// Define items in drop down list.
+        /// </summary>
+        [Browsable(true)]
+        [Category("Appearance")]
+        public string[] DropDownListItems
         {
-            get {
+            get
+            {
                 string[] result = new string[comboBox.Items.Count];
                 comboBox.Items.CopyTo(result, 0);
                 return result;
@@ -166,6 +200,22 @@ namespace CodeArtEng.Controls
             {
                 comboBox.Items.AddRange(value);
                 if (comboBox.Items.Count != 0) comboBox.SelectedIndex = 0;
+            }
+        }
+
+        [Browsable(true)]
+        [Category("Appearance")]
+        [DefaultValue(0)]
+        public int DropDownListSelectedIndex
+        {
+            get
+            {
+                if (IsDropDownList) return comboBox.SelectedIndex;
+                else return -1;
+            }
+            set
+            {
+                comboBox.SelectedIndex = value;
             }
         }
 
@@ -194,6 +244,21 @@ namespace CodeArtEng.Controls
         private void LabeledTextBox_VisibleChanged(object sender, EventArgs e)
         {
             RecalculateTextBoxSize();
+        }
+
+        private void textbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            OnKeyPress(e); //Forward event to parent class
+        }
+
+        private void textbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            OnKeyDown(e); //Forward event to parent class
+        }
+
+        private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TextChanged?.Invoke(this, null);
         }
 
         private void chkBox_CheckedChanged(object sender, EventArgs e)

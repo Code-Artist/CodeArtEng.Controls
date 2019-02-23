@@ -126,6 +126,12 @@ namespace CodeArtEng.Controls
             Switches.Add(name.ToUpper(), new CommandLineSwitch() { Description = description, VariableName = variableName });
         }
 
+        /// <summary>
+        /// Register an optional switch or argument to command line which prefix with '/'.
+        /// </summary>
+        /// <param name="name">Optional argument / switch name. Case insensitive</param>
+        /// <param name="description">Short description for key</param>
+        /// <param name="options">Multiple choice options</param>
         public void AddSwitch(string name, string description, string[] options)
         {
             if (!name.StartsWith("/")) throw new FormatException("Switch name must prefix with '/'!");
@@ -251,7 +257,6 @@ namespace CodeArtEng.Controls
         /// <returns></returns>
         public bool ParseCommandLine()
         {
-            //ToDo: Test Cases for ParseCommandLine() test.
             try
             {
                 List<string> arguments = new List<string>();
@@ -413,6 +418,14 @@ namespace CodeArtEng.Controls
                                 result += s.Value.Value;
 
                         }
+                    }
+                    else if(s.Value.Options != null)
+                    {
+                        result += ":";
+                        if (s.Value.Value.Contains(" "))
+                            result += "\"" + s.Value.Value + "\"";
+                        else
+                            result += s.Value.Value;
                     }
                     result += " ";
                 }

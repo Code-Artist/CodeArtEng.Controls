@@ -8,7 +8,8 @@ Collections of Windows Forms controls.<br/>
 - Labeled Text Box (now with Combo Box option)
 - Hinted Text Box
 - Multi-Line Button
-- Status Label
+- Status Label  
+
 - Open File Panel and Folder Browse Panel
 - MRU (Most Recent Used File List)
 - File Explorer Control
