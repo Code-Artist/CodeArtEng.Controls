@@ -23,7 +23,7 @@ namespace CodeArtEng.Controls
         /// <summary>
         /// State with Grey Color
         /// </summary>
-        Grey =3
+        Grey = 3
     }
 
     /// <summary>
@@ -80,7 +80,7 @@ namespace CodeArtEng.Controls
             set
             {
                 labelState = value;
-                switch(labelState)
+                switch (labelState)
                 {
                     case StatusLabelState.Green:
                         imgStatus.Image = Properties.Resources.GreenDot;

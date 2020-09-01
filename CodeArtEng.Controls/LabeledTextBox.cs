@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Drawing;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace CodeArtEng.Controls
@@ -10,7 +10,7 @@ namespace CodeArtEng.Controls
     /// </summary>
     public partial class LabeledTextBox : UserControl
     {
-        private int textBoxLeftMargin, textBoxRightMargin;
+        private readonly int textBoxLeftMargin, textBoxRightMargin;
         private Control ptrActiveControl;
 
         /// <summary>
@@ -28,6 +28,13 @@ namespace CodeArtEng.Controls
         public event EventHandler CheckedChanged;
 
         /// <summary>
+        /// Event raised when dropdown selected index had been changed.
+        /// </summary>
+        [Browsable(true)]
+        [Description("Occurs when dropdown selected index had been changed.")]
+        public event EventHandler SelectedIndexChanged;
+
+        /// <summary>
         /// Constructor
         /// </summary>
         public LabeledTextBox()
@@ -42,19 +49,7 @@ namespace CodeArtEng.Controls
             comboBox.Top = textbox.Top;
             comboBox.Anchor = textbox.Anchor;
             comboBox.Visible = false;
-        }
-
-        private void Label_SizeChanged(object sender, EventArgs e)
-        {
-            RecalculateTextBoxSize();
-        }
-
-        private void RecalculateTextBoxSize()
-        {
-            SuspendLayout();
-            comboBox.Left = textbox.Left = label.Left + label.Width + textBoxLeftMargin;
-            comboBox.Width = textbox.Width = this.Width - textbox.Left - textBoxRightMargin;
-            ResumeLayout();
+            comboBox.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
         }
 
         /// <summary>
@@ -162,7 +157,36 @@ namespace CodeArtEng.Controls
         /// Set Text Box Readonly flag, no effect for Drop down box.
         /// </summary>
         [Category("Behavior")]
-        public bool ReadOnly { get => textbox.ReadOnly; set => textbox.ReadOnly = value; }
+        public bool ReadOnly
+        {
+            get => textbox.ReadOnly;
+            set
+            {
+                textbox.ReadOnly = value;
+
+                //Workaround to ensure correct back color set based on ReadOnly status.
+                textbox.BackColor = textbox.ReadOnly ? Color.FromKnownColor(KnownColor.Control) :
+                    Color.FromKnownColor(KnownColor.Window);
+            }
+        }
+
+        /// <summary>
+        /// Specify maximum input character for Text Box.
+        /// </summary>
+        [Category("Behavior")]
+        public int TextBoxMaxLength { get => textbox.MaxLength; set => textbox.MaxLength = value; }
+
+        /// <summary>
+        /// Foreground Color of Text Box.
+        /// </summary>
+        [Category("Appearance")]
+        public Color TextBoxForeColor { get => textbox.ForeColor; set => textbox.ForeColor = value; }
+
+        /// <summary>
+        /// Background Color of Text Box.
+        /// </summary>
+        [Category("Appearance")]
+        public Color TextBoxBackColor { get => textbox.BackColor; set => textbox.BackColor = value; }
 
         private bool isDropDownList = false;
 
@@ -203,6 +227,9 @@ namespace CodeArtEng.Controls
             }
         }
 
+        /// <summary>
+        /// Item selected index for Drop Down Box
+        /// </summary>
         [Browsable(true)]
         [Category("Appearance")]
         [DefaultValue(0)]
@@ -218,6 +245,7 @@ namespace CodeArtEng.Controls
                 comboBox.SelectedIndex = value;
             }
         }
+
 
         private void textbox_TextChanged(object sender, EventArgs e)
         {
@@ -267,5 +295,24 @@ namespace CodeArtEng.Controls
             textbox.Enabled = chkBox.Checked;
             comboBox.Enabled = chkBox.Checked;
         }
+
+        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SelectedIndexChanged?.Invoke(sender, e);
+        }
+
+        private void Label_SizeChanged(object sender, EventArgs e)
+        {
+            RecalculateTextBoxSize();
+        }
+
+        private void RecalculateTextBoxSize()
+        {
+            SuspendLayout();
+            comboBox.Left = textbox.Left = label.Left + label.Width + textBoxLeftMargin;
+            comboBox.Width = textbox.Width = this.Width - textbox.Left - textBoxRightMargin;
+            ResumeLayout();
+        }
+
     }
 }

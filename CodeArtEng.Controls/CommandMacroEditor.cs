@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CodeArtEng.Controls
@@ -46,7 +41,7 @@ namespace CodeArtEng.Controls
             Text = formTitle;
         }
 
-        private Dictionary<string, string> MacroPair = new Dictionary<string, string>();
+        private readonly Dictionary<string, string> MacroPair = new Dictionary<string, string>();
 
         /// <summary>
         /// Add Macro Key Value Pair

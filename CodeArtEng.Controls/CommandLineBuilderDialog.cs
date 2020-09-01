@@ -124,7 +124,7 @@ namespace CodeArtEng.Controls
                     argTextBox.TextChanged += ArgTextBox_TextChanged;
                     argTextBox.CheckedChanged += ArgTextBox_CheckedChanged;
                     argTextBox.Hint = sw.Value.Description;
-                    if(sw.Value.Options != null)
+                    if (sw.Value.Options != null)
                     {
                         argTextBox.IsDropDownList = true;
                         argTextBox.DropDownListItems = sw.Value.Options;

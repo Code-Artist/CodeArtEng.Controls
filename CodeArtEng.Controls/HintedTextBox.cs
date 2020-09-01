@@ -52,7 +52,7 @@ namespace CodeArtEng.Controls
             SelectAll();
         }
 
-        private Color hintForeColor = Color.FromKnownColor(KnownColor.Gray);
+        private readonly Color hintForeColor = Color.FromKnownColor(KnownColor.Gray);
 
         /// <summary>
         /// Hint Text
@@ -119,7 +119,7 @@ namespace CodeArtEng.Controls
             base.OnTextChanged(e); //Trigger event after update Text property.
             UpdateTextBox();
         }
-        
+
         /// <summary>
         /// TextBox Key Down event.
         /// </summary>

@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMruList1 = new CodeArtEng.Controls.ToolStripMruList();
             this.addFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMruList1 = new CodeArtEng.Controls.ToolStripMruList();
+            this.quickAccessList1 = new CodeArtEng.Controls.QuickAccessList();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -39,7 +41,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.addFileToolStripMenuItem});
+            this.addFileToolStripMenuItem,
+            this.quickAccessList1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(382, 24);
@@ -54,8 +57,16 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
+            // addFileToolStripMenuItem
+            // 
+            this.addFileToolStripMenuItem.Name = "addFileToolStripMenuItem";
+            this.addFileToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.addFileToolStripMenuItem.Text = "Add File";
+            this.addFileToolStripMenuItem.Click += new System.EventHandler(this.addFileToolStripMenuItem_Click);
+            // 
             // toolStripMruList1
             // 
+            this.toolStripMruList1.Enabled = false;
             this.toolStripMruList1.MaxPathLength = 40;
             this.toolStripMruList1.MruListSize = 5;
             this.toolStripMruList1.Name = "toolStripMruList1";
@@ -64,12 +75,12 @@
             this.toolStripMruList1.Text = "Recent File List";
             this.toolStripMruList1.RecentFileClicked += new System.EventHandler<CodeArtEng.Controls.RecentFileClickedEventArgs>(this.toolStripMruList1_RecentFileClicked);
             // 
-            // addFileToolStripMenuItem
+            // quickAccessList1
             // 
-            this.addFileToolStripMenuItem.Name = "addFileToolStripMenuItem";
-            this.addFileToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-            this.addFileToolStripMenuItem.Text = "Add File";
-            this.addFileToolStripMenuItem.Click += new System.EventHandler(this.addFileToolStripMenuItem_Click);
+            this.quickAccessList1.Name = "quickAccessList1";
+            this.quickAccessList1.SearchPaths = ((System.Collections.Generic.List<string>)(resources.GetObject("quickAccessList1.SearchPaths")));
+            this.quickAccessList1.Size = new System.Drawing.Size(108, 20);
+            this.quickAccessList1.Text = "quickAccessList1";
             // 
             // Form1
             // 
@@ -94,6 +105,7 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private CodeArtEng.Controls.ToolStripMruList toolStripMruList1;
         private System.Windows.Forms.ToolStripMenuItem addFileToolStripMenuItem;
+        private CodeArtEng.Controls.QuickAccessList quickAccessList1;
     }
 }
 

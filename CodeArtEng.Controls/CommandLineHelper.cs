@@ -62,8 +62,8 @@ namespace CodeArtEng.Controls
         public string Description { get; set; }
 
         private int ArgMaxLength = 2;
-        private List<CommandLineArgument> Arguments = new List<CommandLineArgument>();
-        private Dictionary<string, CommandLineSwitch> Switches = new Dictionary<string, CommandLineSwitch>();
+        private readonly List<CommandLineArgument> Arguments = new List<CommandLineArgument>();
+        private readonly Dictionary<string, CommandLineSwitch> Switches = new Dictionary<string, CommandLineSwitch>();
 
         /// <summary>
         /// Return list of registered command line arguments.
@@ -419,7 +419,7 @@ namespace CodeArtEng.Controls
 
                         }
                     }
-                    else if(s.Value.Options != null)
+                    else if (s.Value.Options != null)
                     {
                         result += ":";
                         if (s.Value.Value.Contains(" "))

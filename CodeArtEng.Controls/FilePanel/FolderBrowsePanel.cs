@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace CodeArtEng.Controls
 {
@@ -12,6 +13,14 @@ namespace CodeArtEng.Controls
     public class FolderBrowsePanel : FilePanelBase
     {
         private FolderBrowserDialog folderBrowserDialog1;
+
+        /// <summary>
+        /// New folder browse dialog implemented using WindowsAPICodePack-Shell. 
+        /// Set LegacyMode flag to use original Window's built in folder browse dialog.
+        /// </summary>
+        [Description("When set, use Windows built in folder brose dialog.")]
+        [DefaultValue(false)]
+        public bool LegacyMode { get; set; } = false;
 
         /// <summary>
         /// Constructor
@@ -50,11 +59,26 @@ namespace CodeArtEng.Controls
 
         private void btBrowse_Click(object sender, EventArgs e)
         {
-            try { folderBrowserDialog1.SelectedPath = SelectedPath; }
-            catch { SelectedPath = string.Empty; }
-            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            if (!LegacyMode)
             {
-                SelectedPath = folderBrowserDialog1.SelectedPath;
+                using (CommonOpenFileDialog dialog = new CommonOpenFileDialog())
+                {
+                    dialog.IsFolderPicker = true;
+                    dialog.InitialDirectory = SelectedPath;
+                    if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+                    {
+                        SelectedPath = dialog.FileName;
+                    }
+                }
+            }
+            else
+            {
+                try { folderBrowserDialog1.SelectedPath = SelectedPath; }
+                catch { SelectedPath = string.Empty; }
+                if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    SelectedPath = folderBrowserDialog1.SelectedPath;
+                }
             }
         }
 

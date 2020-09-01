@@ -39,11 +39,10 @@
             // 
             this.label.AutoSize = true;
             this.label.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label.Location = new System.Drawing.Point(18, 0);
-            this.label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label.Location = new System.Drawing.Point(15, 0);
             this.label.Name = "label";
-            this.label.Padding = new System.Windows.Forms.Padding(3, 5, 0, 0);
-            this.label.Size = new System.Drawing.Size(41, 22);
+            this.label.Padding = new System.Windows.Forms.Padding(2, 4, 0, 0);
+            this.label.Size = new System.Drawing.Size(31, 17);
             this.label.TabIndex = 0;
             this.label.Text = "label";
             // 
@@ -54,9 +53,8 @@
             this.chkBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkBox.Dock = System.Windows.Forms.DockStyle.Left;
             this.chkBox.Location = new System.Drawing.Point(0, 0);
-            this.chkBox.Margin = new System.Windows.Forms.Padding(4);
             this.chkBox.Name = "chkBox";
-            this.chkBox.Size = new System.Drawing.Size(18, 28);
+            this.chkBox.Size = new System.Drawing.Size(15, 23);
             this.chkBox.TabIndex = 2;
             this.chkBox.UseVisualStyleBackColor = true;
             this.chkBox.Visible = false;
@@ -66,10 +64,10 @@
             // 
             this.comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox.FormattingEnabled = true;
-            this.comboBox.Location = new System.Drawing.Point(340, 1);
-            this.comboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBox.Location = new System.Drawing.Point(255, 1);
+            this.comboBox.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox.Name = "comboBox";
-            this.comboBox.Size = new System.Drawing.Size(60, 24);
+            this.comboBox.Size = new System.Drawing.Size(46, 21);
             this.comboBox.TabIndex = 3;
             this.comboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
             // 
@@ -79,10 +77,9 @@
             this.textbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textbox.Hint = null;
-            this.textbox.Location = new System.Drawing.Point(67, 1);
-            this.textbox.Margin = new System.Windows.Forms.Padding(4);
+            this.textbox.Location = new System.Drawing.Point(50, 1);
             this.textbox.Name = "textbox";
-            this.textbox.Size = new System.Drawing.Size(359, 22);
+            this.textbox.Size = new System.Drawing.Size(270, 20);
             this.textbox.TabIndex = 1;
             this.textbox.TextChanged += new System.EventHandler(this.textbox_TextChanged);
             this.textbox.DragDrop += new System.Windows.Forms.DragEventHandler(this.textbox_DragDrop);
@@ -92,16 +89,15 @@
             // 
             // LabeledTextBox
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.comboBox);
             this.Controls.Add(this.textbox);
             this.Controls.Add(this.label);
             this.Controls.Add(this.chkBox);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(0, 28);
+            this.MinimumSize = new System.Drawing.Size(0, 23);
             this.Name = "LabeledTextBox";
-            this.Size = new System.Drawing.Size(428, 28);
+            this.Size = new System.Drawing.Size(321, 23);
             this.VisibleChanged += new System.EventHandler(this.LabeledTextBox_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.textbox)).EndInit();
             this.ResumeLayout(false);

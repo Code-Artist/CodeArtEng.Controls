@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using System;
 
 namespace CodeArtEng.Controls.UnitTests
 {
@@ -59,20 +55,20 @@ namespace CodeArtEng.Controls.UnitTests
             cmdLine.AddArgument(argName, "Argument 1");
         }
 
-        [Test, ExpectedException(typeof (Exception))]
+        [Test]
         public void AddArgument_Duplicate_Exception()
         {
             string argName = "Arg1";
             cmdLine.AddArgument(argName, "Argument 1");
-            cmdLine.AddArgument(argName, "Argument 1");
+            Assert.Throws<Exception>(() => { cmdLine.AddArgument(argName, "Argument 1"); });
         }
 
-        [Test, ExpectedException(typeof(ArgumentException))]
+        [Test]
         public void AddSwitches_Duplicate_Exception()
         {
             string argName = "/S";
             cmdLine.AddSwitch(argName, "Switches 1");
-            cmdLine.AddSwitch(argName, "Switches 1");
+            Assert.Throws<ArgumentException>(() => { cmdLine.AddSwitch(argName, "Switches 1"); });
         }
 
 
@@ -82,10 +78,13 @@ namespace CodeArtEng.Controls.UnitTests
             Assert.AreEqual(false, cmdLine.IsSwitchSet("/NotExist"));
         }
 
-        [Test, ExpectedException(typeof(ArgumentNullException))]
+        [Test]
         public void GetArgumentValue_Invalid()
         {
-            cmdLine.GetArgumentValue("Unknown");
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                cmdLine.GetArgumentValue("Unknown");
+            });
         }
 
         [Test]
@@ -110,16 +109,22 @@ namespace CodeArtEng.Controls.UnitTests
             Assert.AreEqual("200", cmdLine.GetSwitchValue("/Delay"));
         }
 
-        [Test, ExpectedException(typeof(ArgumentException))]
+        [Test]
         public void SetArgument_InvalidArgument()
         {
-            cmdLine.SetArgument("DUMMY", "TEST");
+            Assert.Throws<ArgumentException>(() =>
+            {
+                cmdLine.SetArgument("DUMMY", "TEST");
+            });
         }
 
-        [Test, ExpectedException(typeof(ArgumentException))]
+        [Test]
         public void SetSwitch_InvalidSwitch()
         {
-            cmdLine.SetSwitch("/NOTEXIST");
+            Assert.Throws<ArgumentException>(() =>
+            {
+                cmdLine.SetSwitch("/NOTEXIST");
+            });
         }
 
 
@@ -153,10 +158,13 @@ namespace CodeArtEng.Controls.UnitTests
             Assert.IsFalse(cmdLine.IsSwitchSet("/MIN"));
         }
 
-        [Test, ExpectedException(typeof(Exception))]
+        [Test]
         public void ParseCommandLine_MissingMandatoryArg_Exception()
         {
-            cmdLine.ParseCommandLine(("/AD /MIN").Split(' '));
+            Assert.Throws<Exception>(() =>
+            {
+                cmdLine.ParseCommandLine(("/AD /MIN").Split(' '));
+            });
         }
 
         [Test]
@@ -222,7 +230,7 @@ namespace CodeArtEng.Controls.UnitTests
 
             cmdLine.Reset();
 
-            Assert.IsNullOrEmpty(cmdLine.GetArgumentValue("Source"));
+            Assert.IsEmpty(cmdLine.GetArgumentValue("Source"));
             Assert.IsFalse(cmdLine.IsSwitchSet("/MIN"));
         }
 

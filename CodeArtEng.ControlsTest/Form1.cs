@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CodeArtEng.Controls;
+using System;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Diagnostics;
-using CodeArtEng.Controls;
 using System.Drawing.Design;
+using System.Windows.Forms;
 
 namespace CodeArtEng.ControlsTest
 {
@@ -18,8 +13,33 @@ namespace CodeArtEng.ControlsTest
         {
             InitializeComponent();
             fileExplorer1.AttachToMyComputer();
-            fileExplorer1.FileDoubleClicked += new EventHandler<CodeArtEng.Controls.FileExplorerEventArgs>(fileExplorer1_FileDoubleClicked);
+            fileExplorer1.FileDoubleClicked += new EventHandler<FileExplorerEventArgs>(fileExplorer1_FileDoubleClicked);
+            //fileExplorer1.FolderSelect = true;
             propertyGrid1.SelectedObject = new PropertyGridTest();
+
+            quickAccessList1.SearchPaths.Add("D:\\CKMAI_Documents\\Programming\\ClassLibraryNET\\CodeArtEng\\CodeArtEng.Controls\\CodeArtEng.Controls");
+            quickAccessList1.SearchPaths.Add("D:/CKMAI_Documents/Programming/ClassLibraryNET/CodeArtEng/CodeArtEng.Controls/CodeArtEng.ControlsTest");
+            quickAccessList1.SearchPaths.Add("NotExist");
+            quickAccessList1.FileFilter = "*.cs";
+            quickAccessList1.UpdateList();
+            quickAccessList1.ItemClicked += QuickAccessList1_ItemClicked;
+
+            //            richTextEditor1.Text = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Nunc sed augue lacus viverra vitae congue. Ultrices vitae auctor eu augue ut lectus. Sit amet massa vitae tortor condimentum lacinia quis vel eros. Sit amet consectetur adipiscing elit duis. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Nibh venenatis cras sed felis eget velit. Tortor posuere ac ut consequat semper viverra nam libero. Integer malesuada nunc vel risus commodo viverra. Sagittis vitae et leo duis ut diam. Massa eget egestas purus viverra accumsan.
+
+            //Elit eget gravida cum sociis natoque penatibus. Nam at lectus urna duis convallis convallis tellus. Phasellus vestibulum lorem sed risus ultricies tristique nulla aliquet. Commodo viverra maecenas accumsan lacus vel facilisis. Euismod in pellentesque massa placerat duis ultricies. Tellus integer feugiat scelerisque varius morbi. Laoreet id donec ultrices tincidunt. Duis ultricies lacus sed turpis tincidunt id aliquet risus. Pharetra et ultrices neque ornare aenean euismod elementum nisi quis. Feugiat sed lectus vestibulum mattis. Tellus id interdum velit laoreet id. Et molestie ac feugiat sed lectus. Egestas pretium aenean pharetra magna ac placerat. Leo urna molestie at elementum eu facilisis sed odio. Molestie ac feugiat sed lectus. Pulvinar sapien et ligula ullamcorper malesuada proin libero nunc. Sagittis id consectetur purus ut faucibus pulvinar. Fermentum et sollicitudin ac orci phasellus egestas tellus.
+
+            //Quam id leo in vitae turpis massa sed elementum tempus. Vel fringilla est ullamcorper eget nulla. A diam maecenas sed enim ut sem viverra aliquet eget. Porta nibh venenatis cras sed felis. At lectus urna duis convallis convallis tellus id interdum. Eu consequat ac felis donec et odio pellentesque. Non nisi est sit amet facilisis magna etiam tempor orci. Interdum posuere lorem ipsum dolor sit amet. Ac turpis egestas integer eget. Penatibus et magnis dis parturient. Nulla porttitor massa id neque aliquam vestibulum. Ac turpis egestas integer eget aliquet nibh praesent tristique magna. Tincidunt ornare massa eget egestas purus viverra accumsan in. Placerat in egestas erat imperdiet sed. Vitae justo eget magna fermentum iaculis eu non diam phasellus. Amet luctus venenatis lectus magna fringilla urna porttitor rhoncus. Purus sit amet volutpat consequat. Porta nibh venenatis cras sed felis eget. Mollis nunc sed id semper risus in hendrerit gravida.
+
+            //Proin sagittis nisl rhoncus mattis rhoncus urna neque viverra justo. Mauris vitae ultricies leo integer malesuada. Arcu risus quis varius quam quisque. Fermentum et sollicitudin ac orci phasellus. Pharetra pharetra massa massa ultricies mi quis. Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant. In metus vulputate eu scelerisque felis imperdiet proin fermentum. Volutpat odio facilisis mauris sit amet. Fusce ut placerat orci nulla pellentesque dignissim enim. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Mattis pellentesque id nibh tortor id aliquet. Feugiat vivamus at augue eget arcu dictum.
+
+            //Enim nec dui nunc mattis enim ut. Aliquet nibh praesent tristique magna sit amet. Placerat duis ultricies lacus sed turpis tincidunt id aliquet risus. Sit amet consectetur adipiscing elit. Non sodales neque sodales ut etiam. Risus ultricies tristique nulla aliquet enim tortor. Elementum nibh tellus molestie nunc non blandit massa enim nec. Malesuada nunc vel risus commodo viverra maecenas accumsan. Non diam phasellus vestibulum lorem sed risus ultricies tristique nulla. Ut ornare lectus sit amet est placerat in egestas erat. Maecenas accumsan lacus vel facilisis volutpat est velit egestas dui. Sit amet venenatis urna cursus eget nunc. Sed sed risus pretium quam vulputate dignissim. Dolor magna eget est lorem ipsum dolor sit amet consectetur. Sit amet cursus sit amet dictum sit amet justo. Nunc sed augue lacus viverra vitae congue eu. Sed euismod nisi porta lorem mollis aliquam ut porttitor. In ornare quam viverra orci sagittis eu volutpat odio. Posuere morbi leo urna molestie at.";
+
+        }
+
+        private void QuickAccessList1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            Debug.WriteLine("Item Clicked: " + e.ClickedItem.Tag.ToString());
+            Process.Start(e.ClickedItem.Tag.ToString());
         }
 
         void fileExplorer1_FileDoubleClicked(object sender, Controls.FileExplorerEventArgs e)
@@ -86,7 +106,7 @@ namespace CodeArtEng.ControlsTest
             cmdLine.SetArgument("Dest Path", "D:\\My Documents");
             cmdLine.SetSwitch("/D");
             cmdLine.PrintHelp();
-            if(cmdLine.ShowDialog() == DialogResult.OK)
+            if (cmdLine.ShowDialog() == DialogResult.OK)
             {
                 //Do Something if necessary
             }
@@ -125,10 +145,37 @@ namespace CodeArtEng.ControlsTest
 
         private void labeledTextBox2_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Return)
+            if (e.KeyCode == Keys.Return)
             {
                 MessageBox.Show("Enter Pressed");
             }
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            labeledTextBox4.ReadOnly = !labeledTextBox4.ReadOnly;
+        }
+
+        private void FileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtMergeRichText_Click(object sender, EventArgs e)
+        {
+            string rtfText = RtfA.GetRtfText();
+            RtfMerged.Append(RtfA.GetRtfText(), RtfB.GetRtfText());
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine("Selected Folder: " + fileExplorer1.SelectedFolder);
+            Debug.WriteLine("Selected Files: " + string.Join("\n", fileExplorer1.SelectedFiles()));
+        }
+
+        private void BtSetInitialFolder_Click(object sender, EventArgs e)
+        {
+            fileExplorer1.SetSelectedFolder(TxtInitialFolder.Text);
         }
     }
 

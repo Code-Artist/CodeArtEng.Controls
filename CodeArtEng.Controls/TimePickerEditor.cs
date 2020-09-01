@@ -14,7 +14,7 @@ namespace CodeArtEng.Controls
     {
         IWindowsFormsEditorService editorService;
         DateTimePicker picker = new DateTimePicker();
-        string CurrentDateTimeFormat;
+        readonly string CurrentDateTimeFormat;
 
         /// <summary>
         /// Create TimePicker Editor Control.

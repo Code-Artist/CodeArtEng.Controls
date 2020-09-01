@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CodeArtEng.Controls
@@ -46,6 +47,7 @@ namespace CodeArtEng.Controls
             if (SelectedFolder == null) return;
 
             FileExplorerItemInfo[] folders = ExplorerHandler.GetDirectories(SelectedFolder);
+            if (folders == null) return;
             foreach (FileExplorerItemInfo ptrItem in folders)
             {
                 if (ptrItem.Attributes.HasFlag(FileAttributes.System) && HideSystemFolder) continue;
@@ -54,17 +56,20 @@ namespace CodeArtEng.Controls
                 ptrListItem.ImageIndex = (int)ImageIndexName.Folder;
             }
 
-            FileExplorerItemInfo[] files = ExplorerHandler.GetFiles(SelectedFolder);
-            foreach (FileExplorerItemInfo ptrFile in files)
+            if (!ShowFoldersOnly)
             {
-                if (ptrFile.Attributes.HasFlag(FileAttributes.System) && HideSystemFolder) continue;
-                ptrListItem = FileListView.Items.Add(ptrFile.Name);
-                ptrListItem.Text = ptrFile.Name;
-                ptrListItem.SubItems.Add(ptrFile.LastWriteTime.ToString());
-                ptrListItem.SubItems.Add((ptrFile.Length / 1024).ToString() + " KB");
-                ptrListItem.ImageIndex = (int)ImageIndexName.File;
+                FileExplorerItemInfo[] files = ExplorerHandler.GetFiles(SelectedFolder);
+                if (files == null) return;
+                foreach (FileExplorerItemInfo ptrFile in files)
+                {
+                    if (ptrFile.Attributes.HasFlag(FileAttributes.System) && HideSystemFolder) continue;
+                    ptrListItem = FileListView.Items.Add(ptrFile.Name);
+                    ptrListItem.Text = ptrFile.Name;
+                    ptrListItem.SubItems.Add(ptrFile.LastWriteTime.ToString());
+                    ptrListItem.SubItems.Add((ptrFile.Length / 1024).ToString() + " KB");
+                    ptrListItem.ImageIndex = (int)ImageIndexName.File;
+                }
             }
-
             FileListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
         }
         private string[] _SelectedFiles;
@@ -72,6 +77,20 @@ namespace CodeArtEng.Controls
         #endregion
 
         #region [ Public Property ]
+
+        /// <summary>
+        /// Hide all files.
+        /// </summary>
+        [DefaultValue(false)]
+        [Description("Hide all files")]
+        public bool ShowFoldersOnly { get; set; } = false;
+
+        /// <summary>
+        /// Allows multiple items to be selected.
+        /// </summary>
+        [DefaultValue(true)]
+        [Description("Allows multiple items to be selected.")]
+        public bool MultiSelect { get => FileListView.MultiSelect; set => FileListView.MultiSelect = value; }
 
         /// <summary>
         /// Return folder selected in folder tree view.
@@ -134,6 +153,7 @@ namespace CodeArtEng.Controls
                     (ptrDrive.DriveType == DriveType.Removable))
                 {
                     childNode = ptrNode.Nodes.Add(ptrDrive.Name);
+                    childNode.Name = childNode.Text;
                     childNode.Tag = ptrDrive.Name;
                     childNode.ImageIndex = (int)ImageIndexName.HDD;
                     childNode.SelectedImageIndex = (int)ImageIndexName.HDD;
@@ -149,17 +169,60 @@ namespace CodeArtEng.Controls
         /// <param name="source"></param>
         public void AttachSource(IFileExplorer source)
         {
+            if (ExplorerHandler != null)
+            {
+                //Remove old Events
+                ExplorerHandler.ConnectionStatusChanged -= ExplorerHandler_ConnectionStatusChanged;
+            }
             ExplorerHandler = source;
-            FolderTreeView.Nodes.Clear();
-            FileListView.Clear();
+            ExplorerHandler.ConnectionStatusChanged += ExplorerHandler_ConnectionStatusChanged;
 
-            TreeNode ptrNode = FolderTreeView.Nodes.Add(ExplorerHandler.Name);
-            ptrNode.ImageIndex = (int)ImageIndexName.Folder;
-            ptrNode.Tag = ExplorerHandler.Root;
-            ptrNode.SelectedImageIndex = (int)ImageIndexName.Folder;
-            ptrNode.Nodes.Add(" ");
+            RefreshFolderTreeView();
             OnSourceChanged();
         }
+
+        private bool SuspendEvent = false;
+
+        private void ExplorerHandler_ConnectionStatusChanged(object sender, EventArgs e)
+        {
+            if (SuspendEvent) return;
+            RefreshFolderTreeView();
+        }
+
+        /// <summary>
+        /// Refresh Folders in File Explorer
+        /// </summary>
+        public void RefreshFolderTreeView()
+        {
+            if (InvokeRequired)
+            {
+                BeginInvoke(new MethodInvoker(RefreshFolderTreeView));
+                return;
+            }
+
+            SuspendEvent = true;
+            try
+            {
+
+                //Reconnect used by MediaDevice - Must run in Main Thread.
+                if (!ExplorerHandler.IsConnected) ExplorerHandler.Reconnect();
+                FolderTreeView.Nodes.Clear();
+                FileListView.Clear();
+
+                if (!string.IsNullOrEmpty(ExplorerHandler.Name))
+                {
+                    if (!ExplorerHandler.IsConnected) return;
+                    TreeNode ptrNode = FolderTreeView.Nodes.Add(ExplorerHandler.Name);
+                    ptrNode.Name = ptrNode.Text;
+                    ptrNode.ImageIndex = (int)ImageIndexName.Folder;
+                    ptrNode.Tag = ExplorerHandler.Root;
+                    ptrNode.SelectedImageIndex = (int)ImageIndexName.Folder;
+                    ptrNode.Nodes.Add(" ");
+                }
+            }
+            finally { SuspendEvent = false; }
+        }
+
         /// <summary>
         /// Unsubscribe control from current source
         /// </summary>
@@ -181,10 +244,39 @@ namespace CodeArtEng.Controls
         /// </summary>
         public override void Refresh()
         {
+            if (ExplorerHandler == null) return;
             if (ExplorerHandler.IsConnected)
             {
                 RefreshFileList();
                 base.Refresh();
+            }
+        }
+
+        /// <summary>
+        /// Set and focus selected path.
+        /// </summary>
+        /// <param name="directory"></param>
+        public void SetSelectedFolder(string directory)
+        {
+            SuspendLayout();
+            try
+            {
+                string root = ExplorerHandler.GetSelectedFolderRoot(directory);
+                string[] folders = directory.Replace(root, "").Split(new char[] { '/', '\\' }, StringSplitOptions.RemoveEmptyEntries);
+                TreeNode ptrNode = FolderTreeView.Nodes.Find(root, true)?.First();
+                FolderTreeView.SelectedNode = ptrNode;
+                ptrNode.Expand();
+                foreach (string f in folders)
+                {
+                    ptrNode = ptrNode.Nodes.Find(f, false).First();
+                    ptrNode.Expand();
+                }
+                FolderTreeView.SelectedNode = ptrNode;
+                SelectedFolder = directory;
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine("ERROR: Unable to set initial directory: " + directory + "\n" + ex.Message);
             }
         }
 
@@ -194,8 +286,7 @@ namespace CodeArtEng.Controls
 
         private void HandleFileExplorerEvent(EventHandler<FileExplorerEventArgs> eventHandler, FileExplorerEventArgs args)
         {
-            EventHandler<FileExplorerEventArgs> handler = eventHandler;
-            if (handler != null) handler(this, args);
+            eventHandler?.Invoke(this, args);
         }
         private bool HandleKeyEvent(KeyEventHandler eventHandle, KeyEventArgs args)
         {
@@ -203,7 +294,7 @@ namespace CodeArtEng.Controls
             if (handler == null) return false;
 
             args.Handled = false;
-            if (handler != null) handler(this, args);
+            handler?.Invoke(this, args);
             return args.Handled;
         }
 
@@ -249,6 +340,7 @@ namespace CodeArtEng.Controls
                     if (ptrDir.Attributes.HasFlag(FileAttributes.Directory))
                     {
                         childNode = ptrNode.Nodes.Add(ptrDir.Name);
+                        childNode.Name = childNode.Text;
                         childNode.ImageIndex = (int)ImageIndexName.Folder; ;
                         childNode.SelectedImageIndex = (int)ImageIndexName.FolderOpen;
                         childNode.Tag = ptrDir.FullName;
@@ -265,16 +357,16 @@ namespace CodeArtEng.Controls
         }
         private void FolderTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-
             SelectedNode = FolderTreeView.SelectedNode;
             try
             {
                 _SelectedFiles = null;
-                SelectedFolder = SelectedNode.Tag.ToString();
-                OnFolderSelected();
-                RefreshFileList();
+                SelectedFolder = SelectedNode?.Tag?.ToString();
             }
             catch (NullReferenceException) { SelectedFolder = string.Empty; }
+            TxtSelectedFolder.Text = ExplorerHandler.FolderPathPrefix + SelectedFolder; //Append prefix folder path
+            OnFolderSelected();
+            RefreshFileList();
         }
         private void FolderTreeView_KeyDown(object sender, KeyEventArgs e)
         {
@@ -295,6 +387,23 @@ namespace CodeArtEng.Controls
                 }
                 catch { /* Do Nothing */ }
                 finally { RefreshFileList(); }
+            }
+        }
+
+        private void TxtSelectedFolder_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Return)
+            {
+                string inputPath = TxtSelectedFolder.Text;
+                if (!string.IsNullOrEmpty(ExplorerHandler.FolderPathPrefix))
+                {
+                    //Remove prefix folder path if matched
+                    if (inputPath.StartsWith(ExplorerHandler.FolderPathPrefix, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        inputPath = inputPath.Substring(ExplorerHandler.FolderPathPrefix.Length);
+                    }
+                }
+                SetSelectedFolder(inputPath);
             }
         }
 
@@ -367,7 +476,6 @@ namespace CodeArtEng.Controls
             if (TrackSplitterMove)
             {
                 _SplitterDistance = e.SplitX;
-                Debug.WriteLine("Splitter distance = " + _SplitterDistance.ToString());
             }
         }
 
@@ -417,6 +525,7 @@ namespace CodeArtEng.Controls
         }
 
         #endregion
+
     }
 
     /// <summary>

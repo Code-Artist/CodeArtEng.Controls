@@ -48,17 +48,20 @@
             this.viewContextDetail = new System.Windows.Forms.ToolStripMenuItem();
             this.viewContextTile = new System.Windows.Forms.ToolStripMenuItem();
             this.LargeImageList = new System.Windows.Forms.ImageList(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.TxtSelectedFolder = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.fileContextMenu.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 30);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -68,7 +71,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.FileListView);
-            this.splitContainer1.Size = new System.Drawing.Size(372, 376);
+            this.splitContainer1.Size = new System.Drawing.Size(372, 346);
             this.splitContainer1.SplitterDistance = 183;
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.SplitterMoving += new System.Windows.Forms.SplitterCancelEventHandler(this.splitContainer1_SplitterMoving);
@@ -78,6 +81,7 @@
             // 
             // FolderTreeView
             // 
+            this.FolderTreeView.HideSelection = false;
             this.FolderTreeView.ImageIndex = 0;
             this.FolderTreeView.ImageList = this.FolderIconList;
             this.FolderTreeView.Location = new System.Drawing.Point(16, 15);
@@ -106,6 +110,7 @@
             this.colDateModified,
             this.colSize});
             this.FileListView.ContextMenuStrip = this.fileContextMenu;
+            this.FileListView.HideSelection = false;
             this.FileListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2,
@@ -156,35 +161,35 @@
             // viewContextSmallIcon
             // 
             this.viewContextSmallIcon.Name = "viewContextSmallIcon";
-            this.viewContextSmallIcon.Size = new System.Drawing.Size(152, 22);
+            this.viewContextSmallIcon.Size = new System.Drawing.Size(129, 22);
             this.viewContextSmallIcon.Text = "Small Icon";
             this.viewContextSmallIcon.Click += new System.EventHandler(this.viewContext_Clicked);
             // 
             // viewContextLargeIcon
             // 
             this.viewContextLargeIcon.Name = "viewContextLargeIcon";
-            this.viewContextLargeIcon.Size = new System.Drawing.Size(152, 22);
+            this.viewContextLargeIcon.Size = new System.Drawing.Size(129, 22);
             this.viewContextLargeIcon.Text = "Large Icon";
             this.viewContextLargeIcon.Click += new System.EventHandler(this.viewContext_Clicked);
             // 
             // viewContextList
             // 
             this.viewContextList.Name = "viewContextList";
-            this.viewContextList.Size = new System.Drawing.Size(152, 22);
+            this.viewContextList.Size = new System.Drawing.Size(129, 22);
             this.viewContextList.Text = "List";
             this.viewContextList.Click += new System.EventHandler(this.viewContext_Clicked);
             // 
             // viewContextDetail
             // 
             this.viewContextDetail.Name = "viewContextDetail";
-            this.viewContextDetail.Size = new System.Drawing.Size(152, 22);
+            this.viewContextDetail.Size = new System.Drawing.Size(129, 22);
             this.viewContextDetail.Text = "Details";
             this.viewContextDetail.Click += new System.EventHandler(this.viewContext_Clicked);
             // 
             // viewContextTile
             // 
             this.viewContextTile.Name = "viewContextTile";
-            this.viewContextTile.Size = new System.Drawing.Size(152, 22);
+            this.viewContextTile.Size = new System.Drawing.Size(129, 22);
             this.viewContextTile.Text = "Tile";
             this.viewContextTile.Click += new System.EventHandler(this.viewContext_Clicked);
             // 
@@ -198,11 +203,31 @@
             this.LargeImageList.Images.SetKeyName(3, "FolderOpen_48x48_72.png");
             this.LargeImageList.Images.SetKeyName(4, "Generic_Document.png");
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.TxtSelectedFolder);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(5);
+            this.panel1.Size = new System.Drawing.Size(372, 30);
+            this.panel1.TabIndex = 1;
+            // 
+            // TxtSelectedFolder
+            // 
+            this.TxtSelectedFolder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtSelectedFolder.Location = new System.Drawing.Point(5, 5);
+            this.TxtSelectedFolder.Name = "TxtSelectedFolder";
+            this.TxtSelectedFolder.Size = new System.Drawing.Size(362, 20);
+            this.TxtSelectedFolder.TabIndex = 0;
+            this.TxtSelectedFolder.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtSelectedFolder_KeyDown);
+            // 
             // FileExplorer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.panel1);
             this.Name = "FileExplorer";
             this.Size = new System.Drawing.Size(372, 376);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -210,6 +235,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.fileContextMenu.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -231,5 +258,7 @@
         private System.Windows.Forms.ToolStripMenuItem viewContextDetail;
         private System.Windows.Forms.ToolStripMenuItem viewContextTile;
         private System.Windows.Forms.ImageList LargeImageList;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox TxtSelectedFolder;
     }
 }

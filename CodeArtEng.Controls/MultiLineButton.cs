@@ -69,7 +69,7 @@ namespace CodeArtEng.Controls
         /// </summary>
         [Category("Appearance")]
         [Description("Specific space between image and border. When ButtonStyle is RoundedRectangle, " +
-            "space between image circle from border defined by left margin; top and bottom margin is not used." + 
+            "space between image circle from border defined by left margin; top and bottom margin is not used." +
             "Right margin specify space between image and text.")]
         public Padding ImageMargin { get; set; }
 

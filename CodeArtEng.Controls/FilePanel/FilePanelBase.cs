@@ -43,6 +43,21 @@ namespace CodeArtEng.Controls
         }
 
         /// <summary>
+        /// Control whether the content can be changed or not
+        /// </summary>
+        [Category("Behavior")]
+        [DefaultValue(false)]
+        public bool ReadOnly
+        {
+            get { return textbox.ReadOnly; }
+            set
+            {
+                textbox.ReadOnly = value;
+                btBrowse.Enabled = !value;
+            }
+        }
+
+        /// <summary>
         /// Auto Resize Label
         /// </summary>
         [Category("Layout")]

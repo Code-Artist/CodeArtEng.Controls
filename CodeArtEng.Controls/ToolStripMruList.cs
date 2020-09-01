@@ -15,7 +15,7 @@ namespace CodeArtEng.Controls
     [DefaultEvent("RecentFileClicked")]
     public class ToolStripMruList : ToolStripMenuItem
     {
-        private List<string> MRUList;
+        private readonly List<string> MRUList;
 
         /// <summary>
         /// Constructor
