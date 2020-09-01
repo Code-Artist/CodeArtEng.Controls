@@ -13,5 +13,8 @@ Collections of Windows Forms controls.<br/>
 - Open File Panel and Folder Browse Panel
 - MRU (Most Recent Used File List)
 - File Explorer Control
+- Quick Access List
+- Rich Text Editor
+
 
 Visit http://www.codearteng.com/2017/10/winforms-controls.html for more informations.
