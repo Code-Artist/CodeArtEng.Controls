@@ -172,18 +172,37 @@ namespace CodeArtEng.Controls
             if (ExplorerHandler != null)
             {
                 //Remove old Events
-                ExplorerHandler.ConnectionStatusChanged -= ExplorerHandler_ConnectionStatusChanged;
+                ExplorerHandler.DeviceConnected -= ExplorerHandler_DeviceConnected;
+                ExplorerHandler.DeviceDisconnected -= ExplorerHandler_DeviceDisconnected;
             }
             ExplorerHandler = source;
-            ExplorerHandler.ConnectionStatusChanged += ExplorerHandler_ConnectionStatusChanged;
+            ExplorerHandler.DeviceConnected += ExplorerHandler_DeviceConnected;
+            ExplorerHandler.DeviceDisconnected += ExplorerHandler_DeviceDisconnected;
 
             RefreshFolderTreeView();
             OnSourceChanged();
         }
 
+        private void ExplorerHandler_DeviceDisconnected(object sender, EventArgs e)
+        {
+            if (SuspendEvent) return;
+            ClearTreeView();
+        }
+
+        public void ClearTreeView()
+        {
+            if (InvokeRequired)
+            {
+                BeginInvoke(new MethodInvoker(ClearTreeView));
+                return;
+            }
+            FolderTreeView.Nodes.Clear();
+            FileListView.Clear();
+        }
+
         private bool SuspendEvent = false;
 
-        private void ExplorerHandler_ConnectionStatusChanged(object sender, EventArgs e)
+        private void ExplorerHandler_DeviceConnected(object sender, EventArgs e)
         {
             if (SuspendEvent) return;
             RefreshFolderTreeView();
@@ -261,6 +280,15 @@ namespace CodeArtEng.Controls
             SuspendLayout();
             try
             {
+                if (!string.IsNullOrEmpty(ExplorerHandler.FolderPathPrefix))
+                {
+                    //Remove prefix folder path if matched
+                    if (directory.StartsWith(ExplorerHandler.FolderPathPrefix, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        directory = directory.Substring(ExplorerHandler.FolderPathPrefix.Length);
+                    }
+                }
+
                 string root = ExplorerHandler.GetSelectedFolderRoot(directory);
                 string[] folders = directory.Replace(root, "").Split(new char[] { '/', '\\' }, StringSplitOptions.RemoveEmptyEntries);
                 TreeNode ptrNode = FolderTreeView.Nodes.Find(root, true)?.First();
@@ -395,14 +423,6 @@ namespace CodeArtEng.Controls
             if (e.KeyCode == Keys.Return)
             {
                 string inputPath = TxtSelectedFolder.Text;
-                if (!string.IsNullOrEmpty(ExplorerHandler.FolderPathPrefix))
-                {
-                    //Remove prefix folder path if matched
-                    if (inputPath.StartsWith(ExplorerHandler.FolderPathPrefix, StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        inputPath = inputPath.Substring(ExplorerHandler.FolderPathPrefix.Length);
-                    }
-                }
                 SetSelectedFolder(inputPath);
             }
         }

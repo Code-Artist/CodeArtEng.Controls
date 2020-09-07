@@ -56,7 +56,7 @@ namespace CodeArtEng.Controls
         /// <summary>
         /// Not used for Local File Explorer
         /// </summary>
-        event EventHandler IFileExplorer.ConnectionStatusChanged
+        event EventHandler IFileExplorer.DeviceConnected
         {
             add
             {
@@ -69,10 +69,20 @@ namespace CodeArtEng.Controls
             }
         }
 
-        void IFileExplorer.Reconnect()
+        event EventHandler IFileExplorer.DeviceDisconnected
         {
-            throw new NotImplementedException();
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
         }
+
+        void IFileExplorer.Reconnect() { /* Do Nothing */ }
 
         #endregion
 

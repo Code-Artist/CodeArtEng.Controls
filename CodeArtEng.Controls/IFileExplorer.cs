@@ -25,13 +25,17 @@ namespace CodeArtEng.Controls
     public interface IFileExplorer
     {
         /// <summary>
-        /// Connection status changed event.
+        /// External device connected event.
         /// </summary>
-        event EventHandler ConnectionStatusChanged;
+        event EventHandler DeviceConnected;
+        /// <summary>
+        /// External device disconnected event.
+        /// </summary>
+        event EventHandler DeviceDisconnected;
         /// <summary>
         /// Reconnect Device using current configuration.
         /// </summary>
-        /// <remarks>This method must be implemented if derived class implement <see cref="ConnectionStatusChanged"/> event.</remarks>
+        /// <remarks>This method must be implemented if derived class implement <see cref="DeviceConnected"/> event.</remarks>
         void Reconnect();
 
         /// <summary>
