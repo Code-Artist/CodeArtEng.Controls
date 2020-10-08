@@ -14,9 +14,18 @@ namespace CodeArtEng.Controls
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
 
         /// <summary>
+        /// Occurs when <see cref="SelectedFile"/> property changed.
+        /// </summary>
+        public event EventHandler SelectedFileChanged;
+
+        /// <summary>
         /// Constructor
         /// </summary>
-        public OpenFilePanel() : base() { InitializeComponent(); }
+        public OpenFilePanel() : base()
+        {
+            InitializeComponent();
+            ValueChangedCallback = TextboxValueChangedCallback;
+        }
 
         private void InitializeComponent()
         {
@@ -66,6 +75,11 @@ namespace CodeArtEng.Controls
             }
         }
 
+        private void TextboxValueChangedCallback()
+        {
+            SelectedFileChanged?.Invoke(this, null);
+        }
+
         /// <summary>
         /// Get or set file name for selected file.
         /// </summary>
@@ -73,7 +87,11 @@ namespace CodeArtEng.Controls
         public string SelectedFile
         {
             get { return textbox.Text; }
-            set { textbox.Text = value; }
+            set
+            {
+                textbox.Text = value;
+                SelectedFileChanged?.Invoke(this, null);
+            }
         }
 
         /// <summary>

@@ -15,6 +15,11 @@ namespace CodeArtEng.Controls
         private FolderBrowserDialog folderBrowserDialog1;
 
         /// <summary>
+        /// Occurs when <see cref="SelectedPath"/> property changed.
+        /// </summary>
+        public event EventHandler SelectedPathChanged;
+
+        /// <summary>
         /// New folder browse dialog implemented using WindowsAPICodePack-Shell. 
         /// Set LegacyMode flag to use original Window's built in folder browse dialog.
         /// </summary>
@@ -25,7 +30,9 @@ namespace CodeArtEng.Controls
         /// <summary>
         /// Constructor
         /// </summary>
-        public FolderBrowsePanel() : base() { InitializeComponent(); }
+        public FolderBrowsePanel() : base() { InitializeComponent();
+            ValueChangedCallback = TextboxValueChangedCallback;
+        }
 
         private void InitializeComponent()
         {
@@ -82,6 +89,11 @@ namespace CodeArtEng.Controls
             }
         }
 
+        private void TextboxValueChangedCallback()
+        {
+            SelectedPathChanged?.Invoke(this, null);
+        }
+
         /// <summary>
         /// Get or set selected directory
         /// </summary>
@@ -89,7 +101,11 @@ namespace CodeArtEng.Controls
         public string SelectedPath
         {
             get { return textbox.Text; }
-            set { textbox.Text = value; }
+            set
+            {
+                textbox.Text = value;
+                SelectedPathChanged?.Invoke(this, null);
+            }
         }
     }
 }

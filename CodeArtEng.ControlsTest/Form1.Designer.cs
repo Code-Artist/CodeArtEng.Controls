@@ -66,6 +66,8 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.fileExplorer1 = new CodeArtEng.Controls.FileExplorer();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtSetInitialFolder = new System.Windows.Forms.Button();
+            this.TxtInitialFolder = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
@@ -77,8 +79,6 @@
             this.BtMergeRichText = new System.Windows.Forms.Button();
             this.RtfB = new CodeArtEng.Controls.RichTextEditor();
             this.RtfA = new CodeArtEng.Controls.RichTextEditor();
-            this.TxtInitialFolder = new System.Windows.Forms.TextBox();
-            this.BtSetInitialFolder = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -516,6 +516,7 @@
             this.folderBrowsePanel1.Size = new System.Drawing.Size(321, 22);
             this.folderBrowsePanel1.TabIndex = 3;
             this.folderBrowsePanel1.Text = "";
+            this.folderBrowsePanel1.SelectedPathChanged += new System.EventHandler(this.folderBrowsePanel1_SelectedPathChanged);
             // 
             // openFilePanel1
             // 
@@ -529,6 +530,7 @@
             this.openFilePanel1.Size = new System.Drawing.Size(321, 22);
             this.openFilePanel1.TabIndex = 2;
             this.openFilePanel1.Text = "File Open";
+            this.openFilePanel1.SelectedFileChanged += new System.EventHandler(this.openFilePanel1_SelectedFileChanged);
             this.openFilePanel1.TextChanged += new System.EventHandler(this.openFilePanel1_TextChanged);
             // 
             // tabPage1
@@ -565,6 +567,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1069, 31);
             this.panel1.TabIndex = 1;
+            // 
+            // BtSetInitialFolder
+            // 
+            this.BtSetInitialFolder.Location = new System.Drawing.Point(663, 3);
+            this.BtSetInitialFolder.Name = "BtSetInitialFolder";
+            this.BtSetInitialFolder.Size = new System.Drawing.Size(157, 23);
+            this.BtSetInitialFolder.TabIndex = 2;
+            this.BtSetInitialFolder.Text = "Set Initial Folder";
+            this.BtSetInitialFolder.UseVisualStyleBackColor = true;
+            this.BtSetInitialFolder.Click += new System.EventHandler(this.BtSetInitialFolder_Click);
+            // 
+            // TxtInitialFolder
+            // 
+            this.TxtInitialFolder.Location = new System.Drawing.Point(204, 5);
+            this.TxtInitialFolder.Name = "TxtInitialFolder";
+            this.TxtInitialFolder.Size = new System.Drawing.Size(453, 20);
+            this.TxtInitialFolder.TabIndex = 1;
+            this.TxtInitialFolder.Text = "D:\\CKMAI_Documents\\Programming\\ClassLibraryNET\\CodeArtEng";
             // 
             // button4
             // 
@@ -687,24 +707,6 @@
             this.RtfA.Size = new System.Drawing.Size(571, 233);
             this.RtfA.TabIndex = 0;
             this.RtfA.ToolsPanelBackColor = System.Drawing.Color.Transparent;
-            // 
-            // TxtInitialFolder
-            // 
-            this.TxtInitialFolder.Location = new System.Drawing.Point(204, 5);
-            this.TxtInitialFolder.Name = "TxtInitialFolder";
-            this.TxtInitialFolder.Size = new System.Drawing.Size(453, 20);
-            this.TxtInitialFolder.TabIndex = 1;
-            this.TxtInitialFolder.Text = "D:\\CKMAI_Documents\\Programming\\ClassLibraryNET\\CodeArtEng";
-            // 
-            // BtSetInitialFolder
-            // 
-            this.BtSetInitialFolder.Location = new System.Drawing.Point(663, 3);
-            this.BtSetInitialFolder.Name = "BtSetInitialFolder";
-            this.BtSetInitialFolder.Size = new System.Drawing.Size(157, 23);
-            this.BtSetInitialFolder.TabIndex = 2;
-            this.BtSetInitialFolder.Text = "Set Initial Folder";
-            this.BtSetInitialFolder.UseVisualStyleBackColor = true;
-            this.BtSetInitialFolder.Click += new System.EventHandler(this.BtSetInitialFolder_Click);
             // 
             // Form1
             // 

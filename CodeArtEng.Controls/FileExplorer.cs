@@ -189,7 +189,7 @@ namespace CodeArtEng.Controls
             ClearTreeView();
         }
 
-        public void ClearTreeView()
+        private void ClearTreeView()
         {
             if (InvokeRequired)
             {

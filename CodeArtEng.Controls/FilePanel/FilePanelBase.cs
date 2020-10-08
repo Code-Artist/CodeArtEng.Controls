@@ -17,6 +17,11 @@ namespace CodeArtEng.Controls
         public new event EventHandler TextChanged;
 
         /// <summary>
+        /// Internal callback when textbox value changed
+        /// </summary>
+        protected Action ValueChangedCallback;
+
+        /// <summary>
         /// Constructor
         /// </summary>
         public FilePanelBase()
@@ -82,8 +87,8 @@ namespace CodeArtEng.Controls
 
         private void textbox_TextChanged(object sender, EventArgs e)
         {
-            EventHandler eventHandler = TextChanged;
-            if (eventHandler != null) eventHandler(this, null);
+            ValueChangedCallback?.Invoke();
+            TextChanged?.Invoke(this, null);
         }
 
         private void textbox_DragDrop(object sender, DragEventArgs e)

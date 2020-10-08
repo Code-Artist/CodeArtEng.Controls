@@ -177,6 +177,16 @@ namespace CodeArtEng.ControlsTest
         {
             fileExplorer1.SetSelectedFolder(TxtInitialFolder.Text);
         }
+
+        private void openFilePanel1_SelectedFileChanged(object sender, EventArgs e)
+        {
+            Debug.WriteLine("Selected File Changed: " + openFilePanel1.SelectedFile);
+        }
+
+        private void folderBrowsePanel1_SelectedPathChanged(object sender, EventArgs e)
+        {
+            Debug.WriteLine("Selected Path Changed: " +folderBrowsePanel1.SelectedPath);
+        }
     }
 
     public class PropertyGridTest
