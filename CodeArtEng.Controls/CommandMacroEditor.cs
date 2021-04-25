@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace CodeArtEng.Controls
 {
@@ -123,9 +124,13 @@ namespace CodeArtEng.Controls
 
         private void btAddFolder_Click(object sender, EventArgs e)
         {
-            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            using (CommonOpenFileDialog dialog = new CommonOpenFileDialog())
             {
-                InsertText(FormatFilePath(folderBrowserDialog1.SelectedPath));
+                dialog.IsFolderPicker = true;
+                if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+                {
+                    InsertText(FormatFilePath(dialog.FileName));
+                }
             }
         }
 

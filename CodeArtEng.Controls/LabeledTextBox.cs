@@ -41,7 +41,8 @@ namespace CodeArtEng.Controls
         {
             InitializeComponent();
             //Left Margin was not calculated correctly - Used fix value for now.
-            textBoxLeftMargin = textBoxRightMargin = 2;
+            textBoxLeftMargin = 0;
+            textBoxRightMargin = 2;
             label.SizeChanged += Label_SizeChanged;
 
             comboBox.Location = textbox.Location;

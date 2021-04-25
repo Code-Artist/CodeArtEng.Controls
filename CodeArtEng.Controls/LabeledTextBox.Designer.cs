@@ -74,8 +74,6 @@
             // textbox
             // 
             this.textbox.AllowDrop = true;
-            this.textbox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.textbox.Hint = null;
             this.textbox.Location = new System.Drawing.Point(50, 1);
             this.textbox.Name = "textbox";

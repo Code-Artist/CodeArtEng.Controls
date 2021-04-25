@@ -234,8 +234,9 @@
             // 
             // folderBrowsePanel2
             // 
-            this.folderBrowsePanel2.LabelWidth = 42;
-            this.folderBrowsePanel2.Location = new System.Drawing.Point(40, 420);
+            this.folderBrowsePanel2.LabelAutoSize = false;
+            this.folderBrowsePanel2.LabelWidth = 50;
+            this.folderBrowsePanel2.Location = new System.Drawing.Point(36, 420);
             this.folderBrowsePanel2.Margin = new System.Windows.Forms.Padding(5);
             this.folderBrowsePanel2.Name = "folderBrowsePanel2";
             this.folderBrowsePanel2.ReadOnly = true;
@@ -249,10 +250,10 @@
             this.labeledTextBox5.DropDownListItems = new string[0];
             this.labeledTextBox5.DropDownListSelectedIndex = -1;
             this.labeledTextBox5.Hint = null;
-            this.labeledTextBox5.LabelAutoSize = true;
+            this.labeledTextBox5.LabelAutoSize = false;
             this.labeledTextBox5.LabelText = "LABEL";
-            this.labeledTextBox5.LabelWidth = 42;
-            this.labeledTextBox5.Location = new System.Drawing.Point(40, 389);
+            this.labeledTextBox5.LabelWidth = 50;
+            this.labeledTextBox5.Location = new System.Drawing.Point(36, 389);
             this.labeledTextBox5.MinimumSize = new System.Drawing.Size(0, 23);
             this.labeledTextBox5.Name = "labeledTextBox5";
             this.labeledTextBox5.ReadOnly = false;

@@ -2,13 +2,16 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>CodeArtEng.Controls</id>
-    <version>2.7.1</version>
+    <version>2.7.3</version>
     <title>CodeArtEng.Controls</title>
     <authors>Code Art Engineering</authors>
     <owners>Code Art Engineering</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/Code-Artist/CodeArtEng.Controls</projectUrl>
     <description>Window Forms User Controls</description>
     <summary>Window Forms User Controls</summary>
+    <releaseNotes></releaseNotes>
     <copyright>Copyright © Code Art Engineering 2012 - 2020</copyright>
     <dependencies>
       <group targetFramework=".NETFramework4.5.2">
@@ -19,8 +22,4 @@
       </group>
     </dependencies>
   </metadata>
-  <files>
-    <file src="lib\net40\CodeArtEng.Controls.dll" target="lib\net40\CodeArtEng.Controls.dll" />
-    <file src="lib\net40\CodeArtEng.Controls.XML" target="lib\net40\CodeArtEng.Controls.XML" />
-  </files>
 </package>
