@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
-using Microsoft.WindowsAPICodePack.Dialogs;
+
+#if NET472
+using WK.Libraries.BetterFolderBrowserNS;
+#endif
 
 namespace CodeArtEng.Controls
 {
@@ -124,14 +127,23 @@ namespace CodeArtEng.Controls
 
         private void btAddFolder_Click(object sender, EventArgs e)
         {
-            using (CommonOpenFileDialog dialog = new CommonOpenFileDialog())
+#if NET472
+            using (BetterFolderBrowser dialog = new BetterFolderBrowser())
             {
-                dialog.IsFolderPicker = true;
-                if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+                dialog.Title = "Select Folders...";
+                dialog.Multiselect = false;
+
+                if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    InsertText(FormatFilePath(dialog.FileName));
+                    InsertText(FormatFilePath(dialog.SelectedFolder));
                 }
             }
+#else
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                InsertText(FormatFilePath(folderBrowserDialog1.SelectedPath));
+            }
+#endif
         }
 
         private void btAddFile_Click(object sender, EventArgs e)

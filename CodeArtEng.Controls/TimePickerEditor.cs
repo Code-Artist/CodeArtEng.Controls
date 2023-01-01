@@ -45,8 +45,8 @@ namespace CodeArtEng.Controls
             {
                 DateTime dateTimeValue = (DateTime)value;
                 DateTime tNow = RoundDown(DateTime.Now, TimeSpan.FromMinutes(1));
-                if (dateTimeValue == null) picker.Value = tNow;
-                else if ((dateTimeValue < picker.MinDate) || (dateTimeValue > picker.MaxDate)) picker.Value = tNow;
+                if (dateTimeValue == DateTime.MinValue) picker.Value = tNow;
+                if ((dateTimeValue < picker.MinDate) || (dateTimeValue > picker.MaxDate)) picker.Value = tNow;
                 else picker.Value = dateTimeValue;
 
                 this.editorService.DropDownControl(picker);

@@ -41,6 +41,7 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.richTextEditor1 = new CodeArtEng.Controls.RichTextEditor();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.folderBrowsePanel3 = new CodeArtEng.Controls.FolderBrowsePanel();
             this.folderBrowsePanel2 = new CodeArtEng.Controls.FolderBrowsePanel();
             this.labeledTextBox5 = new CodeArtEng.Controls.LabeledTextBox();
             this.labeledTextBox4 = new CodeArtEng.Controls.LabeledTextBox();
@@ -193,15 +194,15 @@
             this.richTextEditor1.Name = "richTextEditor1";
             this.richTextEditor1.ReadOnly = false;
             this.richTextEditor1.RichText = "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat{\\fonttbl{\\f0\\fnil\\fcharset0 Verdana;}}\r\n" +
-    "{\\*\\generator Riched20 10.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs20\\lang17417 Test\\" +
+    "{\\*\\generator Riched20 10.0.22000}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs20\\lang17417 Test\\" +
     "par\r\n}\r\n";
-            this.richTextEditor1.ShowToolsPanel = false;
             this.richTextEditor1.Size = new System.Drawing.Size(1069, 538);
             this.richTextEditor1.TabIndex = 0;
             this.richTextEditor1.ToolsPanelBackColor = System.Drawing.Color.Transparent;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.folderBrowsePanel3);
             this.tabPage2.Controls.Add(this.folderBrowsePanel2);
             this.tabPage2.Controls.Add(this.labeledTextBox5);
             this.tabPage2.Controls.Add(this.labeledTextBox4);
@@ -231,6 +232,17 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Panels";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // folderBrowsePanel3
+            // 
+            this.folderBrowsePanel3.LabelWidth = 103;
+            this.folderBrowsePanel3.Location = new System.Drawing.Point(411, 360);
+            this.folderBrowsePanel3.Margin = new System.Windows.Forms.Padding(5);
+            this.folderBrowsePanel3.Name = "folderBrowsePanel3";
+            this.folderBrowsePanel3.SelectedPath = "";
+            this.folderBrowsePanel3.Size = new System.Drawing.Size(306, 22);
+            this.folderBrowsePanel3.TabIndex = 30;
+            this.folderBrowsePanel3.Text = "folderBrowsePanel3";
             // 
             // folderBrowsePanel2
             // 
@@ -510,6 +522,7 @@
             // 
             this.folderBrowsePanel1.LabelAutoSize = false;
             this.folderBrowsePanel1.LabelWidth = 80;
+            this.folderBrowsePanel1.LegacyMode = true;
             this.folderBrowsePanel1.Location = new System.Drawing.Point(36, 51);
             this.folderBrowsePanel1.Margin = new System.Windows.Forms.Padding(4);
             this.folderBrowsePanel1.Name = "folderBrowsePanel1";
@@ -669,7 +682,7 @@
             this.RtfMerged.Name = "RtfMerged";
             this.RtfMerged.ReadOnly = false;
             this.RtfMerged.RichText = "{\\rtf1\\ansi\\deff0\\nouicompat{\\fonttbl{\\f0\\fnil Arial;}}\r\n{\\*\\generator Riched20 1" +
-    "0.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs20\\lang1033 richTextEditor2\\par\r\n}\r\n";
+    "0.0.22000}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs20\\lang1033 richTextEditor2\\par\r\n}\r\n";
             this.RtfMerged.ShowToolsPanel = false;
             this.RtfMerged.Size = new System.Drawing.Size(486, 490);
             this.RtfMerged.TabIndex = 4;
@@ -691,7 +704,7 @@
             this.RtfB.Name = "RtfB";
             this.RtfB.ReadOnly = false;
             this.RtfB.RichText = "{\\rtf1\\ansi\\deff0\\nouicompat{\\fonttbl{\\f0\\fnil Arial;}}\r\n{\\*\\generator Riched20 1" +
-    "0.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs20\\lang1033 richTextEditor2\\par\r\n}\r\n";
+    "0.0.22000}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs20\\lang1033 richTextEditor2\\par\r\n}\r\n";
             this.RtfB.ShowToolsPanel = false;
             this.RtfB.Size = new System.Drawing.Size(571, 282);
             this.RtfB.TabIndex = 1;
@@ -703,7 +716,7 @@
             this.RtfA.Name = "RtfA";
             this.RtfA.ReadOnly = false;
             this.RtfA.RichText = "{\\rtf1\\ansi\\deff0\\nouicompat{\\fonttbl{\\f0\\fnil Arial;}}\r\n{\\*\\generator Riched20 1" +
-    "0.0.19041}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs20\\lang1033 richTextEditor2\\par\r\n}\r\n";
+    "0.0.22000}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs20\\lang1033 richTextEditor2\\par\r\n}\r\n";
             this.RtfA.ShowToolsPanel = false;
             this.RtfA.Size = new System.Drawing.Size(571, 233);
             this.RtfA.TabIndex = 0;
@@ -789,6 +802,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button BtSetInitialFolder;
         private System.Windows.Forms.TextBox TxtInitialFolder;
+        private Controls.FolderBrowsePanel folderBrowsePanel3;
     }
 }
 

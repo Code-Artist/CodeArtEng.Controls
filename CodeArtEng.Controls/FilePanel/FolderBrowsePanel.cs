@@ -2,7 +2,10 @@
 using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
-using Microsoft.WindowsAPICodePack.Dialogs;
+
+#if NET472
+using WK.Libraries.BetterFolderBrowserNS;
+#endif
 
 namespace CodeArtEng.Controls
 {
@@ -66,26 +69,41 @@ namespace CodeArtEng.Controls
 
         private void btBrowse_Click(object sender, EventArgs e)
         {
+#if NET472
             if (!LegacyMode)
             {
-                using (CommonOpenFileDialog dialog = new CommonOpenFileDialog())
+                try
                 {
-                    dialog.IsFolderPicker = true;
-                    dialog.InitialDirectory = SelectedPath;
-                    if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+                    using (BetterFolderBrowser dialog = new BetterFolderBrowser())
                     {
-                        SelectedPath = dialog.FileName;
+                        dialog.Title = "Select Folders...";
+                        dialog.RootFolder = SelectedPath;
+                        dialog.Multiselect = false;
+
+                        if (dialog.ShowDialog() == DialogResult.OK)
+                        {
+                            SelectedPath = dialog.SelectedFolder;
+                        }
                     }
                 }
-            }
-            else
-            {
-                try { folderBrowserDialog1.SelectedPath = SelectedPath; }
-                catch { SelectedPath = string.Empty; }
-                if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+                catch (NullReferenceException)
                 {
-                    SelectedPath = folderBrowserDialog1.SelectedPath;
+                    BrowseFolder_FolderBrowseDialog();
                 }
+            }
+            else BrowseFolder_FolderBrowseDialog();
+#else
+            BrowseFolder_FolderBrowseDialog();
+#endif
+        }
+
+        private void BrowseFolder_FolderBrowseDialog()
+        {
+            try { folderBrowserDialog1.SelectedPath = SelectedPath; }
+            catch { SelectedPath = string.Empty; }
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                SelectedPath = folderBrowserDialog1.SelectedPath;
             }
         }
 
