@@ -127,6 +127,10 @@ namespace CodeArtEng.Controls
             set { label.Width = value; }
         }
 
+        [Category("Appearance")]
+        [Description("Return current textbox / combobox width.")]
+        public int TextBoxWidth => comboBox.Visible ? comboBox.Width : textbox.Width;
+
         /// <summary>
         /// Show or hide check box
         /// </summary>
@@ -303,6 +307,11 @@ namespace CodeArtEng.Controls
         }
 
         private void Label_SizeChanged(object sender, EventArgs e)
+        {
+            RecalculateTextBoxSize();
+        }
+
+        private void LabeledTextBox_SizeChanged(object sender, EventArgs e)
         {
             RecalculateTextBoxSize();
         }

@@ -96,6 +96,7 @@
             this.MinimumSize = new System.Drawing.Size(0, 23);
             this.Name = "LabeledTextBox";
             this.Size = new System.Drawing.Size(321, 23);
+            this.SizeChanged += new System.EventHandler(this.LabeledTextBox_SizeChanged);
             this.VisibleChanged += new System.EventHandler(this.LabeledTextBox_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.textbox)).EndInit();
             this.ResumeLayout(false);
