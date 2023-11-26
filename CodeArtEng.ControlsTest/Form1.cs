@@ -187,6 +187,28 @@ namespace CodeArtEng.ControlsTest
         {
             Debug.WriteLine("Selected Path Changed: " +folderBrowsePanel1.SelectedPath);
         }
+
+        private void hintedTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            Debug.WriteLine("Hinted Text Changed: " + hintedTextBox1.Text);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            hintedTextBox1.Text = "Test String";
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            resizableUserControl1.BeginResize();
+            customControl1.BeginResize();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            resizableUserControl1.EndResize();
+            customControl1.EndResize();
+        }
     }
 
     public class PropertyGridTest

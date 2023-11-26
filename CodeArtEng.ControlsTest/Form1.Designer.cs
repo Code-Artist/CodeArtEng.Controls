@@ -34,32 +34,25 @@
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMruList1 = new CodeArtEng.Controls.ToolStripMruList();
             this.addRecentFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quickAccessList1 = new CodeArtEng.Controls.QuickAccessList();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.customControl1 = new CodeArtEng.ControlsTest.CustomControl();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.resizableUserControl1 = new CodeArtEng.Controls.ResizableUserControl();
+            this.button5 = new System.Windows.Forms.Button();
+            this.folderBrowsePanel3 = new CodeArtEng.Controls.FolderBrowsePanel();
+            this.folderBrowsePanel2 = new CodeArtEng.Controls.FolderBrowsePanel();
+            this.labeledTextBox5 = new CodeArtEng.Controls.LabeledTextBox();
+            this.labeledTextBox4 = new CodeArtEng.Controls.LabeledTextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.BtSetInitialFolder = new System.Windows.Forms.Button();
-            this.TxtInitialFolder = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.btCmdMacroEditor = new System.Windows.Forms.Button();
-            this.btCmdLineDialog1 = new System.Windows.Forms.Button();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.BtMergeRichText = new System.Windows.Forms.Button();
-            this.richTextEditor1 = new CodeArtEng.Controls.RichTextEditor();
-            this.folderBrowsePanel3 = new CodeArtEng.Controls.FolderBrowsePanel();
-            this.folderBrowsePanel2 = new CodeArtEng.Controls.FolderBrowsePanel();
-            this.labeledTextBox5 = new CodeArtEng.Controls.LabeledTextBox();
-            this.labeledTextBox4 = new CodeArtEng.Controls.LabeledTextBox();
             this.labeledTextBox3 = new CodeArtEng.Controls.LabeledTextBox();
             this.labeledTextBox2 = new CodeArtEng.Controls.LabeledTextBox();
             this.labeledTextBox1 = new CodeArtEng.Controls.LabeledTextBox();
@@ -74,22 +67,34 @@
             this.statusLabel1 = new CodeArtEng.Controls.StatusLabel();
             this.folderBrowsePanel1 = new CodeArtEng.Controls.FolderBrowsePanel();
             this.openFilePanel1 = new CodeArtEng.Controls.OpenFilePanel();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.richTextEditor1 = new CodeArtEng.Controls.RichTextEditor();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.fileExplorer1 = new CodeArtEng.Controls.FileExplorer();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.BtSetInitialFolder = new System.Windows.Forms.Button();
+            this.TxtInitialFolder = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btCmdMacroEditor = new System.Windows.Forms.Button();
+            this.btCmdLineDialog1 = new System.Windows.Forms.Button();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
             this.RtfMerged = new CodeArtEng.Controls.RichTextEditor();
+            this.BtMergeRichText = new System.Windows.Forms.Button();
             this.RtfB = new CodeArtEng.Controls.RichTextEditor();
             this.RtfA = new CodeArtEng.Controls.RichTextEditor();
-            this.toolStripMruList1 = new CodeArtEng.Controls.ToolStripMruList();
-            this.quickAccessList1 = new CodeArtEng.Controls.QuickAccessList();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabPage5.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hintedTextBox1)).BeginInit();
+            this.tabPage5.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hintedTextBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -134,6 +139,17 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(133, 6);
             // 
+            // toolStripMruList1
+            // 
+            this.toolStripMruList1.Enabled = false;
+            this.toolStripMruList1.MaxPathLength = 40;
+            this.toolStripMruList1.MruListSize = 5;
+            this.toolStripMruList1.Name = "toolStripMruList1";
+            this.toolStripMruList1.RecentFileList = new string[0];
+            this.toolStripMruList1.Size = new System.Drawing.Size(136, 22);
+            this.toolStripMruList1.Text = "Recent Files";
+            this.toolStripMruList1.RecentFileClicked += new System.EventHandler<CodeArtEng.Controls.RecentFileClickedEventArgs>(this.toolStripMruList1_RecentFileClicked);
+            // 
             // addRecentFileToolStripMenuItem
             // 
             this.addRecentFileToolStripMenuItem.Name = "addRecentFileToolStripMenuItem";
@@ -141,10 +157,17 @@
             this.addRecentFileToolStripMenuItem.Text = "Add Recent File";
             this.addRecentFileToolStripMenuItem.Click += new System.EventHandler(this.addRecentFileToolStripMenuItem_Click);
             // 
+            // quickAccessList1
+            // 
+            this.quickAccessList1.Name = "quickAccessList1";
+            this.quickAccessList1.SearchPaths = ((System.Collections.Generic.List<string>)(resources.GetObject("quickAccessList1.SearchPaths")));
+            this.quickAccessList1.Size = new System.Drawing.Size(73, 20);
+            this.quickAccessList1.Text = "SourceFile";
+            // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
@@ -154,22 +177,15 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1083, 570);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.richTextEditor1);
-            this.tabPage5.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1075, 544);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "RichText Editor";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.tabControl1.TabIndex = 1;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.customControl1);
+            this.tabPage2.Controls.Add(this.button7);
+            this.tabPage2.Controls.Add(this.button6);
+            this.tabPage2.Controls.Add(this.resizableUserControl1);
+            this.tabPage2.Controls.Add(this.button5);
             this.tabPage2.Controls.Add(this.folderBrowsePanel3);
             this.tabPage2.Controls.Add(this.folderBrowsePanel2);
             this.tabPage2.Controls.Add(this.labeledTextBox5);
@@ -201,197 +217,53 @@
             this.tabPage2.Text = "Panels";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // customControl1
             // 
-            this.button3.Location = new System.Drawing.Point(207, 281);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 26;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.Button3_Click);
+            this.customControl1.Location = new System.Drawing.Point(697, 330);
+            this.customControl1.Name = "customControl1";
+            this.customControl1.ResizeGripControl = 7;
+            this.customControl1.Size = new System.Drawing.Size(245, 107);
+            this.customControl1.TabIndex = 35;
             // 
-            // label2
+            // button7
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(392, 310);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "label2";
+            this.button7.Location = new System.Drawing.Point(395, 400);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.TabIndex = 34;
+            this.button7.Text = "Resize ON";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // button2
+            // button6
             // 
-            this.button2.Location = new System.Drawing.Point(331, 308);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(56, 19);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button6.Location = new System.Drawing.Point(395, 371);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 33;
+            this.button6.Text = "Resize OFF";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // label1
+            // resizableUserControl1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(128, 255);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "label1";
+            this.resizableUserControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.resizableUserControl1.Location = new System.Drawing.Point(508, 330);
+            this.resizableUserControl1.Margin = new System.Windows.Forms.Padding(0);
+            this.resizableUserControl1.Name = "resizableUserControl1";
+            this.resizableUserControl1.ResizeGripControl = 7;
+            this.resizableUserControl1.Size = new System.Drawing.Size(150, 110);
+            this.resizableUserControl1.TabIndex = 32;
             // 
-            // button1
+            // button5
             // 
-            this.button1.Location = new System.Drawing.Point(47, 250);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.fileExplorer1);
-            this.tabPage1.Controls.Add(this.panel1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1075, 544);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "File Explorer";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.BtSetInitialFolder);
-            this.panel1.Controls.Add(this.TxtInitialFolder);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1069, 31);
-            this.panel1.TabIndex = 1;
-            // 
-            // BtSetInitialFolder
-            // 
-            this.BtSetInitialFolder.Location = new System.Drawing.Point(663, 3);
-            this.BtSetInitialFolder.Name = "BtSetInitialFolder";
-            this.BtSetInitialFolder.Size = new System.Drawing.Size(157, 23);
-            this.BtSetInitialFolder.TabIndex = 2;
-            this.BtSetInitialFolder.Text = "Set Initial Folder";
-            this.BtSetInitialFolder.UseVisualStyleBackColor = true;
-            this.BtSetInitialFolder.Click += new System.EventHandler(this.BtSetInitialFolder_Click);
-            // 
-            // TxtInitialFolder
-            // 
-            this.TxtInitialFolder.Location = new System.Drawing.Point(204, 5);
-            this.TxtInitialFolder.Name = "TxtInitialFolder";
-            this.TxtInitialFolder.Size = new System.Drawing.Size(453, 20);
-            this.TxtInitialFolder.TabIndex = 1;
-            this.TxtInitialFolder.Text = "D:\\CKMAI_Documents\\Programming\\ClassLibraryNET\\CodeArtEng";
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(6, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(156, 23);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "Get Selected Files";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.propertyGrid1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1075, 544);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "TimePickerEditor";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // propertyGrid1
-            // 
-            this.propertyGrid1.CategoryForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.propertyGrid1.LineColor = System.Drawing.SystemColors.ControlDark;
-            this.propertyGrid1.Location = new System.Drawing.Point(21, 17);
-            this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.Size = new System.Drawing.Size(281, 314);
-            this.propertyGrid1.TabIndex = 0;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.btCmdMacroEditor);
-            this.tabPage4.Controls.Add(this.btCmdLineDialog1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1075, 544);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Command Line";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // btCmdMacroEditor
-            // 
-            this.btCmdMacroEditor.Location = new System.Drawing.Point(8, 48);
-            this.btCmdMacroEditor.Name = "btCmdMacroEditor";
-            this.btCmdMacroEditor.Size = new System.Drawing.Size(210, 36);
-            this.btCmdMacroEditor.TabIndex = 1;
-            this.btCmdMacroEditor.Text = "Command Macro Editor";
-            this.btCmdMacroEditor.UseVisualStyleBackColor = true;
-            this.btCmdMacroEditor.Click += new System.EventHandler(this.btCmdMacroEditor_Click);
-            // 
-            // btCmdLineDialog1
-            // 
-            this.btCmdLineDialog1.Location = new System.Drawing.Point(8, 6);
-            this.btCmdLineDialog1.Name = "btCmdLineDialog1";
-            this.btCmdLineDialog1.Size = new System.Drawing.Size(210, 36);
-            this.btCmdLineDialog1.TabIndex = 0;
-            this.btCmdLineDialog1.Text = "Command Line Helper";
-            this.btCmdLineDialog1.UseVisualStyleBackColor = true;
-            this.btCmdLineDialog1.Click += new System.EventHandler(this.btCmdLineDialog1_Click);
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Controls.Add(this.RtfMerged);
-            this.tabPage6.Controls.Add(this.BtMergeRichText);
-            this.tabPage6.Controls.Add(this.RtfB);
-            this.tabPage6.Controls.Add(this.RtfA);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1075, 544);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "tabPage6";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // BtMergeRichText
-            // 
-            this.BtMergeRichText.Location = new System.Drawing.Point(589, 15);
-            this.BtMergeRichText.Name = "BtMergeRichText";
-            this.BtMergeRichText.Size = new System.Drawing.Size(75, 23);
-            this.BtMergeRichText.TabIndex = 3;
-            this.BtMergeRichText.Text = "Merge";
-            this.BtMergeRichText.UseVisualStyleBackColor = true;
-            this.BtMergeRichText.Click += new System.EventHandler(this.BtMergeRichText_Click);
-            // 
-            // richTextEditor1
-            // 
-            this.richTextEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextEditor1.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextEditor1.Location = new System.Drawing.Point(3, 3);
-            this.richTextEditor1.Name = "richTextEditor1";
-            this.richTextEditor1.ReadOnly = false;
-            this.richTextEditor1.RichText = "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat{\\fonttbl{\\f0\\fnil\\fcharset0 Verdana;}}\r\n" +
-    "{\\*\\generator Riched20 10.0.22000}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs20\\lang17417 Test\\" +
-    "par\r\n}\r\n";
-            this.richTextEditor1.ShowToolsPanel = false;
-            this.richTextEditor1.Size = new System.Drawing.Size(1069, 538);
-            this.richTextEditor1.TabIndex = 0;
-            this.richTextEditor1.ToolsPanelBackColor = System.Drawing.Color.Transparent;
+            this.button5.Location = new System.Drawing.Point(47, 274);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 31;
+            this.button5.Text = "button5";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // folderBrowsePanel3
             // 
@@ -454,6 +326,56 @@
             this.labeledTextBox4.TextBoxBackColor = System.Drawing.SystemColors.Window;
             this.labeledTextBox4.TextBoxForeColor = System.Drawing.Color.Empty;
             this.labeledTextBox4.TextBoxMaxLength = 32767;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(207, 281);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 26;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(392, 310);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "label2";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(331, 308);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(56, 19);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(128, 255);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "label1";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(47, 250);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // labeledTextBox3
             // 
@@ -543,6 +465,7 @@
             this.hintedTextBox1.Name = "hintedTextBox1";
             this.hintedTextBox1.Size = new System.Drawing.Size(190, 20);
             this.hintedTextBox1.TabIndex = 11;
+            this.hintedTextBox1.TextChanged += new System.EventHandler(this.hintedTextBox1_TextChanged);
             // 
             // multiLineButton4
             // 
@@ -657,6 +580,44 @@
             this.openFilePanel1.SelectedFileChanged += new System.EventHandler(this.openFilePanel1_SelectedFileChanged);
             this.openFilePanel1.TextChanged += new System.EventHandler(this.openFilePanel1_TextChanged);
             // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.richTextEditor1);
+            this.tabPage5.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1075, 544);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "RichText Editor";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // richTextEditor1
+            // 
+            this.richTextEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextEditor1.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextEditor1.Location = new System.Drawing.Point(3, 3);
+            this.richTextEditor1.Name = "richTextEditor1";
+            this.richTextEditor1.ReadOnly = false;
+            this.richTextEditor1.RichText = "{\\rtf1\\ansi\\ansicpg1252\\deff0\\nouicompat{\\fonttbl{\\f0\\fnil\\fcharset0 Verdana;}}\r\n" +
+    "{\\*\\generator Riched20 10.0.22621}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs20\\lang17417 Test\\" +
+    "par\r\n}\r\n";
+            this.richTextEditor1.Size = new System.Drawing.Size(1069, 538);
+            this.richTextEditor1.TabIndex = 0;
+            this.richTextEditor1.ToolsPanelBackColor = System.Drawing.Color.Transparent;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.fileExplorer1);
+            this.tabPage1.Controls.Add(this.panel1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1075, 544);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "File Explorer";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
             // fileExplorer1
             // 
             this.fileExplorer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -669,17 +630,132 @@
             this.fileExplorer1.SplitterDistance = 150;
             this.fileExplorer1.TabIndex = 0;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.BtSetInitialFolder);
+            this.panel1.Controls.Add(this.TxtInitialFolder);
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1069, 31);
+            this.panel1.TabIndex = 1;
+            // 
+            // BtSetInitialFolder
+            // 
+            this.BtSetInitialFolder.Location = new System.Drawing.Point(663, 3);
+            this.BtSetInitialFolder.Name = "BtSetInitialFolder";
+            this.BtSetInitialFolder.Size = new System.Drawing.Size(157, 23);
+            this.BtSetInitialFolder.TabIndex = 2;
+            this.BtSetInitialFolder.Text = "Set Initial Folder";
+            this.BtSetInitialFolder.UseVisualStyleBackColor = true;
+            this.BtSetInitialFolder.Click += new System.EventHandler(this.BtSetInitialFolder_Click);
+            // 
+            // TxtInitialFolder
+            // 
+            this.TxtInitialFolder.Location = new System.Drawing.Point(204, 5);
+            this.TxtInitialFolder.Name = "TxtInitialFolder";
+            this.TxtInitialFolder.Size = new System.Drawing.Size(453, 20);
+            this.TxtInitialFolder.TabIndex = 1;
+            this.TxtInitialFolder.Text = "D:\\CKMAI_Documents\\Programming\\ClassLibraryNET\\CodeArtEng";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(6, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(156, 23);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "Get Selected Files";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.propertyGrid1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1075, 544);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "TimePickerEditor";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // propertyGrid1
+            // 
+            this.propertyGrid1.CategoryForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.propertyGrid1.LineColor = System.Drawing.SystemColors.ControlDark;
+            this.propertyGrid1.Location = new System.Drawing.Point(21, 17);
+            this.propertyGrid1.Name = "propertyGrid1";
+            this.propertyGrid1.Size = new System.Drawing.Size(281, 314);
+            this.propertyGrid1.TabIndex = 0;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.btCmdMacroEditor);
+            this.tabPage4.Controls.Add(this.btCmdLineDialog1);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1075, 544);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Command Line";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // btCmdMacroEditor
+            // 
+            this.btCmdMacroEditor.Location = new System.Drawing.Point(8, 48);
+            this.btCmdMacroEditor.Name = "btCmdMacroEditor";
+            this.btCmdMacroEditor.Size = new System.Drawing.Size(210, 36);
+            this.btCmdMacroEditor.TabIndex = 1;
+            this.btCmdMacroEditor.Text = "Command Macro Editor";
+            this.btCmdMacroEditor.UseVisualStyleBackColor = true;
+            this.btCmdMacroEditor.Click += new System.EventHandler(this.btCmdMacroEditor_Click);
+            // 
+            // btCmdLineDialog1
+            // 
+            this.btCmdLineDialog1.Location = new System.Drawing.Point(8, 6);
+            this.btCmdLineDialog1.Name = "btCmdLineDialog1";
+            this.btCmdLineDialog1.Size = new System.Drawing.Size(210, 36);
+            this.btCmdLineDialog1.TabIndex = 0;
+            this.btCmdLineDialog1.Text = "Command Line Helper";
+            this.btCmdLineDialog1.UseVisualStyleBackColor = true;
+            this.btCmdLineDialog1.Click += new System.EventHandler(this.btCmdLineDialog1_Click);
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.RtfMerged);
+            this.tabPage6.Controls.Add(this.BtMergeRichText);
+            this.tabPage6.Controls.Add(this.RtfB);
+            this.tabPage6.Controls.Add(this.RtfA);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1075, 544);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "tabPage6";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
             // RtfMerged
             // 
             this.RtfMerged.Location = new System.Drawing.Point(588, 53);
             this.RtfMerged.Name = "RtfMerged";
             this.RtfMerged.ReadOnly = false;
             this.RtfMerged.RichText = "{\\rtf1\\ansi\\deff0\\nouicompat{\\fonttbl{\\f0\\fnil Arial;}}\r\n{\\*\\generator Riched20 1" +
-    "0.0.22000}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs20\\lang1033 richTextEditor2\\par\r\n}\r\n";
+    "0.0.22621}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs20\\lang1033 richTextEditor2\\par\r\n}\r\n";
             this.RtfMerged.ShowToolsPanel = false;
             this.RtfMerged.Size = new System.Drawing.Size(486, 490);
             this.RtfMerged.TabIndex = 4;
             this.RtfMerged.ToolsPanelBackColor = System.Drawing.Color.Transparent;
+            // 
+            // BtMergeRichText
+            // 
+            this.BtMergeRichText.Location = new System.Drawing.Point(589, 15);
+            this.BtMergeRichText.Name = "BtMergeRichText";
+            this.BtMergeRichText.Size = new System.Drawing.Size(75, 23);
+            this.BtMergeRichText.TabIndex = 3;
+            this.BtMergeRichText.Text = "Merge";
+            this.BtMergeRichText.UseVisualStyleBackColor = true;
+            this.BtMergeRichText.Click += new System.EventHandler(this.BtMergeRichText_Click);
             // 
             // RtfB
             // 
@@ -687,7 +763,7 @@
             this.RtfB.Name = "RtfB";
             this.RtfB.ReadOnly = false;
             this.RtfB.RichText = "{\\rtf1\\ansi\\deff0\\nouicompat{\\fonttbl{\\f0\\fnil Arial;}}\r\n{\\*\\generator Riched20 1" +
-    "0.0.22000}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs20\\lang1033 richTextEditor2\\par\r\n}\r\n";
+    "0.0.22621}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs20\\lang1033 richTextEditor2\\par\r\n}\r\n";
             this.RtfB.ShowToolsPanel = false;
             this.RtfB.Size = new System.Drawing.Size(571, 282);
             this.RtfB.TabIndex = 1;
@@ -699,29 +775,11 @@
             this.RtfA.Name = "RtfA";
             this.RtfA.ReadOnly = false;
             this.RtfA.RichText = "{\\rtf1\\ansi\\deff0\\nouicompat{\\fonttbl{\\f0\\fnil Arial;}}\r\n{\\*\\generator Riched20 1" +
-    "0.0.22000}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs20\\lang1033 richTextEditor2\\par\r\n}\r\n";
+    "0.0.22621}\\viewkind4\\uc1 \r\n\\pard\\f0\\fs20\\lang1033 richTextEditor2\\par\r\n}\r\n";
             this.RtfA.ShowToolsPanel = false;
             this.RtfA.Size = new System.Drawing.Size(571, 233);
             this.RtfA.TabIndex = 0;
             this.RtfA.ToolsPanelBackColor = System.Drawing.Color.Transparent;
-            // 
-            // toolStripMruList1
-            // 
-            this.toolStripMruList1.Enabled = false;
-            this.toolStripMruList1.MaxPathLength = 40;
-            this.toolStripMruList1.MruListSize = 5;
-            this.toolStripMruList1.Name = "toolStripMruList1";
-            this.toolStripMruList1.RecentFileList = new string[0];
-            this.toolStripMruList1.Size = new System.Drawing.Size(136, 22);
-            this.toolStripMruList1.Text = "Recent Files";
-            this.toolStripMruList1.RecentFileClicked += new System.EventHandler<CodeArtEng.Controls.RecentFileClickedEventArgs>(this.toolStripMruList1_RecentFileClicked);
-            // 
-            // quickAccessList1
-            // 
-            this.quickAccessList1.Name = "quickAccessList1";
-            this.quickAccessList1.SearchPaths = ((System.Collections.Generic.List<string>)(resources.GetObject("quickAccessList1.SearchPaths")));
-            this.quickAccessList1.Size = new System.Drawing.Size(73, 20);
-            this.quickAccessList1.Text = "SourceFile";
             // 
             // Form1
             // 
@@ -736,16 +794,16 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            this.tabPage5.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hintedTextBox1)).EndInit();
+            this.tabPage5.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.hintedTextBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -804,6 +862,11 @@
         private System.Windows.Forms.Button BtSetInitialFolder;
         private System.Windows.Forms.TextBox TxtInitialFolder;
         private Controls.FolderBrowsePanel folderBrowsePanel3;
+        private System.Windows.Forms.Button button5;
+        private Controls.ResizableUserControl resizableUserControl1;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button6;
+        private CustomControl customControl1;
     }
 }
 

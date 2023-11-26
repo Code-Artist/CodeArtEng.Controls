@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="..\CodeArtEng.ControlsTest\CustomControl.cs" Link="CustomControl.cs" />
+    <Compile Include="..\CodeArtEng.ControlsTest\CustomControl.Designer.cs" Link="CustomControl.Designer.cs" />
     <Compile Include="..\CodeArtEng.ControlsTest\Form1.cs" Link="Form1.cs" />
     <Compile Include="..\CodeArtEng.ControlsTest\Form1.Designer.cs" Link="Form1.Designer.cs" />
   </ItemGroup>

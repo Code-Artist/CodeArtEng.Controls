@@ -8,7 +8,7 @@
     <Company>Code Art Engineering</Company>
     <Copyright>Copyright © Code Art Engineering 2012 - 2021</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>3.1.0</Version>
+    <Version>3.2.0</Version>
     <PackageProjectUrl>https://www.codearteng.com/2017/10/winforms-controls.html</PackageProjectUrl>
     <PackageIcon>CAELogoSmall.png</PackageIcon>
     <RepositoryUrl>https://github.com/Code-Artist/CodeArtEng.Controls</RepositoryUrl>
@@ -55,9 +55,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Cyotek.Windows.Forms.ColorPicker">
-      <Version>1.7.2</Version>
-    </PackageReference>
   </ItemGroup>
 
 </Project>

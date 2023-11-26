@@ -114,11 +114,17 @@ namespace CodeArtEng.Controls
         /// <param name="e"></param>
         protected override void OnTextChanged(EventArgs e)
         {
-            if (updating) return;
-            Text = base.Text;
-            base.OnTextChanged(e); //Trigger event after update Text property.
-            UpdateTextBox();
+            if (SupressTextChangedEvent) return;
+            try
+            {
+                SupressTextChangedEvent = true;
+                Text = base.Text;
+                base.OnTextChanged(e); //Trigger event after update Text property.
+                UpdateTextBox();
+            }
+            finally {  SupressTextChangedEvent = false; }
         }
+        private bool SupressTextChangedEvent = false;
 
         /// <summary>
         /// TextBox Key Down event.

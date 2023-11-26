@@ -1,5 +1,4 @@
-﻿using Cyotek.Windows.Forms;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
@@ -224,7 +223,7 @@ namespace CodeArtEng.Controls
 
         private void BtFontColor_Click(object sender, EventArgs e)
         {
-            using (ColorPickerDialog dialog = new ColorPickerDialog())
+            using (ColorDialog dialog = new ColorDialog())
             {
                 dialog.Color = TextBox.SelectionColor;
                 if (dialog.ShowDialog() == DialogResult.OK)
@@ -236,7 +235,7 @@ namespace CodeArtEng.Controls
 
         private void BtBrushColor_Click(object sender, EventArgs e)
         {
-            using (ColorPickerDialog dialog = new ColorPickerDialog())
+            using (ColorDialog dialog = new ColorDialog())
             {
                 dialog.Color = TextBox.SelectionBackColor;
                 if (dialog.ShowDialog() == DialogResult.OK)
