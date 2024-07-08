@@ -1,5 +1,6 @@
 ﻿using CodeArtEng.Controls;
 using System;
+using System.IO;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing.Design;
@@ -24,16 +25,7 @@ namespace CodeArtEng.ControlsTest
             quickAccessList1.UpdateList();
             quickAccessList1.ItemClicked += QuickAccessList1_ItemClicked;
 
-            //            richTextEditor1.Text = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Nunc sed augue lacus viverra vitae congue. Ultrices vitae auctor eu augue ut lectus. Sit amet massa vitae tortor condimentum lacinia quis vel eros. Sit amet consectetur adipiscing elit duis. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Nibh venenatis cras sed felis eget velit. Tortor posuere ac ut consequat semper viverra nam libero. Integer malesuada nunc vel risus commodo viverra. Sagittis vitae et leo duis ut diam. Massa eget egestas purus viverra accumsan.
-
-            //Elit eget gravida cum sociis natoque penatibus. Nam at lectus urna duis convallis convallis tellus. Phasellus vestibulum lorem sed risus ultricies tristique nulla aliquet. Commodo viverra maecenas accumsan lacus vel facilisis. Euismod in pellentesque massa placerat duis ultricies. Tellus integer feugiat scelerisque varius morbi. Laoreet id donec ultrices tincidunt. Duis ultricies lacus sed turpis tincidunt id aliquet risus. Pharetra et ultrices neque ornare aenean euismod elementum nisi quis. Feugiat sed lectus vestibulum mattis. Tellus id interdum velit laoreet id. Et molestie ac feugiat sed lectus. Egestas pretium aenean pharetra magna ac placerat. Leo urna molestie at elementum eu facilisis sed odio. Molestie ac feugiat sed lectus. Pulvinar sapien et ligula ullamcorper malesuada proin libero nunc. Sagittis id consectetur purus ut faucibus pulvinar. Fermentum et sollicitudin ac orci phasellus egestas tellus.
-
-            //Quam id leo in vitae turpis massa sed elementum tempus. Vel fringilla est ullamcorper eget nulla. A diam maecenas sed enim ut sem viverra aliquet eget. Porta nibh venenatis cras sed felis. At lectus urna duis convallis convallis tellus id interdum. Eu consequat ac felis donec et odio pellentesque. Non nisi est sit amet facilisis magna etiam tempor orci. Interdum posuere lorem ipsum dolor sit amet. Ac turpis egestas integer eget. Penatibus et magnis dis parturient. Nulla porttitor massa id neque aliquam vestibulum. Ac turpis egestas integer eget aliquet nibh praesent tristique magna. Tincidunt ornare massa eget egestas purus viverra accumsan in. Placerat in egestas erat imperdiet sed. Vitae justo eget magna fermentum iaculis eu non diam phasellus. Amet luctus venenatis lectus magna fringilla urna porttitor rhoncus. Purus sit amet volutpat consequat. Porta nibh venenatis cras sed felis eget. Mollis nunc sed id semper risus in hendrerit gravida.
-
-            //Proin sagittis nisl rhoncus mattis rhoncus urna neque viverra justo. Mauris vitae ultricies leo integer malesuada. Arcu risus quis varius quam quisque. Fermentum et sollicitudin ac orci phasellus. Pharetra pharetra massa massa ultricies mi quis. Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant. In metus vulputate eu scelerisque felis imperdiet proin fermentum. Volutpat odio facilisis mauris sit amet. Fusce ut placerat orci nulla pellentesque dignissim enim. Sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis. Mattis pellentesque id nibh tortor id aliquet. Feugiat vivamus at augue eget arcu dictum.
-
-            //Enim nec dui nunc mattis enim ut. Aliquet nibh praesent tristique magna sit amet. Placerat duis ultricies lacus sed turpis tincidunt id aliquet risus. Sit amet consectetur adipiscing elit. Non sodales neque sodales ut etiam. Risus ultricies tristique nulla aliquet enim tortor. Elementum nibh tellus molestie nunc non blandit massa enim nec. Malesuada nunc vel risus commodo viverra maecenas accumsan. Non diam phasellus vestibulum lorem sed risus ultricies tristique nulla. Ut ornare lectus sit amet est placerat in egestas erat. Maecenas accumsan lacus vel facilisis volutpat est velit egestas dui. Sit amet venenatis urna cursus eget nunc. Sed sed risus pretium quam vulputate dignissim. Dolor magna eget est lorem ipsum dolor sit amet consectetur. Sit amet cursus sit amet dictum sit amet justo. Nunc sed augue lacus viverra vitae congue eu. Sed euismod nisi porta lorem mollis aliquam ut porttitor. In ornare quam viverra orci sagittis eu volutpat odio. Posuere morbi leo urna molestie at.";
-
+            InitWebLauncher();
         }
 
         private void QuickAccessList1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -185,7 +177,7 @@ namespace CodeArtEng.ControlsTest
 
         private void folderBrowsePanel1_SelectedPathChanged(object sender, EventArgs e)
         {
-            Debug.WriteLine("Selected Path Changed: " +folderBrowsePanel1.SelectedPath);
+            Debug.WriteLine("Selected Path Changed: " + folderBrowsePanel1.SelectedPath);
         }
 
         private void hintedTextBox1_TextChanged(object sender, EventArgs e)
@@ -201,14 +193,63 @@ namespace CodeArtEng.ControlsTest
         private void button7_Click(object sender, EventArgs e)
         {
             resizableUserControl1.BeginResize();
-            customControl1.BeginResize();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             resizableUserControl1.EndResize();
-            customControl1.EndResize();
         }
+
+        #region [ Web Launcher Tests ]
+
+        private WebLauncher WebLauncher;
+        private const string WebLaunchCommand = "Launch Command: Operation Initiated";
+        private string WebLauncherSettings = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "WebLauncher.txt");
+
+        private void InitWebLauncher()
+        {
+            string passPhrase = string.Empty;
+            if (File.Exists(WebLauncherSettings)) TxtWebLaunchPassPhrase.Text = passPhrase = File.ReadAllText(WebLauncherSettings);
+            WebLauncher = new WebLauncher(TxtWebLaunchURLName.Text, Application.ExecutablePath, passPhrase);
+        }
+
+        private void BtUpdateWebLauncher_Click(object sender, EventArgs e)
+        {
+            File.WriteAllText(WebLauncherSettings, TxtWebLaunchPassPhrase.Text);
+            InitWebLauncher();
+        }
+
+        private void BtWebLaunchRegisterURL_Click(object sender, EventArgs e)
+        {
+            WebLauncher.RegisterURLProtocol();
+        }
+
+        private void BtWebLaunchGenerateHTML_Click(object sender, EventArgs e)
+        {
+            string htmlCode = WebLauncher.GenerateLaunchLink("Launch Local Application", WebLaunchCommand);
+            File.WriteAllText("WebLaunch.html", htmlCode);
+            Process.Start("WebLaunch.html");
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            string[] args = Environment.GetCommandLineArgs();
+            if (args.Length > 1)
+            {
+                Trace.WriteLine("Input Argument: " + args[1]);
+                string command = WebLauncher.DecodeUrlCommand(args[1]);
+                Trace.WriteLine("URL Command: " + command);
+
+                if (!string.IsNullOrEmpty(command))
+                {
+                    if (command.Equals(WebLaunchCommand)) { MessageBox.Show("Web Launch command success!"); }
+                    else MessageBox.Show("URL Command mismatched, received: " + command);
+                }
+            }
+        }
+
+        #endregion
+
     }
 
     public class PropertyGridTest

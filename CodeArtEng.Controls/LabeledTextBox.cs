@@ -227,6 +227,7 @@ namespace CodeArtEng.Controls
             }
             set
             {
+                comboBox.Items.Clear();
                 comboBox.Items.AddRange(value);
                 if (comboBox.Items.Count != 0) comboBox.SelectedIndex = 0;
             }

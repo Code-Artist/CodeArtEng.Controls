@@ -26,6 +26,7 @@ namespace CodeArtEng.Controls
 
             if ((parentString == "HKCU") || (parentString == "HKEY_CURRENT_USER")) parent = Registry.CurrentUser;
             else if ((parentString == "HKLM") || (parentString == "HKEY_LOCAL_MACHINE")) parent = Registry.LocalMachine;
+            else if ((parentString == "HKCR") || (parentString == "HKEY_CLASSES_ROOT")) parent = Registry.ClassesRoot;
 
             if (parent == null) throw new FormatException("Unknown / Unsupported registry key format!");
 
@@ -57,6 +58,7 @@ namespace CodeArtEng.Controls
 
             if ((parentString == "HKCU") || (parentString == "HKEY_CURRENT_USER")) parent = Registry.CurrentUser;
             else if ((parentString == "HKLM") || (parentString == "HKEY_LOCAL_MACHINE")) parent = Registry.LocalMachine;
+            else if ((parentString == "HKCR") || (parentString == "HKEY_CLASSES_ROOT")) parent = Registry.ClassesRoot;
 
             if (parent == null) throw new FormatException("Unknown / Unsupported registry key format!");
 
