@@ -249,7 +249,6 @@ namespace CodeArtEng.ControlsTest
         }
 
         #endregion
-
     }
 
     public class PropertyGridTest

@@ -325,5 +325,15 @@ namespace CodeArtEng.Controls
             ResumeLayout();
         }
 
+        /// <summary>
+        /// Select all text in the textbox
+        /// </summary>
+        public void SelectAll() { textbox.SelectAll(); }
+
+        /// <summary>
+        /// Get selected text in textbox
+        /// </summary>
+        public string SelectedText => textbox.SelectedText; 
+
     }
 }

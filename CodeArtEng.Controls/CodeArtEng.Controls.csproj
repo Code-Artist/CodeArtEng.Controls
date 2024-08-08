@@ -8,12 +8,12 @@
     <Company>Code Art Engineering</Company>
     <Copyright>Copyright © Code Art Engineering 2012 - 2021</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>3.3.0</Version>
+    <Version>3.3.2</Version>
     <PackageProjectUrl>https://www.codearteng.com/2017/10/winforms-controls.html</PackageProjectUrl>
     <PackageIcon>CAELogoSmall.png</PackageIcon>
     <RepositoryUrl>https://github.com/Code-Artist/CodeArtEng.Controls</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
-    <PackageReleaseNotes>Minor bug fixes on LabeledTextBox</PackageReleaseNotes>
+    <PackageReleaseNotes>Add SelectAll() to LabeledTextBox</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 

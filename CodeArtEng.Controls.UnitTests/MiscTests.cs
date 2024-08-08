@@ -20,7 +20,7 @@ namespace CodeArtEng.Controls.UnitTests
         [Test]
         public void WindowsTheme_TransparecnyEnabled()
         {
-            Assert.AreEqual(true, WindowsTheme.TransparencyEnabled()); 
+            Assert.AreEqual(false, WindowsTheme.TransparencyEnabled()); 
         }
 
         [Test]

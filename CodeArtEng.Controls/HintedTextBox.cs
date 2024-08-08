@@ -183,6 +183,7 @@ namespace CodeArtEng.Controls
             if (IsInDesignMode(this)) return; //Do not update component in design mode.
 
             updating = true;
+            base.Text = text;
             if (!string.IsNullOrEmpty(text))
             {
                 base.ForeColor = textColor;
