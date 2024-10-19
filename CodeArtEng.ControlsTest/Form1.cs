@@ -1,6 +1,7 @@
 ﻿using CodeArtEng.Controls;
 using System;
 using System.IO;
+using System.Reflection;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing.Design;
@@ -18,8 +19,11 @@ namespace CodeArtEng.ControlsTest
             //fileExplorer1.FolderSelect = true;
             propertyGrid1.SelectedObject = new PropertyGridTest();
 
-            quickAccessList1.SearchPaths.Add("D:\\CKMAI_Documents\\Programming\\ClassLibraryNET\\CodeArtEng\\CodeArtEng.Controls\\CodeArtEng.Controls");
-            quickAccessList1.SearchPaths.Add("D:/CKMAI_Documents/Programming/ClassLibraryNET/CodeArtEng/CodeArtEng.Controls/CodeArtEng.ControlsTest");
+
+            string searchPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
+            quickAccessList1.SearchPaths.Add(Path.Combine(searchPath, "../../../CodeArtEng.Controls"));
+            quickAccessList1.SearchPaths.Add(Path.Combine(searchPath, "../../../CodeArtEng.ControlsTest"));
             quickAccessList1.SearchPaths.Add("NotExist");
             quickAccessList1.FileFilter = "*.cs";
             quickAccessList1.UpdateList();
