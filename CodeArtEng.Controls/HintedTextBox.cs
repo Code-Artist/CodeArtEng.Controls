@@ -118,11 +118,11 @@ namespace CodeArtEng.Controls
             try
             {
                 SupressTextChangedEvent = true;
-                Text = base.Text;
+                if (base.Text != hint) Text = base.Text;
                 base.OnTextChanged(e); //Trigger event after update Text property.
                 UpdateTextBox();
             }
-            finally {  SupressTextChangedEvent = false; }
+            finally { SupressTextChangedEvent = false; }
         }
         private bool SupressTextChangedEvent = false;
 
@@ -183,7 +183,7 @@ namespace CodeArtEng.Controls
             if (IsInDesignMode(this)) return; //Do not update component in design mode.
 
             updating = true;
-            base.Text = text;
+            //base.Text = text;
             if (!string.IsNullOrEmpty(text))
             {
                 base.ForeColor = textColor;
