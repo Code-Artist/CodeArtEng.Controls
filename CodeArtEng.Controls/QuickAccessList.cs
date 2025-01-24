@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing.Design;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -19,17 +20,27 @@ namespace CodeArtEng.Controls
         #region [ Properties ]
 
         /// <summary>
-        /// Define search filter for files.
+        /// Defines the search filter for files. This property determines which file types
+        /// are included in the search results.
         /// </summary>
-        [Browsable(true), Description("Define search filter for files.")]
+        /// <remarks>
+        /// By default, the file filter is set to "*.*", which means all file types are included.
+        /// You can specify a different filter, such as "*.txt" for text files or "*.jpg" for image files.
+        /// </remarks>
+        [Category("Search Options"), Browsable(true), Description("Defines the search filter for files.")]
         [DefaultValue("*.*")]
         public string FileFilter { get; set; } = "*.*";
 
         /// <summary>
-        /// Define search folder for child items.
+        /// Defines the search folder for child items. This property allows users to 
+        /// specify multiple search paths, which can be edited at design time using a custom editor.
         /// </summary>
-        [Browsable(false)]
-        //ToDo: Create editor?
+        /// <remarks>
+        /// The search paths can be added, deleted, or modified using the interactive editor dialog.
+        /// This provides a flexible way to manage multiple directories for searching child items.
+        /// </remarks>
+        [Category("Search Options"), Editor(typeof(SearchPathsEditor), typeof(UITypeEditor))]
+        [Browsable(true), Description("Define search folder for child items.")]
         public List<string> SearchPaths { get; set; } = new List<string>();
 
         #endregion

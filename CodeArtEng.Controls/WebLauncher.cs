@@ -1,13 +1,5 @@
-﻿using CodeArtEng.Security;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CodeArtEng.Controls
 {
@@ -32,7 +24,7 @@ namespace CodeArtEng.Controls
         /// </summary>
         public string PassPhrase { get; private set; }
 
-        private AesEncryptor AES;
+        private AesEncryptor AES { get; set; }
 
         private const string URLHeader = "CodeArtEng Web Launcher: ";
 

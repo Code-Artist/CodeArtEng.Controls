@@ -246,7 +246,7 @@ namespace CodeArtEng.ControlsTest
 
                 if (!string.IsNullOrEmpty(command))
                 {
-                    if (command.Equals(WebLaunchCommand)) { MessageBox.Show("Web Launch command success!"); }
+                    if (command.Equals(WebLaunchCommand)) { MessageBox.Show("Web Launch command success! Command: " + WebLaunchCommand); }
                     else MessageBox.Show("URL Command mismatched, received: " + command);
                 }
             }

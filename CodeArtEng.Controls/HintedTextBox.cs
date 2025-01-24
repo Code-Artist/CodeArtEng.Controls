@@ -183,18 +183,18 @@ namespace CodeArtEng.Controls
             if (IsInDesignMode(this)) return; //Do not update component in design mode.
 
             updating = true;
-            //base.Text = text;
-            if (!string.IsNullOrEmpty(text))
+            if (!string.IsNullOrEmpty(hint) && string.IsNullOrEmpty(text))
+            {
+                //If input string is empty and hint is not null
+                base.ForeColor = hintForeColor;
+                base.PasswordChar = '\0';
+                base.Text = hint;
+            }
+            else 
             {
                 base.ForeColor = textColor;
                 base.PasswordChar = passwordChar;
                 base.Text = text;
-            }
-            else if (!string.IsNullOrEmpty(hint))
-            {
-                base.ForeColor = hintForeColor;
-                base.PasswordChar = '\0';
-                base.Text = hint;
             }
             updating = false;
         }

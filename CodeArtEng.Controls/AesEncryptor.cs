@@ -3,7 +3,7 @@ using System.Text;
 using System.Security.Cryptography;
 using System.IO;
 
-namespace CodeArtEng.Security
+namespace CodeArtEng.Controls
 {
     /// <summary>
     /// AES 256 bits Encryption Library with Salt
@@ -20,7 +20,7 @@ namespace CodeArtEng.Security
             byte[] encryptedBytes = null;
             using (MemoryStream ms = new MemoryStream())
             {
-                using (RijndaelManaged AES = new RijndaelManaged())
+                using (Aes AES = Aes.Create())
                 {
                     AES.KeySize = 256;
                     AES.BlockSize = 128;
@@ -48,7 +48,7 @@ namespace CodeArtEng.Security
             byte[] decryptedBytes = null;
             using (MemoryStream ms = new MemoryStream())
             {
-                using (RijndaelManaged AES = new RijndaelManaged())
+                using (Aes AES = Aes.Create())
                 {
                     AES.KeySize = 256;
                     AES.BlockSize = 128;

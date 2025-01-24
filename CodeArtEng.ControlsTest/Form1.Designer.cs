@@ -34,24 +34,44 @@
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMruList1 = new CodeArtEng.Controls.ToolStripMruList();
             this.addRecentFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quickAccessList1 = new CodeArtEng.Controls.QuickAccessList();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.resizableUserControl1 = new CodeArtEng.Controls.ResizableUserControl();
             this.button5 = new System.Windows.Forms.Button();
-            this.folderBrowsePanel3 = new CodeArtEng.Controls.FolderBrowsePanel();
-            this.folderBrowsePanel2 = new CodeArtEng.Controls.FolderBrowsePanel();
-            this.labeledTextBox5 = new CodeArtEng.Controls.LabeledTextBox();
-            this.labeledTextBox4 = new CodeArtEng.Controls.LabeledTextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.BtSetInitialFolder = new System.Windows.Forms.Button();
+            this.TxtInitialFolder = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btCmdMacroEditor = new System.Windows.Forms.Button();
+            this.btCmdLineDialog1 = new System.Windows.Forms.Button();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.BtMergeRichText = new System.Windows.Forms.Button();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.BtUpdateWebLauncher = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.BtWebLaunchGenerateHTML = new System.Windows.Forms.Button();
+            this.BtWebLaunchRegisterURL = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.resizableUserControl1 = new CodeArtEng.Controls.ResizableUserControl();
+            this.folderBrowsePanel3 = new CodeArtEng.Controls.FolderBrowsePanel();
+            this.folderBrowsePanel2 = new CodeArtEng.Controls.FolderBrowsePanel();
+            this.labeledTextBox5 = new CodeArtEng.Controls.LabeledTextBox();
+            this.labeledTextBox4 = new CodeArtEng.Controls.LabeledTextBox();
             this.labeledTextBox3 = new CodeArtEng.Controls.LabeledTextBox();
             this.labeledTextBox2 = new CodeArtEng.Controls.LabeledTextBox();
             this.labeledTextBox1 = new CodeArtEng.Controls.LabeledTextBox();
@@ -66,39 +86,19 @@
             this.statusLabel1 = new CodeArtEng.Controls.StatusLabel();
             this.folderBrowsePanel1 = new CodeArtEng.Controls.FolderBrowsePanel();
             this.openFilePanel1 = new CodeArtEng.Controls.OpenFilePanel();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.richTextEditor1 = new CodeArtEng.Controls.RichTextEditor();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.fileExplorer1 = new CodeArtEng.Controls.FileExplorer();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.BtSetInitialFolder = new System.Windows.Forms.Button();
-            this.TxtInitialFolder = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.btCmdMacroEditor = new System.Windows.Forms.Button();
-            this.btCmdLineDialog1 = new System.Windows.Forms.Button();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
             this.RtfMerged = new CodeArtEng.Controls.RichTextEditor();
-            this.BtMergeRichText = new System.Windows.Forms.Button();
             this.RtfB = new CodeArtEng.Controls.RichTextEditor();
             this.RtfA = new CodeArtEng.Controls.RichTextEditor();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.BtUpdateWebLauncher = new System.Windows.Forms.Button();
             this.TxtWebLaunchURLName = new CodeArtEng.Controls.LabeledTextBox();
             this.TxtWebLaunchPassPhrase = new CodeArtEng.Controls.LabeledTextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.BtWebLaunchGenerateHTML = new System.Windows.Forms.Button();
-            this.BtWebLaunchRegisterURL = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.toolStripMruList1 = new CodeArtEng.Controls.ToolStripMruList();
+            this.quickAccessList1 = new CodeArtEng.Controls.QuickAccessList();
+            this.quickAccessList2 = new CodeArtEng.Controls.QuickAccessList();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hintedTextBox1)).BeginInit();
             this.tabPage5.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -108,6 +108,7 @@
             this.tabPage7.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hintedTextBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -116,7 +117,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.addRecentFileToolStripMenuItem,
-            this.quickAccessList1});
+            this.quickAccessList1,
+            this.quickAccessList2});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1083, 24);
@@ -152,30 +154,12 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(133, 6);
             // 
-            // toolStripMruList1
-            // 
-            this.toolStripMruList1.Enabled = false;
-            this.toolStripMruList1.MaxPathLength = 40;
-            this.toolStripMruList1.MruListSize = 5;
-            this.toolStripMruList1.Name = "toolStripMruList1";
-            this.toolStripMruList1.RecentFileList = new string[0];
-            this.toolStripMruList1.Size = new System.Drawing.Size(136, 22);
-            this.toolStripMruList1.Text = "Recent Files";
-            this.toolStripMruList1.RecentFileClicked += new System.EventHandler<CodeArtEng.Controls.RecentFileClickedEventArgs>(this.toolStripMruList1_RecentFileClicked);
-            // 
             // addRecentFileToolStripMenuItem
             // 
             this.addRecentFileToolStripMenuItem.Name = "addRecentFileToolStripMenuItem";
             this.addRecentFileToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
             this.addRecentFileToolStripMenuItem.Text = "Add Recent File";
             this.addRecentFileToolStripMenuItem.Click += new System.EventHandler(this.addRecentFileToolStripMenuItem_Click);
-            // 
-            // quickAccessList1
-            // 
-            this.quickAccessList1.Name = "quickAccessList1";
-            this.quickAccessList1.SearchPaths = ((System.Collections.Generic.List<string>)(resources.GetObject("quickAccessList1.SearchPaths")));
-            this.quickAccessList1.Size = new System.Drawing.Size(73, 20);
-            this.quickAccessList1.Text = "SourceFile";
             // 
             // tabControl1
             // 
@@ -250,16 +234,6 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // resizableUserControl1
-            // 
-            this.resizableUserControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.resizableUserControl1.Location = new System.Drawing.Point(508, 330);
-            this.resizableUserControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.resizableUserControl1.Name = "resizableUserControl1";
-            this.resizableUserControl1.ResizeGripControl = 7;
-            this.resizableUserControl1.Size = new System.Drawing.Size(150, 110);
-            this.resizableUserControl1.TabIndex = 32;
-            // 
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(47, 274);
@@ -269,6 +243,302 @@
             this.button5.Text = "button5";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(207, 281);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 26;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(392, 310);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "label2";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(331, 308);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(56, 19);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(128, 255);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "label1";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(47, 250);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.richTextEditor1);
+            this.tabPage5.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1075, 544);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "RichText Editor";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.fileExplorer1);
+            this.tabPage1.Controls.Add(this.panel1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1075, 544);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "File Explorer";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.BtSetInitialFolder);
+            this.panel1.Controls.Add(this.TxtInitialFolder);
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1069, 31);
+            this.panel1.TabIndex = 1;
+            // 
+            // BtSetInitialFolder
+            // 
+            this.BtSetInitialFolder.Location = new System.Drawing.Point(663, 3);
+            this.BtSetInitialFolder.Name = "BtSetInitialFolder";
+            this.BtSetInitialFolder.Size = new System.Drawing.Size(157, 23);
+            this.BtSetInitialFolder.TabIndex = 2;
+            this.BtSetInitialFolder.Text = "Set Initial Folder";
+            this.BtSetInitialFolder.UseVisualStyleBackColor = true;
+            this.BtSetInitialFolder.Click += new System.EventHandler(this.BtSetInitialFolder_Click);
+            // 
+            // TxtInitialFolder
+            // 
+            this.TxtInitialFolder.Location = new System.Drawing.Point(204, 5);
+            this.TxtInitialFolder.Name = "TxtInitialFolder";
+            this.TxtInitialFolder.Size = new System.Drawing.Size(453, 20);
+            this.TxtInitialFolder.TabIndex = 1;
+            this.TxtInitialFolder.Text = "D:\\CKMAI_Documents\\Programming\\ClassLibraryNET\\CodeArtEng";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(6, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(156, 23);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "Get Selected Files";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.propertyGrid1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1075, 544);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "TimePickerEditor";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // propertyGrid1
+            // 
+            this.propertyGrid1.CategoryForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.propertyGrid1.LineColor = System.Drawing.SystemColors.ControlDark;
+            this.propertyGrid1.Location = new System.Drawing.Point(21, 17);
+            this.propertyGrid1.Name = "propertyGrid1";
+            this.propertyGrid1.Size = new System.Drawing.Size(281, 314);
+            this.propertyGrid1.TabIndex = 0;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.btCmdMacroEditor);
+            this.tabPage4.Controls.Add(this.btCmdLineDialog1);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1075, 544);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Command Line";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // btCmdMacroEditor
+            // 
+            this.btCmdMacroEditor.Location = new System.Drawing.Point(8, 48);
+            this.btCmdMacroEditor.Name = "btCmdMacroEditor";
+            this.btCmdMacroEditor.Size = new System.Drawing.Size(210, 36);
+            this.btCmdMacroEditor.TabIndex = 1;
+            this.btCmdMacroEditor.Text = "Command Macro Editor";
+            this.btCmdMacroEditor.UseVisualStyleBackColor = true;
+            this.btCmdMacroEditor.Click += new System.EventHandler(this.btCmdMacroEditor_Click);
+            // 
+            // btCmdLineDialog1
+            // 
+            this.btCmdLineDialog1.Location = new System.Drawing.Point(8, 6);
+            this.btCmdLineDialog1.Name = "btCmdLineDialog1";
+            this.btCmdLineDialog1.Size = new System.Drawing.Size(210, 36);
+            this.btCmdLineDialog1.TabIndex = 0;
+            this.btCmdLineDialog1.Text = "Command Line Helper";
+            this.btCmdLineDialog1.UseVisualStyleBackColor = true;
+            this.btCmdLineDialog1.Click += new System.EventHandler(this.btCmdLineDialog1_Click);
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.RtfMerged);
+            this.tabPage6.Controls.Add(this.BtMergeRichText);
+            this.tabPage6.Controls.Add(this.RtfB);
+            this.tabPage6.Controls.Add(this.RtfA);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1075, 544);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "RichText merge";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // BtMergeRichText
+            // 
+            this.BtMergeRichText.Location = new System.Drawing.Point(589, 15);
+            this.BtMergeRichText.Name = "BtMergeRichText";
+            this.BtMergeRichText.Size = new System.Drawing.Size(75, 23);
+            this.BtMergeRichText.TabIndex = 3;
+            this.BtMergeRichText.Text = "Merge";
+            this.BtMergeRichText.UseVisualStyleBackColor = true;
+            this.BtMergeRichText.Click += new System.EventHandler(this.BtMergeRichText_Click);
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.groupBox2);
+            this.tabPage7.Controls.Add(this.groupBox1);
+            this.tabPage7.Controls.Add(this.label3);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(1075, 544);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "Web Launcher";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.BtUpdateWebLauncher);
+            this.groupBox2.Controls.Add(this.TxtWebLaunchURLName);
+            this.groupBox2.Controls.Add(this.TxtWebLaunchPassPhrase);
+            this.groupBox2.Location = new System.Drawing.Point(24, 34);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(474, 85);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Web Launcher Setup";
+            // 
+            // BtUpdateWebLauncher
+            // 
+            this.BtUpdateWebLauncher.Location = new System.Drawing.Point(356, 19);
+            this.BtUpdateWebLauncher.Name = "BtUpdateWebLauncher";
+            this.BtUpdateWebLauncher.Size = new System.Drawing.Size(112, 52);
+            this.BtUpdateWebLauncher.TabIndex = 4;
+            this.BtUpdateWebLauncher.Text = "Update";
+            this.BtUpdateWebLauncher.UseVisualStyleBackColor = true;
+            this.BtUpdateWebLauncher.Click += new System.EventHandler(this.BtUpdateWebLauncher_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.BtWebLaunchGenerateHTML);
+            this.groupBox1.Controls.Add(this.BtWebLaunchRegisterURL);
+            this.groupBox1.Location = new System.Drawing.Point(24, 125);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(474, 117);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Web Launcher Control";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(179, 70);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(216, 26);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Generate HTML link for Web Launch.\r\nRegenerate this file if Pass Phrase changed.";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(179, 39);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(189, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Execute once with Administrator rights.";
+            // 
+            // BtWebLaunchGenerateHTML
+            // 
+            this.BtWebLaunchGenerateHTML.Location = new System.Drawing.Point(17, 68);
+            this.BtWebLaunchGenerateHTML.Name = "BtWebLaunchGenerateHTML";
+            this.BtWebLaunchGenerateHTML.Size = new System.Drawing.Size(156, 33);
+            this.BtWebLaunchGenerateHTML.TabIndex = 3;
+            this.BtWebLaunchGenerateHTML.Text = "Generate HTML";
+            this.BtWebLaunchGenerateHTML.UseVisualStyleBackColor = true;
+            this.BtWebLaunchGenerateHTML.Click += new System.EventHandler(this.BtWebLaunchGenerateHTML_Click);
+            // 
+            // BtWebLaunchRegisterURL
+            // 
+            this.BtWebLaunchRegisterURL.Location = new System.Drawing.Point(17, 29);
+            this.BtWebLaunchRegisterURL.Name = "BtWebLaunchRegisterURL";
+            this.BtWebLaunchRegisterURL.Size = new System.Drawing.Size(156, 33);
+            this.BtWebLaunchRegisterURL.TabIndex = 2;
+            this.BtWebLaunchRegisterURL.Text = "Register URL Protocol";
+            this.BtWebLaunchRegisterURL.UseVisualStyleBackColor = true;
+            this.BtWebLaunchRegisterURL.Click += new System.EventHandler(this.BtWebLaunchRegisterURL_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(21, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(312, 17);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "NOTE: Administrator rights required for this test.";
+            // 
+            // resizableUserControl1
+            // 
+            this.resizableUserControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.resizableUserControl1.Location = new System.Drawing.Point(508, 330);
+            this.resizableUserControl1.Margin = new System.Windows.Forms.Padding(0);
+            this.resizableUserControl1.Name = "resizableUserControl1";
+            this.resizableUserControl1.ResizeGripControl = 7;
+            this.resizableUserControl1.Size = new System.Drawing.Size(150, 110);
+            this.resizableUserControl1.TabIndex = 32;
             // 
             // folderBrowsePanel3
             // 
@@ -331,56 +601,6 @@
             this.labeledTextBox4.TextBoxBackColor = System.Drawing.SystemColors.Window;
             this.labeledTextBox4.TextBoxForeColor = System.Drawing.Color.Empty;
             this.labeledTextBox4.TextBoxMaxLength = 32767;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(207, 281);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 26;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.Button3_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(392, 310);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "label2";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(331, 308);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(56, 19);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(128, 255);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "label1";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(47, 250);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // labeledTextBox3
             // 
@@ -585,18 +805,6 @@
             this.openFilePanel1.SelectedFileChanged += new System.EventHandler(this.openFilePanel1_SelectedFileChanged);
             this.openFilePanel1.TextChanged += new System.EventHandler(this.openFilePanel1_TextChanged);
             // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.richTextEditor1);
-            this.tabPage5.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1075, 544);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "RichText Editor";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
             // richTextEditor1
             // 
             this.richTextEditor1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -612,18 +820,6 @@
             this.richTextEditor1.TabIndex = 0;
             this.richTextEditor1.ToolsPanelBackColor = System.Drawing.Color.Transparent;
             // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.fileExplorer1);
-            this.tabPage1.Controls.Add(this.panel1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1075, 544);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "File Explorer";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
             // fileExplorer1
             // 
             this.fileExplorer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -636,111 +832,6 @@
             this.fileExplorer1.SplitterDistance = 150;
             this.fileExplorer1.TabIndex = 0;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.BtSetInitialFolder);
-            this.panel1.Controls.Add(this.TxtInitialFolder);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1069, 31);
-            this.panel1.TabIndex = 1;
-            // 
-            // BtSetInitialFolder
-            // 
-            this.BtSetInitialFolder.Location = new System.Drawing.Point(663, 3);
-            this.BtSetInitialFolder.Name = "BtSetInitialFolder";
-            this.BtSetInitialFolder.Size = new System.Drawing.Size(157, 23);
-            this.BtSetInitialFolder.TabIndex = 2;
-            this.BtSetInitialFolder.Text = "Set Initial Folder";
-            this.BtSetInitialFolder.UseVisualStyleBackColor = true;
-            this.BtSetInitialFolder.Click += new System.EventHandler(this.BtSetInitialFolder_Click);
-            // 
-            // TxtInitialFolder
-            // 
-            this.TxtInitialFolder.Location = new System.Drawing.Point(204, 5);
-            this.TxtInitialFolder.Name = "TxtInitialFolder";
-            this.TxtInitialFolder.Size = new System.Drawing.Size(453, 20);
-            this.TxtInitialFolder.TabIndex = 1;
-            this.TxtInitialFolder.Text = "D:\\CKMAI_Documents\\Programming\\ClassLibraryNET\\CodeArtEng";
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(6, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(156, 23);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "Get Selected Files";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.propertyGrid1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1075, 544);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "TimePickerEditor";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // propertyGrid1
-            // 
-            this.propertyGrid1.CategoryForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.propertyGrid1.LineColor = System.Drawing.SystemColors.ControlDark;
-            this.propertyGrid1.Location = new System.Drawing.Point(21, 17);
-            this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.Size = new System.Drawing.Size(281, 314);
-            this.propertyGrid1.TabIndex = 0;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.btCmdMacroEditor);
-            this.tabPage4.Controls.Add(this.btCmdLineDialog1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1075, 544);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Command Line";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // btCmdMacroEditor
-            // 
-            this.btCmdMacroEditor.Location = new System.Drawing.Point(8, 48);
-            this.btCmdMacroEditor.Name = "btCmdMacroEditor";
-            this.btCmdMacroEditor.Size = new System.Drawing.Size(210, 36);
-            this.btCmdMacroEditor.TabIndex = 1;
-            this.btCmdMacroEditor.Text = "Command Macro Editor";
-            this.btCmdMacroEditor.UseVisualStyleBackColor = true;
-            this.btCmdMacroEditor.Click += new System.EventHandler(this.btCmdMacroEditor_Click);
-            // 
-            // btCmdLineDialog1
-            // 
-            this.btCmdLineDialog1.Location = new System.Drawing.Point(8, 6);
-            this.btCmdLineDialog1.Name = "btCmdLineDialog1";
-            this.btCmdLineDialog1.Size = new System.Drawing.Size(210, 36);
-            this.btCmdLineDialog1.TabIndex = 0;
-            this.btCmdLineDialog1.Text = "Command Line Helper";
-            this.btCmdLineDialog1.UseVisualStyleBackColor = true;
-            this.btCmdLineDialog1.Click += new System.EventHandler(this.btCmdLineDialog1_Click);
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Controls.Add(this.RtfMerged);
-            this.tabPage6.Controls.Add(this.BtMergeRichText);
-            this.tabPage6.Controls.Add(this.RtfB);
-            this.tabPage6.Controls.Add(this.RtfA);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1075, 544);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "RichText merge";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
             // RtfMerged
             // 
             this.RtfMerged.Location = new System.Drawing.Point(588, 53);
@@ -752,16 +843,6 @@
             this.RtfMerged.Size = new System.Drawing.Size(486, 490);
             this.RtfMerged.TabIndex = 4;
             this.RtfMerged.ToolsPanelBackColor = System.Drawing.Color.Transparent;
-            // 
-            // BtMergeRichText
-            // 
-            this.BtMergeRichText.Location = new System.Drawing.Point(589, 15);
-            this.BtMergeRichText.Name = "BtMergeRichText";
-            this.BtMergeRichText.Size = new System.Drawing.Size(75, 23);
-            this.BtMergeRichText.TabIndex = 3;
-            this.BtMergeRichText.Text = "Merge";
-            this.BtMergeRichText.UseVisualStyleBackColor = true;
-            this.BtMergeRichText.Click += new System.EventHandler(this.BtMergeRichText_Click);
             // 
             // RtfB
             // 
@@ -786,41 +867,6 @@
             this.RtfA.Size = new System.Drawing.Size(571, 233);
             this.RtfA.TabIndex = 0;
             this.RtfA.ToolsPanelBackColor = System.Drawing.Color.Transparent;
-            // 
-            // tabPage7
-            // 
-            this.tabPage7.Controls.Add(this.groupBox2);
-            this.tabPage7.Controls.Add(this.groupBox1);
-            this.tabPage7.Controls.Add(this.label3);
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(1075, 544);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "Web Launcher";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.BtUpdateWebLauncher);
-            this.groupBox2.Controls.Add(this.TxtWebLaunchURLName);
-            this.groupBox2.Controls.Add(this.TxtWebLaunchPassPhrase);
-            this.groupBox2.Location = new System.Drawing.Point(24, 34);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(474, 85);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Web Launcher Setup";
-            // 
-            // BtUpdateWebLauncher
-            // 
-            this.BtUpdateWebLauncher.Location = new System.Drawing.Point(356, 19);
-            this.BtUpdateWebLauncher.Name = "BtUpdateWebLauncher";
-            this.BtUpdateWebLauncher.Size = new System.Drawing.Size(112, 52);
-            this.BtUpdateWebLauncher.TabIndex = 4;
-            this.BtUpdateWebLauncher.Text = "Update";
-            this.BtUpdateWebLauncher.UseVisualStyleBackColor = true;
-            this.BtUpdateWebLauncher.Click += new System.EventHandler(this.BtUpdateWebLauncher_Click);
             // 
             // TxtWebLaunchURLName
             // 
@@ -860,67 +906,30 @@
             this.TxtWebLaunchPassPhrase.TextBoxForeColor = System.Drawing.Color.Empty;
             this.TxtWebLaunchPassPhrase.TextBoxMaxLength = 32767;
             // 
-            // groupBox1
+            // toolStripMruList1
             // 
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.BtWebLaunchGenerateHTML);
-            this.groupBox1.Controls.Add(this.BtWebLaunchRegisterURL);
-            this.groupBox1.Location = new System.Drawing.Point(24, 125);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(474, 117);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Web Launcher Control";
+            this.toolStripMruList1.Enabled = false;
+            this.toolStripMruList1.MaxPathLength = 40;
+            this.toolStripMruList1.MruListSize = 5;
+            this.toolStripMruList1.Name = "toolStripMruList1";
+            this.toolStripMruList1.RecentFileList = new string[0];
+            this.toolStripMruList1.Size = new System.Drawing.Size(136, 22);
+            this.toolStripMruList1.Text = "Recent Files";
+            this.toolStripMruList1.RecentFileClicked += new System.EventHandler<CodeArtEng.Controls.RecentFileClickedEventArgs>(this.toolStripMruList1_RecentFileClicked);
             // 
-            // label5
+            // quickAccessList1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(179, 70);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(216, 26);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Generate HTML link for Web Launch.\r\nRegenerate this file if Pass Phrase changed.";
+            this.quickAccessList1.Name = "quickAccessList1";
+            this.quickAccessList1.SearchPaths = ((System.Collections.Generic.List<string>)(resources.GetObject("quickAccessList1.SearchPaths")));
+            this.quickAccessList1.Size = new System.Drawing.Size(73, 20);
+            this.quickAccessList1.Text = "SourceFile";
             // 
-            // label4
+            // quickAccessList2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(179, 39);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(189, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Execute once with Administrator rights.";
-            // 
-            // BtWebLaunchGenerateHTML
-            // 
-            this.BtWebLaunchGenerateHTML.Location = new System.Drawing.Point(17, 68);
-            this.BtWebLaunchGenerateHTML.Name = "BtWebLaunchGenerateHTML";
-            this.BtWebLaunchGenerateHTML.Size = new System.Drawing.Size(156, 33);
-            this.BtWebLaunchGenerateHTML.TabIndex = 3;
-            this.BtWebLaunchGenerateHTML.Text = "Generate HTML";
-            this.BtWebLaunchGenerateHTML.UseVisualStyleBackColor = true;
-            this.BtWebLaunchGenerateHTML.Click += new System.EventHandler(this.BtWebLaunchGenerateHTML_Click);
-            // 
-            // BtWebLaunchRegisterURL
-            // 
-            this.BtWebLaunchRegisterURL.Location = new System.Drawing.Point(17, 29);
-            this.BtWebLaunchRegisterURL.Name = "BtWebLaunchRegisterURL";
-            this.BtWebLaunchRegisterURL.Size = new System.Drawing.Size(156, 33);
-            this.BtWebLaunchRegisterURL.TabIndex = 2;
-            this.BtWebLaunchRegisterURL.Text = "Register URL Protocol";
-            this.BtWebLaunchRegisterURL.UseVisualStyleBackColor = true;
-            this.BtWebLaunchRegisterURL.Click += new System.EventHandler(this.BtWebLaunchRegisterURL_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(21, 14);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(312, 17);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "NOTE: Administrator rights required for this test.";
+            this.quickAccessList2.Name = "quickAccessList2";
+            this.quickAccessList2.SearchPaths = ((System.Collections.Generic.List<string>)(resources.GetObject("quickAccessList2.SearchPaths")));
+            this.quickAccessList2.Size = new System.Drawing.Size(108, 20);
+            this.quickAccessList2.Text = "quickAccessList2";
             // 
             // Form1
             // 
@@ -938,7 +947,6 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hintedTextBox1)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -951,6 +959,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hintedTextBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1024,6 +1033,7 @@
         private System.Windows.Forms.Button BtUpdateWebLauncher;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private Controls.QuickAccessList quickAccessList2;
     }
 }
 

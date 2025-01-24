@@ -58,7 +58,6 @@ namespace CodeArtEng.Controls
         internal class ResizableControlGrip : Panel
         {
             private UserControl Owner;
-            private Cursor BackupCursor;
             private GripType GripType;
             private Action<MouseEventArgs> MouseAction = null;
 

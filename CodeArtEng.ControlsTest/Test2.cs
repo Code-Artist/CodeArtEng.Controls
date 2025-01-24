@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CodeArtEng.ControlsTest
@@ -20,6 +13,12 @@ namespace CodeArtEng.ControlsTest
         private void button1_Click(object sender, EventArgs e)
         {
             label1.Text = hintedTextBox1.Text;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            hintedTextBox1.Text = string.Empty;
+            hintedTextBox2.Text = string.Empty;
         }
     }
 }

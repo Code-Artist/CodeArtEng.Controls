@@ -31,7 +31,10 @@
             this.hintedTextBox1 = new CodeArtEng.Controls.HintedTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.hintedTextBox2 = new CodeArtEng.Controls.HintedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.hintedTextBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hintedTextBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // hintedTextBox1
@@ -61,17 +64,38 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "label1";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(59, 93);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // hintedTextBox2
+            // 
+            this.hintedTextBox2.Hint = "";
+            this.hintedTextBox2.Location = new System.Drawing.Point(59, 3);
+            this.hintedTextBox2.Name = "hintedTextBox2";
+            this.hintedTextBox2.Size = new System.Drawing.Size(100, 20);
+            this.hintedTextBox2.TabIndex = 4;
+            // 
             // Test2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.hintedTextBox2);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.hintedTextBox1);
             this.Name = "Test2";
             this.Text = "Test2";
             ((System.ComponentModel.ISupportInitialize)(this.hintedTextBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hintedTextBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -82,5 +106,7 @@
         private Controls.HintedTextBox hintedTextBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button2;
+        private Controls.HintedTextBox hintedTextBox2;
     }
 }
