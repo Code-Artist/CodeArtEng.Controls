@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using System.Drawing;
 
 namespace CodeArtEng.Controls.UnitTests
@@ -9,38 +9,38 @@ namespace CodeArtEng.Controls.UnitTests
         [Test]
         public void WindowSTheme_IsDarkTheme()
         {
-            Assert.AreEqual(false, WindowsTheme.SystemUsesLightTheme());
+                        Assert.That(WindowsTheme.SystemUsesLightTheme(),Is.EqualTo(false));
         }
 
         [Test]
         public void WindowsTheme_TransparecnyEnabled()
         {
-            Assert.AreEqual(false, WindowsTheme.TransparencyEnabled()); 
+                        Assert.That(WindowsTheme.TransparencyEnabled(),Is.EqualTo(false)); 
         }
 
         [Test]
         public void WindowsTheme_AccentColour()
         {
             Color color = Color.FromArgb(0, 120, 212);
-            Assert.AreEqual(color, WindowsTheme.AccentColour());
+                        Assert.That(WindowsTheme.AccentColour(),Is.EqualTo(color));
         }
 
         [Test]
         public void ApplicationTheme_Light()
         {
-            Assert.AreEqual(true, new ApplicationTheme() { Mode = ApplicationThemeMode.Light }.IsLightTheme());
+                        Assert.That(new ApplicationTheme() { Mode = ApplicationThemeMode.Light }.IsLightTheme(),Is.EqualTo(true));
         }
 
         [Test]
         public void ApplicationTheme_Dark()
         {
-            Assert.AreEqual(false, new ApplicationTheme() { Mode = ApplicationThemeMode.Dark }.IsLightTheme());
+                        Assert.That(new ApplicationTheme() { Mode = ApplicationThemeMode.Dark }.IsLightTheme(),Is.EqualTo(false));
         }
 
         [Test]
         public void ApplicationTheme_SystemDefinedDark()
         {
-            Assert.AreEqual(false, new ApplicationTheme() { Mode = ApplicationThemeMode.SystemDefined }.IsLightTheme());
+                        Assert.That(new ApplicationTheme() { Mode = ApplicationThemeMode.SystemDefined }.IsLightTheme(),Is.EqualTo(false));
         }
 
     }

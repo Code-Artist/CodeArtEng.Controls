@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 
 namespace CodeArtEng.Controls.UnitTests
 {
@@ -13,7 +13,7 @@ namespace CodeArtEng.Controls.UnitTests
             lb.DropDownListItems = new string[] { "Item1", "Item2", "Item3" };
             lb.DropDownListSelectedIndex = 1;
 
-            Assert.AreEqual("Item2", lb.Text);
+                        Assert.That(lb.Text,Is.EqualTo("Item2"));
         }
 
         [Test]
@@ -22,9 +22,9 @@ namespace CodeArtEng.Controls.UnitTests
             LabeledTextBox lb = new LabeledTextBox();
             lb.IsDropDownList = true;
             lb.DropDownListItems = new string[] { "Item1", "Item2", "Item3" };
-            Assert.AreEqual(lb.DropDownListItems.Length, 3);
+                        Assert.That(3,Is.EqualTo(lb.DropDownListItems.Length));
             lb.DropDownListItems = new string[] { "Test" };
-            Assert.AreEqual(lb.DropDownListItems.Length, 1);
+                        Assert.That(1,Is.EqualTo(lb.DropDownListItems.Length));
         }
     }
 }

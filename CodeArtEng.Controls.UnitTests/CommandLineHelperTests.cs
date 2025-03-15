@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using System;
 
 namespace CodeArtEng.Controls.UnitTests
@@ -22,13 +22,13 @@ namespace CodeArtEng.Controls.UnitTests
         [Test]
         public void GetArgumentsName()
         {
-            Assert.AreEqual(new string[] { "Source" }, cmdLine.GetArgumentsName());
+            Assert.That(cmdLine.GetArgumentsName(), Is.EqualTo(new string[] { "Source" }));
         }
 
         [Test]
         public void GetSwitchesName()
         {
-            Assert.AreEqual(new string[] { "/AD", "/MIN", "/DELAY" }, cmdLine.GetSwitchesName());
+            Assert.That(cmdLine.GetSwitchesName(), Is.EqualTo(new string[] { "/AD", "/MIN", "/DELAY" }));
         }
 
 
@@ -37,7 +37,7 @@ namespace CodeArtEng.Controls.UnitTests
         {
             string desc = DateTime.Now.ToString();
             CommandLineHelper cmdLine2 = new CommandLineHelper(desc);
-            Assert.AreEqual(desc, cmdLine2.Description);
+            Assert.That(cmdLine2.Description, Is.EqualTo(desc));
         }
 
         [Test]
@@ -45,7 +45,7 @@ namespace CodeArtEng.Controls.UnitTests
         {
             string desc = DateTime.Now.ToString();
             cmdLine.Description = desc;
-            Assert.AreEqual(desc, cmdLine.Description);
+            Assert.That(cmdLine.Description, Is.EqualTo(desc));
         }
 
         [Test]
@@ -75,56 +75,56 @@ namespace CodeArtEng.Controls.UnitTests
         [Test]
         public void IsSwitchSet_InvalidSwitch()
         {
-            Assert.AreEqual(false, cmdLine.IsSwitchSet("/NotExist"));
+            Assert.That(cmdLine.IsSwitchSet("/NotExist"), Is.EqualTo(false));
         }
 
         [Test]
         public void GetArgumentValue_Invalid()
         {
             Assert.Throws<ArgumentNullException>(() =>
-            {
-                cmdLine.GetArgumentValue("Unknown");
-            });
+{
+cmdLine.GetArgumentValue("Unknown");
+});
         }
 
         [Test]
         public void SetArgument()
         {
             cmdLine.SetArgument("Source", "C:\\Temp");
-            Assert.AreEqual("C:\\Temp", cmdLine.GetArgumentValue("Source"));
+            Assert.That(cmdLine.GetArgumentValue("Source"), Is.EqualTo("C:\\Temp"));
         }
 
         [Test]
         public void SetSwitch()
         {
             cmdLine.SetSwitch("/MIN");
-            Assert.IsTrue(cmdLine.IsSwitchSet("/MIN"));
+            Assert.That(cmdLine.IsSwitchSet("/MIN"), Is.True);
         }
 
         [Test]
         public void SetSwitchValue()
         {
             cmdLine.SetSwitch("/DELAY", "200");
-            Assert.IsTrue(cmdLine.IsSwitchSet("/DeLaY"));
-            Assert.AreEqual("200", cmdLine.GetSwitchValue("/Delay"));
+            Assert.That(cmdLine.IsSwitchSet("/DeLaY"), Is.True);
+            Assert.That(cmdLine.GetSwitchValue("/Delay"), Is.EqualTo("200"));
         }
 
         [Test]
         public void SetArgument_InvalidArgument()
         {
             Assert.Throws<ArgumentException>(() =>
-            {
-                cmdLine.SetArgument("DUMMY", "TEST");
-            });
+{
+cmdLine.SetArgument("DUMMY", "TEST");
+});
         }
 
         [Test]
         public void SetSwitch_InvalidSwitch()
         {
             Assert.Throws<ArgumentException>(() =>
-            {
-                cmdLine.SetSwitch("/NOTEXIST");
-            });
+{
+cmdLine.SetSwitch("/NOTEXIST");
+});
         }
 
 
@@ -132,91 +132,91 @@ namespace CodeArtEng.Controls.UnitTests
         public void ParseCommandLine()
         {
             bool status = cmdLine.ParseCommandLine(("SourcePath /AD").Split(' '));
-            Assert.AreEqual("SourcePath", cmdLine.GetArgumentValue("Source"));
-            Assert.IsTrue(cmdLine.IsSwitchSet("/AD"));
-            Assert.IsFalse(cmdLine.IsSwitchSet("/min"));
-            Assert.IsFalse(cmdLine.IsSwitchSet("/Delay"));
-            Assert.AreEqual("NoDelay", cmdLine.GetSwitchValue("/delay", "NoDelay"));
-            Assert.IsTrue(status);
+            Assert.That(cmdLine.GetArgumentValue("Source"), Is.EqualTo("SourcePath"));
+            Assert.That(cmdLine.IsSwitchSet("/AD"), Is.True);
+            Assert.That(cmdLine.IsSwitchSet("/min"), Is.False);
+            Assert.That(cmdLine.IsSwitchSet("/Delay"), Is.False);
+            Assert.That(cmdLine.GetSwitchValue("/delay", "NoDelay"), Is.EqualTo("NoDelay"));
+            Assert.That(status, Is.True);
         }
 
         [Test]
         public void ParseCommandLine_SwitchNotSet()
         {
             cmdLine.ParseCommandLine(("SourcePath").Split(' '));
-            Assert.AreEqual("SourcePath", cmdLine.GetArgumentValue("Source"));
-            Assert.IsFalse(cmdLine.IsSwitchSet("/AD"));
-            Assert.IsFalse(cmdLine.IsSwitchSet("/MIN"));
+            Assert.That(cmdLine.GetArgumentValue("Source"), Is.EqualTo("SourcePath"));
+            Assert.That(cmdLine.IsSwitchSet("/AD"), Is.False);
+            Assert.That(cmdLine.IsSwitchSet("/MIN"), Is.False);
         }
 
         [Test]
         public void ParseCommandLine_SetInvalidSwitch()
         {
             cmdLine.ParseCommandLine(("SourcePath /ADS").Split(' '));
-            Assert.AreEqual("SourcePath", cmdLine.GetArgumentValue("Source"));
-            Assert.IsFalse(cmdLine.IsSwitchSet("/AD"));
-            Assert.IsFalse(cmdLine.IsSwitchSet("/MIN"));
+            Assert.That(cmdLine.GetArgumentValue("Source"), Is.EqualTo("SourcePath"));
+            Assert.That(cmdLine.IsSwitchSet("/AD"), Is.False);
+            Assert.That(cmdLine.IsSwitchSet("/MIN"), Is.False);
         }
 
         [Test]
         public void ParseCommandLine_MissingMandatoryArg_Exception()
         {
             Assert.Throws<Exception>(() =>
-            {
-                cmdLine.ParseCommandLine(("/AD /MIN").Split(' '));
-            });
+{
+cmdLine.ParseCommandLine(("/AD /MIN").Split(' '));
+});
         }
 
         [Test]
         public void ParseCommandLine_SetSwitchWithValue()
         {
             cmdLine.ParseCommandLine(("SourcePath /delay:100").Split(' '));
-            Assert.AreEqual("SourcePath", cmdLine.GetArgumentValue("Source"));
-            Assert.AreEqual("100", cmdLine.GetSwitchValue("/Delay", "-1"));
+            Assert.That(cmdLine.GetArgumentValue("Source"), Is.EqualTo("SourcePath"));
+            Assert.That(cmdLine.GetSwitchValue("/Delay", "-1"), Is.EqualTo("100"));
         }
 
         [Test]
         public void ParseCommandLine_SetSwitchWithoutValue()
         {
             cmdLine.ParseCommandLine(("SourcePath /delay").Split(' '));
-            Assert.AreEqual("SourcePath", cmdLine.GetArgumentValue("Source"));
-            Assert.AreEqual("-1", cmdLine.GetSwitchValue("/Delay", "-1"));
+            Assert.That(cmdLine.GetArgumentValue("Source"), Is.EqualTo("SourcePath"));
+            Assert.That(cmdLine.GetSwitchValue("/Delay", "-1"), Is.EqualTo("-1"));
         }
 
         [Test]
         public void ParseCommandLine_SetValueToBooleanSwitch()
         {
             cmdLine.ParseCommandLine(("SourcePath /min:100").Split(' '));
-            Assert.AreEqual("SourcePath", cmdLine.GetArgumentValue("Source"));
-            Assert.AreEqual("NotValid", cmdLine.GetSwitchValue("/min", "NotValid"));
+            Assert.That(cmdLine.GetArgumentValue("Source"), Is.EqualTo("SourcePath"));
+            Assert.That(cmdLine.GetSwitchValue("/min", "NotValid"), Is.EqualTo("NotValid"));
         }
 
         [Test]
         public void ParseCommandLine_NoMandatoryArgument()
         {
             cmdLine = new CommandLineHelper("Testing");
-            Assert.IsTrue(cmdLine.ParseCommandLine(("/A /BC").Split(' ')));
+            Assert.That(cmdLine.ParseCommandLine(("/A /BC").Split(' ')), Is.True);
         }
 
         [Test]
         public void ParseCommandLine_TooMuchArguments()
         {
             cmdLine.ParseCommandLine(("SourcePath DestPath /X /delay:5555 /XY /TEST").Split(' '));
-            Assert.AreEqual("SourcePath", cmdLine.GetArgumentValue("Source"));
-            Assert.AreEqual("5555", cmdLine.GetSwitchValue("/Delay", "-1"));
+            Assert.That(cmdLine.GetArgumentValue("Source"), Is.EqualTo("SourcePath"));
+            Assert.That(cmdLine.GetSwitchValue("/Delay", "-1"), Is.EqualTo("5555"));
         }
 
         [Test]
         public void ParseCommandLine_EmptyCommand()
         {
-            Assert.IsFalse(cmdLine.ParseCommandLine(new string[] { }));
+            Assert.That(cmdLine.ParseCommandLine(new string[] { }), Is.False);
         }
 
         [Test]
         public void ParseCommandLine_EnvArgs()
         {
             //NUnit Command Line is not empty by default
-            Assert.IsTrue(cmdLine.ParseCommandLine());
+            Assert.That(cmdLine.ParseCommandLine(), Is.True);
         }
 
         [Test]
@@ -225,13 +225,13 @@ namespace CodeArtEng.Controls.UnitTests
             cmdLine.SetArgument("Source", "Test Value");
             cmdLine.SetSwitch("/MIN");
 
-            Assert.AreEqual("Test Value", cmdLine.GetArgumentValue("Source"));
-            Assert.IsTrue(cmdLine.IsSwitchSet("/MIN"));
+            Assert.That(cmdLine.GetArgumentValue("Source"), Is.EqualTo("Test Value"));
+            Assert.That(cmdLine.IsSwitchSet("/MIN"), Is.True);
 
             cmdLine.Reset();
 
-            Assert.IsEmpty(cmdLine.GetArgumentValue("Source"));
-            Assert.IsFalse(cmdLine.IsSwitchSet("/MIN"));
+            Assert.That(cmdLine.GetArgumentValue("Source"), Is.Empty);
+            Assert.That(cmdLine.IsSwitchSet("/MIN"), Is.False);
         }
 
         [Test]
@@ -241,7 +241,7 @@ namespace CodeArtEng.Controls.UnitTests
             cmd.AddSwitch("/log", "Log File.", "logFile");
             cmd.SetSwitch("/log", "C:\\Temp\\Output.txt");
 
-            Assert.AreEqual("C:\\Temp\\Output.txt", cmd.GetSwitchValue("/log"));
+            Assert.That(cmd.GetSwitchValue("/log"), Is.EqualTo("C:\\Temp\\Output.txt"));
         }
 
         [Test]
@@ -250,7 +250,7 @@ namespace CodeArtEng.Controls.UnitTests
             CommandLineHelper cmd = new CommandLineHelper("File");
             cmd.AddSwitch("/log", "Log File.", "logFile");
             cmd.ParseCommandLine(("/log:C:\\Temp\\Output.txt").Split(' '));
-            Assert.AreEqual("C:\\Temp\\Output.txt", cmd.GetSwitchValue("/log"));
+            Assert.That(cmd.GetSwitchValue("/log"), Is.EqualTo("C:\\Temp\\Output.txt"));
         }
 
     }
