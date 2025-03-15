@@ -4,6 +4,9 @@ using Microsoft.Win32;
 
 namespace CodeArtEng.Controls
 {
+    /// <summary>
+    /// Windows Theme Settings.
+    /// </summary>
     public static class WindowsTheme
     {
         /// <summary>
